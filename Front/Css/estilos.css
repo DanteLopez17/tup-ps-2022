@@ -1,3 +1,10 @@
+body{
+  background-color: #481766;
+  color: white;
+}
+nav{
+  background-color: #481766;
+}
 #titulo{
     margin: 1rem;
     padding: 1rem;
@@ -14,3 +21,15 @@
 #btnLogearse{
   margin: 50px auto;
 }
+#btnCancelarCargaCliente{
+  position: relative;
+  float: right;
+}
+.navbar-brand{
+  color: white;
+}
+.nav-link{
+  color: white;
+}
+
+
