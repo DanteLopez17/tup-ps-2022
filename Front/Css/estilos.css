@@ -1,0 +1,16 @@
+#titulo{
+    margin: 1rem;
+    padding: 1rem;
+    /* IMPORTANTE */
+    text-align: center;
+}
+#LogoPerfil{
+  margin-right: 75px
+}
+
+#formLogin{
+  margin-top: 50px;
+}
+#btnLogearse{
+  margin: 50px auto;
+}
