@@ -16,6 +16,14 @@ public class ClienteController : ControllerBase
   {
     _logger = logger;
   }
+  [HttpGet]
+  [Route("[controller]/tiposDocumento")]
+  public RespuestaApi getTiposDoc()
+  {
+    respuesta.Ok = true;
+    respuesta.Respuesta = bd.Tipodocumentos.ToList();
+    return respuesta;
+  }
 
   [HttpPost]
   [Route("[controller]/cargarCliente")]

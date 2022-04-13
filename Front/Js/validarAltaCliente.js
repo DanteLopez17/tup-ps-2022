@@ -30,20 +30,6 @@ function valAltaCliente(){
   let activo = $("#rbtEstadoActivo").prop("checked");
   let inactivo = $("#rbtEstadoInactivo").val();
 
-  function limpiarCampos(){
-    $("#txtNombre").val("");
-    $("#txtApellido").val("");
-    $("#cboTipoDoc").val(1);
-    $("#txtNumDoc").val("");
-    const now = new Date();
-    const dia = `0${now.getDate()}`.slice(-2);
-    const mes = `0${now.getMonth() + 1}`.slice(-2);
-    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
-    $('#dtpFecNac').val(hoy);
-    $("#txtCuilCuit").val("");
-    $("#rbtEstadoActivo").prop("checked", true);
-  }
-
   if(nombre == "")
   {
     swal("Error", "ingrese un nombre", "error");
@@ -54,7 +40,7 @@ function valAltaCliente(){
     swal("Error", "ingrese un apellido", "error");
     return false;
   }
-  if(tipoDoc == null || tipoDoc == -1)
+  if(tipoDoc == null || tipoDoc <= 0)
   {
     swal("Error", "seleccione un tipo de documento", "error");
     return false;
@@ -71,8 +57,6 @@ function valAltaCliente(){
   }
 
   swal("Felicitaciones!", "Cliente cargado Correctamente!", "success");
-  //Limpiar campos
-  limpiarCampos();
 
   /*
   // si hay algún error no efectuamos la acción submit del form
