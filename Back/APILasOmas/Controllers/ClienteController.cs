@@ -1,3 +1,4 @@
+using System.Data.Common;
 using lasomas.Comandos;
 using lasomas.Models;
 using lasomas.Respuestas;
@@ -92,6 +93,22 @@ public class ClienteController : ControllerBase
   }
 
 
+  [HttpGet]
+  [Route("[controller]/listadoClientes")]
+  public RespuestaApi getClientes()
+  {
+    respuesta.Ok = true;
+    List<Cliente> clientes = bd.Clientes.ToList();
+    List<Cliente> otraLista = new List<Cliente>();
+    foreach (Cliente c in clientes)
+    {
+      bd.Entry(c).Reference(x => x.IdEstadoNavigation).Load();
+      bd.Entry(c).Reference(x => x.IdTipoDocNavigation).Load();
+      otraLista.Add(c);
+    }
+    respuesta.Respuesta = otraLista;
+    return respuesta;
+  }
 
 
 }
