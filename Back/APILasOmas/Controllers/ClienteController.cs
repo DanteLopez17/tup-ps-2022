@@ -110,5 +110,27 @@ public class ClienteController : ControllerBase
     return respuesta;
   }
 
+  [HttpGet]
+  [Route("[controller]/{id}")]
+  public RespuestaApi getClientexId(int id)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+    Cliente c = bd.Clientes.Where(x => x.IdCliente == id).FirstOrDefault();
+
+    if (c != null)
+    {
+      bd.Entry(c).Reference(x => x.IdEstadoNavigation).Load();
+      bd.Entry(c).Reference(x => x.IdTipoDocNavigation).Load();
+      respuesta.Ok = true;
+      respuesta.Respuesta = c;
+    }
+    else
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "no existe el usuario con el id: " + id;
+    }
+    return respuesta;
+  }
+
 
 }
