@@ -178,8 +178,9 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" id="btnCargarUsuario">Cargar</button>
-          <button type="button" class="btn btn-danger" id="btnCancelarCargarUsuario">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="btnCargarUsuario" onclick="valAltaUsuario()">Cargar</button>
+          <button type="button" class="btn btn-danger" id="btnCancelarCargarUsuario"
+            onclick="limpiarCampos()">Cancelar</button>
         </form>
       </div>
     </div>
@@ -196,6 +197,18 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../Js/cargarComboTipoDoc.js"></script>
+  <script src="../Js/cargarComboRoles.js"></script>
+  <script>
+    $(document).ready(() => {
+      const now = new Date();
+      const dia = `0${now.getDate()}`.slice(-2);
+      const mes = `0${now.getMonth() + 1}`.slice(-2);
+      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+      $('#dtpFecNac').val(hoy);
+    });
+  </script>
+  <script src="../Js/validarAltaUsuario.js"></script>
 
 </body>
 
