@@ -13,7 +13,7 @@ $.ajax({
         html += "<td>" + clientes[i].numDoc + "</td>"
         html += "<td>" + clientes[i].cuilCuit + "</td>"
         html += "<td>" + clientes[i].idEstadoNavigation.descripcion + "</td>"
-        html += "<td><a href='https://localhost:5001/Cliente/" + clientes[i].idCliente + "'>Modificar</a></td>"
+        html += "<td><a href='modificarCliente.html?id=" + clientes[i].idCliente + "'>Modificar</a></td>"
         html += "</tr>";
 
         $("#listClient").append(html);
