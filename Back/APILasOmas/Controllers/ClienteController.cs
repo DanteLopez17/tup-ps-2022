@@ -110,5 +110,86 @@ public class ClienteController : ControllerBase
     return respuesta;
   }
 
+  [HttpGet]
+  [Route("[controller]/{id}")]
+  public RespuestaApi getClientexId(int id)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+    Cliente c = bd.Clientes.Where(x => x.IdCliente == id).FirstOrDefault();
+
+    if (c != null)
+    {
+      bd.Entry(c).Reference(x => x.IdEstadoNavigation).Load();
+      bd.Entry(c).Reference(x => x.IdTipoDocNavigation).Load();
+      respuesta.Ok = true;
+      respuesta.Respuesta = c;
+    }
+    else
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "no existe el usuario con el id: " + id;
+    }
+    return respuesta;
+  }
+
+  [HttpPost]
+  [Route("[controller]/actualizarCliente")]
+  public RespuestaApi actualizarCliente([FromBody] ComandoClienteActualizar client)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+    if (client.nombre.Equals(""))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese el nombre de la persona";
+      return respuesta;
+    }
+
+    if (string.IsNullOrEmpty(client.apellido))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese el apellido de la persona";
+      return respuesta;
+    }
+    if (client.tipoDni < 0)
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Seleccione un tipo de documento";
+      return respuesta;
+    }
+    if (client.numDoc < 0)
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese un numero de documento";
+      return respuesta;
+    }
+    if (string.IsNullOrEmpty(client.cuitCuil))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese un numero de cuil / cuit";
+      return respuesta;
+    }
+
+    Cliente c = bd.Clientes.Where(x => x.IdCliente == client.id).FirstOrDefault();
+
+    if (c != null)
+    {
+      c.Nombre = client.nombre;
+      c.Apellido = client.apellido;
+      c.IdTipoDoc = client.tipoDni;
+      c.NumDoc = client.numDoc;
+      c.FechaNacimiento = client.fechaNac;
+      c.CuilCuit = client.cuitCuil;
+      c.IdEstado = client.estado;
+
+      bd.Update(c);
+      bd.SaveChanges();
+    }
+
+    respuesta.Ok = c != null;
+    respuesta.infoAdicional = c != null ? string.Empty : "No existe el cliente con ese Id";
+
+    return respuesta;
+  }
+
 
 }

@@ -108,7 +108,7 @@
     </div>
   </nav>
   <div id="titulo">
-    <h3>Alta Cliente</h3>
+    <h2>Modificar Cliente</h2>
   </div>
   <div class="row">
     <div class="col-2"></div>
@@ -163,16 +163,20 @@
                 </label>
               </div>
             </div>
-            <div class="form-group col-md-5"></div>
+            <div class="form-group col-md-5">
+              <input type="text" class="form-control" id="txtId" hidden>
+            </div>
           </div>
-          <button type="button" class="btn btn-primary" id="btnCargarCliente" onclick="valAltaCliente()">Cargar</button>
-          <button type="button" class="btn btn-danger" id="btnCancelarCargaCliente"
-            onclick="limpiarCampos()">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="btnModificarCliente"
+            onclick="valAltaCliente()">Cargar</button>
+          <button type="button" class="btn btn-danger" id="btnCancelarCargaCliente">Cancelar</button>
         </form>
       </div>
     </div>
     <div class="col-2"></div>
   </div>
+
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -183,9 +187,11 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/validarAltaCliente.js"></script>
   <script src="../Js/cargarComboTipoDoc.js"></script>
-  <script src="../Js/cargarCliente.js"></script>
+  <script src="../Js/clientexid.js"></script>
+  <script src="../Js/validarAltaCliente.js"></script>
+  <script src="../Js/actualizarCliente.js"></script>
+
 </body>
 
 </html>
