@@ -110,4 +110,22 @@ public class UsuarioController : ControllerBase
     return respuesta;
   }
 
+  [HttpGet]
+  [Route("[controller]/listadoUsuarios")]
+  public RespuestaApi getUsuarios()
+  {
+    respuesta.Ok = true;
+    List<Usuario> usuarios = bd.Usuarios.ToList();
+    List<Usuario> otraLista = new List<Usuario>();
+    foreach (Usuario u in usuarios)
+    {
+      bd.Entry(u).Reference(x => x.IdEstadoNavigation).Load();
+      bd.Entry(u).Reference(x => x.IdTipoDocNavigation).Load();
+      bd.Entry(u).Reference(x => x.IdRolNavigation).Load();
+      otraLista.Add(u);
+    }
+    respuesta.Respuesta = otraLista;
+    return respuesta;
+  }
+
 }
