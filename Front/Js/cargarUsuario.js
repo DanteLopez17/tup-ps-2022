@@ -27,22 +27,22 @@ $("#btnCargarUsuario").click(function () {
   
     if(nom == "")
     {
-      swal("Error", "ingrese un nombre", "error");
+      swal("Error", "ingrese un nombre", "warning");
       return false;
     }
     if(ape == "")
     {
-      swal("Error", "ingrese un apellido", "error");
+      swal("Error", "ingrese un apellido", "warning");
       return false;
     }
     if(idTipDoc == null || idTipDoc <= 0)
     {
-      swal("Error", "seleccione un tipo de documento", "error");
+      swal("Error", "seleccione un tipo de documento", "warning");
       return false;
     }
     if(nuDoc == "" || nuDoc.lenght < 7 || nuDoc < 6999999)
     {
-      swal("Error", "ingrese un numero de documento valido", "error");
+      swal("Error", "ingrese un numero de documento valido", "warning");
       return false;
     }
    /* if(fecna >= Date.Today())
@@ -70,7 +70,7 @@ $("#btnCargarUsuario").click(function () {
   
   }
 
-  if(valAltaUsuario)
+  if(valAltaUsuario())
   {
     let nom = $("#txtNombre").val();
     let ape = $("#txtApellido").val();

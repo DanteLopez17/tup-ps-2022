@@ -19,19 +19,6 @@ $("#btnModificarCliente").click(function () {
     estado: idEst
   }
 
-  /*
-{
-  "id": 2,
-  "nombre": "Pedro",
-  "apellido": "Lopez",
-  "tipoDni": 1,
-  "numDoc": 12345678,
-  "fechaNac": "2000-04-18T14:58:10.144Z",
-  "cuitCuil": "20123456782",
-  "estado": 1
-}
-  */
-
   $.ajax({
     url: 'https://localhost:5001/Cliente/actualizarCliente',
     type: "POST",

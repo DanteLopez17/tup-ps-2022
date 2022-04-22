@@ -108,82 +108,29 @@
     </div>
   </nav>
   <div id="titulo">
-    <h3>Alta Usuario</h3>
+    <h2>Listado de Usuarios</h2>
   </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <div class="container">
-        <form id="miForm">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtNombre">Nombre</label>
-              <input type="text" class="form-control" id="txtNombre" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtApellido">Apellido</label>
-              <input type="text" class="form-control" id="txtApellido" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="cboTipoDoc">Tipo de Documento</label>
-              <select id="cboTipoDoc" class="form-control">
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtNumDoc">Número documento</label>
-              <input type="number" class="form-control" id="txtNumDoc" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="dtpFecNac">Fecha de Nacimiento</label>
-              <input type="date" class="form-control" id="dtpFecNac" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="cboRol">Rol</label>
-              <select id="cboRol" class="form-control">
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtEmail">Email</label>
-              <input type="email" class="form-control" id="txtEmail" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtClave">Contraseña</label>
-              <input type="password" class="form-control" id="txtClave" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-5"></div>
-            <div class="form-group col-md-2 text-center">
-              <label for="rbtEstado">Estado</label>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoActivo" value="1" checked>
-                <label class="form-check-label" for="rbtEstadoActivo">
-                  Activo
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoInactivo" value="2">
-                <label class="form-check-label" for="rbtEstadoInactivo">
-                  Inactivo
-                </label>
-              </div>
-            </div>
-            <div class="form-group col-md-5"></div>
-          </div>
-          <button type="button" class="btn btn-primary" id="btnCargarUsuario">Cargar</button>
-          <button type="button" class="btn btn-danger" id="btnCancelarCargarUsuario"
-            onclick="limpiarCampos()">Cancelar</button>
-        </form>
-      </div>
-    </div>
-    <div class="col-2"></div>
+  <div class="container">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <td>Nombre</td>
+          <td>Apellido</td>
+          <td>Fecha de Nacimiento</td>
+          <td>Tipo de Documento</td>
+          <td>N° de Documento</td>
+          <td>Email</td>
+          <td>Rol</td>
+          <td>Estado</td>
+          <td>Modificar</td>
+        </tr>
+      </thead>
+      <tbody id="listUsuarios">
+      </tbody>
+    </table>
   </div>
+
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -194,18 +141,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarComboTipoDoc.js"></script>
-  <script src="../Js/cargarComboRoles.js"></script>
-  <script>
-    $(document).ready(() => {
-      const now = new Date();
-      const dia = `0${now.getDate()}`.slice(-2);
-      const mes = `0${now.getMonth() + 1}`.slice(-2);
-      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
-      $('#dtpFecNac').val(hoy);
-    });
-  </script>
-  <script src="../Js/cargarUsuario.js"></script>
+  <script src="../Js/cargarListaUsuarios.js"></script>
 
 </body>
 

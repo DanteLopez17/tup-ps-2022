@@ -44,8 +44,8 @@
             Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Alta Usuario</a>
-            <a class="dropdown-item" href="#">Listado Usuarios</a>
+            <a class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
+            <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -165,7 +165,7 @@
             </div>
             <div class="form-group col-md-5"></div>
           </div>
-          <button type="button" class="btn btn-primary" id="btnCargarCliente" onclick="valAltaCliente()">Cargar</button>
+          <button type="button" class="btn btn-primary" id="btnCargarCliente">Cargar</button>
           <button type="button" class="btn btn-danger" id="btnCancelarCargaCliente"
             onclick="limpiarCampos()">Cancelar</button>
         </form>
@@ -183,7 +183,15 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/validarAltaCliente.js"></script>
+  <script>
+    $(document).ready(() => {
+      const now = new Date();
+      const dia = `0${now.getDate()}`.slice(-2);
+      const mes = `0${now.getMonth() + 1}`.slice(-2);
+      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+      $('#dtpFecNac').val(hoy);
+    });
+  </script>
   <script src="../Js/cargarComboTipoDoc.js"></script>
   <script src="../Js/cargarCliente.js"></script>
 </body>

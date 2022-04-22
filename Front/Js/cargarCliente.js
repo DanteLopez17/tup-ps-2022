@@ -13,7 +13,54 @@ function limpiarCampos(){
 }
 
 $("#btnCargarCliente").click(function () {
-  let nom = $("#txtNombre").val();
+  function valAltaCliente(){
+    let nombre = $("#txtNombre").val();
+    let apellido = $("#txtApellido").val();
+    let tipoDoc = $("#cboTipoDoc").val();
+    let numDoc = $("#txtNumDoc").val();
+    let fecNac = $("#dtpFecNac").val();
+    let cuilCuit = $("#txtCuilCuit").val();
+    let activo = $("#rbtEstadoActivo").prop("checked");
+    let inactivo = $("#rbtEstadoInactivo").val();
+  
+    if(nombre == "")
+    {
+      swal("Error", "ingrese un nombre", "warning");
+      return false;
+    }
+    if(apellido == "")
+    {
+      swal("Error", "ingrese un apellido", "warning");
+      return false;
+    }
+    if(tipoDoc == null || tipoDoc <= 0)
+    {
+      swal("Error", "seleccione un tipo de documento", "warning");
+      return false;
+    }
+    if(numDoc == "" || numDoc.lenght < 7 || numDoc < 6999999)
+    {
+      swal("Error", "ingrese un numero de documento valido", "warning");
+      return false;
+    }
+    if(cuilCuit == "" || cuilCuit.lenght < 10 || cuilCuit <= 10000000000)
+    {
+      swal("Error", "ingrese un cuit o cuil valido ", "warning");
+      return false;
+    }
+  
+    swal("Felicitaciones!", "Cliente cargado Correctamente!", "success");
+  
+    /*
+    // si hay algún error no efectuamos la acción submit del form
+      if(hasError) event.preventDefault();
+    */
+  
+  }
+
+  if(valAltaCliente())
+  { 
+    let nom = $("#txtNombre").val();
   let ape = $("#txtApellido").val();
   let fecna = $("#dtpFecNac").val();
   let idTipDoc = $("#cboTipoDoc").val();
@@ -56,4 +103,6 @@ $("#btnCargarCliente").click(function () {
       })
     }
   });
+  }
+  
 })

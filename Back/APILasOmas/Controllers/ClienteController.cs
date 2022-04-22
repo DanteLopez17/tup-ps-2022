@@ -127,7 +127,7 @@ public class ClienteController : ControllerBase
     else
     {
       respuesta.Ok = false;
-      respuesta.Error = "no existe el usuario con el id: " + id;
+      respuesta.Error = "no existe el cliente con el id: " + id;
     }
     return respuesta;
   }
