@@ -14,7 +14,6 @@ $.ajax({
         let formatted_date = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear()
         return formatted_date;
         }
-        console.log(formatDate(fecha));
 
         html += "<td>" + formatDate(fecha) + "</td>"
         html += "<td>" + usuarios[i].idTipoDocNavigation.descripcion + "</td>"

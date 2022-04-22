@@ -8,7 +8,14 @@ $.ajax({
         let html = "<tr>";
         html += "<td>" + clientes[i].nombre + "</td>"
         html += "<td>" + clientes[i].apellido + "</td>"
-        html += "<td>" + clientes[i].fechaNacimiento + "</td>"
+        let fecha = new Date(clientes[i].fechaNacimiento);
+        
+        const formatDate = (fecha)=>{
+        let formatted_date = fecha.getDate() + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear()
+        return formatted_date;
+        }
+
+        html += "<td>" + formatDate(fecha) + "</td>"
         html += "<td>" + clientes[i].idTipoDocNavigation.descripcion + "</td>"
         html += "<td>" + clientes[i].numDoc + "</td>"
         html += "<td>" + clientes[i].cuilCuit + "</td>"

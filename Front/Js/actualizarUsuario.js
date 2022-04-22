@@ -1,34 +1,39 @@
-$("#btnModificarCliente").click(function () {
+$("#btnModificarUsuario").click(function () {
   let idCli = $("#txtId").val();
   let nom = $("#txtNombre").val();
   let ape = $("#txtApellido").val();
   let fecna = $("#dtpFecNac").val();
   let idTipDoc = $("#cboTipoDoc").val();
   let nuDoc = $("#txtNumDoc").val();
-  let cucu = $("#txtCuilCuit").val();
+  let mail = $("#txtEmail").val();
+  let cla = $("#txtClave").val();
+  let cbrol = $("#cboRol").val();
+
   let idEst = $('input[name=gridRadios]:checked', '#miForm').val();
 
-  let client = {
-    id : idCli,
+  let usua = {
+    idUsuario : idCli,
     nombre: nom,
     apellido: ape,
-    tipoDni: idTipDoc,
+    fechaNacimiento :fecna,
+    idTipoDoc : idTipDoc,
     numDoc: nuDoc,
-    fechaNac: fecna,
-    cuitCuil: cucu,
-    estado: idEst
+    email: mail,
+    clave: cla,
+    idRol: cbrol,
+    idEstado: idEst
   }
 
   $.ajax({
-    url: 'https://localhost:5001/Cliente/actualizarCliente',
+    url: 'https://localhost:5001/Usuario/actualizarUsuario',
     type: "POST",
     contentType: "application/json",
-    data: JSON.stringify(client),
+    data: JSON.stringify(usua),
     success: function (result) {
       if (result.ok) {
-        swal("Felicitaciones!", "Cliente actualizado Correctamente!", "success");
+        swal("Felicitaciones!", "Usuario actualizado Correctamente!", "success");
         setTimeout(function(){
-          window.location.replace("../Html/listadoClientes.html");
+          window.location.replace("../Html/listadoUsuarios.html");
       }, 4000);
         
       }
