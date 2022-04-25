@@ -29,6 +29,10 @@ nav{
   position: relative;
   float: right;
 }
+#btnCancelarCargarProducto{
+  position: relative;
+  float: right;
+}
 .navbar-brand{
   color: white;
 }
