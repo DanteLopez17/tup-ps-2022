@@ -171,5 +171,21 @@ public class ProductoController : ControllerBase
 
     return respuesta;
   }
+  [HttpGet]
+  [Route("[controller]/listadoProductos")]
+  public RespuestaApi getProductos()
+  {
+    respuesta.Ok = true;
+    List<Producto> productos = bd.Productos.ToList();
+    List<Producto> otraLista = new List<Producto>();
+    foreach (Producto p in productos)
+    {
+      bd.Entry(p).Reference(x => x.IdEstadoNavigation).Load();
+      bd.Entry(p).Reference(x => x.IdClasificacionNavigation).Load();
+      otraLista.Add(p);
+    }
+    respuesta.Respuesta = otraLista;
+    return respuesta;
+  }
 
 }
