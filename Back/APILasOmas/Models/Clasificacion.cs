@@ -9,12 +9,12 @@ namespace lasomas.Models
   {
     public Clasificacion()
     {
- //     Productos = new HashSet<Producto>(
+      //     Productos = new HashSet<Producto>(
     }
 
     public int IdClasificacion { get; set; }
     public string Descripcion { get; set; }
 
-    public virtual ICollection<Producto> Productos { get; set; }
+    //  public virtual ICollection<Producto> Productos { get; set; }
   }
 }
