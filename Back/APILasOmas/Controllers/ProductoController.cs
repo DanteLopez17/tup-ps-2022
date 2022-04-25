@@ -87,4 +87,89 @@ public class ProductoController : ControllerBase
     return respuesta;
   }
 
+  [HttpGet]
+  [Route("[controller]/{id}")]
+  public RespuestaApi getProductoxId(int id)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+    Producto p = bd.Productos.Where(x => x.IdProducto == id).FirstOrDefault();
+
+    if (p != null)
+    {
+      bd.Entry(p).Reference(x => x.IdEstadoNavigation).Load();
+      bd.Entry(p).Reference(x => x.IdClasificacionNavigation).Load();
+      respuesta.Ok = true;
+      respuesta.Respuesta = p;
+    }
+    else
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "no existe el producto con el id: " + id;
+    }
+    return respuesta;
+  }
+
+  [HttpPost]
+  [Route("[controller]/actualizarProducto")]
+  public RespuestaApi actualizarProducto([FromBody] ComandoProductoActualizar pro)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+    if (pro.Nombre.Equals(""))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese el nombre del producto";
+      return respuesta;
+    }
+    if (pro.Descripcion.Equals(""))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese descripcion del producto";
+      return respuesta;
+    }
+    if (pro.Precio < 0 || pro.Precio == null)
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese un precio valido";
+      return respuesta;
+    }
+    if (pro.Cantidad < 0 || pro.Cantidad == null)
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese una cantidad valida";
+      return respuesta;
+    }
+    if (pro.IdClasificacion < 0 || pro.IdClasificacion == null)
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Seleccione una clasificacion";
+      return respuesta;
+    }
+    if (pro.IdEstado < 0 || pro.IdEstado == null)
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Seleccione un estado";
+      return respuesta;
+    }
+
+    Producto p = bd.Productos.Where(x => x.IdProducto == pro.IdProducto).FirstOrDefault();
+
+    if (p != null)
+    {
+      p.Nombre = pro.Nombre;
+      p.Descripcion = pro.Descripcion;
+      p.Precio = pro.Precio;
+      p.Cantidad = pro.Cantidad;
+      p.IdClasificacion = pro.IdClasificacion;
+      p.IdEstado = pro.IdEstado;
+
+      bd.Update(p);
+      bd.SaveChanges();
+    }
+
+    respuesta.Ok = p != null;
+    respuesta.infoAdicional = p != null ? string.Empty : "No existe el producto con ese Id";
+
+    return respuesta;
+  }
+
 }
