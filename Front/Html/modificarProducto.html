@@ -108,24 +108,62 @@
     </div>
   </nav>
   <div id="titulo">
-    <h2>Listado de Productos</h2>
+    <h2>Modificar Producto</h2>
   </div>
-  <div class="container">
-    <table class="table ">
-      <thead>
-        <tr>
-          <td>Nombre</td>
-          <td>Descripcion</td>
-          <td>Precio</td>
-          <td>Cantidad</td>
-          <td>Clasificación</td>
-          <td>Estado</td>
-          <td>Modificar</td>
-        </tr>
-      </thead>
-      <tbody id="listProdu">
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="container">
+        <form id="miForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="txtNombre">Nombre</label>
+              <input type="text" class="form-control" id="txtNombre" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="txtDescripcion">Descripcion</label>
+              <input type="text" class="form-control" id="txtDescripcion" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="cboClasificacion">Clasificación</label>
+              <select id="cboClasificacion" class="form-control">
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="txtPrecio">Precio</label>
+              <input type="number" class="form-control" id="txtPrecio" placeholder="$" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="txtCantidad">Cantidad</label>
+              <input type="number" class="form-control" id="txtCantidad" required>
+            </div>
+            <div class="form-group col-md-6 text-center">
+              <label for="rbtEstado">Estado</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoActivo" value="1" checked>
+                <label class="form-check-label" for="rbtEstadoActivo">
+                  Activo
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoInactivo" value="2">
+                <label class="form-check-label" for="rbtEstadoInactivo">
+                  Inactivo
+                </label>
+              </div>
+              <input type="text" class="form-control" id="txtId" hidden>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnModificarProducto">Cargar</button>
+          <button type="button" class="btn btn-danger" id="btnCancelarCargarProducto">Cancelar</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-2"></div>
   </div>
 
 
@@ -139,7 +177,9 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaProductos.js"></script>
+  <script src="../Js/cargarComboClasif.js"></script>
+  <script src="../Js/productoxid.js"></script>
+  <script src="../Js/actualizarProducto.js"></script>
 
 </body>
 
