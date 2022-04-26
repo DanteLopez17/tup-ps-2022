@@ -53,7 +53,7 @@ $("#btnModificarUsuario").click(function () {
     }
   
   }
-  if(valAltaUsuario)
+  if(valAltaUsuario())
   {
     let idCli = $("#txtId").val();
   let nom = $("#txtNombre").val();
