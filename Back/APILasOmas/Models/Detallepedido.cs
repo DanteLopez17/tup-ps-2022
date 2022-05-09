@@ -15,7 +15,7 @@ namespace lasomas.Models
     public decimal? Precio { get; set; }
     [ForeignKey("IdProducto")]
     public virtual Producto IdProductoNavigation { get; set; }
-    [ForeignKey("nroPedido")]
+    [ForeignKey("NroPedido")]
     public virtual Pedido NroPedidoNavigation { get; set; }
   }
 }

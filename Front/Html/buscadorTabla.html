@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Buscador IndexOf</h1>
+    <input type="text" id="inputBuscar" class="form-control my-2">
+    <button class="btn btn-info mb-2" id="btnBuscar">Buscar</button>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <td>Nombre</td>
+          <td>Apellido</td>
+          <td>DNI</td>
+          <td>Calle</td>
+          <td>Altura</td>
+        </tr>
+      </thead>
+      <tbody id="listUsuarios">
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const usuarios = [
+      { nombre: 'Jose', apellido: 'Duarte', dni: '123456789', calle: 'Colon', altura: '100' },
+      { nombre: 'Pedro', apellido: 'Ramirez', dni: '987654133', calle: 'Rioja', altura: '350' },
+      { nombre: 'Maria', apellido: 'Martinez', dni: '111111111', calle: 'Tucuman', altura: '9' },
+      { nombre: 'Ramon', apellido: 'Ponce', dni: '159951159', calle: 'Belgrano', altura: '1000' },
+      { nombre: 'Julio', apellido: 'Godoy', dni: '357587410', calle: 'Lanus', altura: '4588' },
+
+    ]
+    const formulario = document.querySelector('#inputBuscar');
+    const boton = document.querySelector('#btnBuscar');
+    const resul = document.querySelector('#listUsuarios');
+
+    const filtrar = () => {
+      resul.innerHTML = '';
+      const texto = formulario.value.toLowerCase();
+      for (let usuario of usuarios) {
+        let nom = usuario.nombre.toLowerCase();
+        let ape = usuario.apellido.toLocaleLowerCase();
+        let doc = usuario.dni.toLocaleLowerCase();
+        let cal = usuario.calle.toLocaleLowerCase();
+        let alt = usuario.altura.toLocaleLowerCase();
+
+        if (nom.indexOf(texto) != -1 || ape.indexOf(texto) != -1 || doc.indexOf(texto) != -1 || cal.indexOf(texto) != -1 || alt.indexOf(texto) != -1) {
+          resul.innerHTML += `
+          <tr>
+            <td>${usuario.nombre}</td>
+            <td>${usuario.apellido}</td>
+            <td>${usuario.dni}</td>
+            <td>${usuario.calle}</td>
+            <td>${usuario.altura}</td>
+            </tr>
+          `
+        }
+      }
+      if (resul.innerHTML === '') {
+        resul.innerHTML += `
+          <h2>no encontrado...</h2>
+          `
+      }
+    }
+
+    boton.addEventListener('click', filtrar);
+    formulario.addEventListener('keyup', filtrar);
+
+    filtrar();
+
+  </script>
+</body>
+
+</html>

@@ -1,13 +1,11 @@
 body{
-  background-color: #481766;
+  background-color: #765c86;
   color: white;
 }
-nav{
-  background-color: #481766;
-}
+
 #titulo{
-    margin: 1rem;
-    padding: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     /* IMPORTANTE */
     text-align: center;
 }
@@ -38,6 +36,21 @@ nav{
 }
 .nav-link{
   color: white;
+}
+form#frmaltaReceta{
+  font-size: small;
+  margin: 0px;
+  padding: 0px;
+}
+#tituloPedido{
+  padding-top: 10px;
+  /* IMPORTANTE */
+  text-align: center;
+}
+#btnConfirmarPedido{
+  position: relative;
+  float: right;
+  margin-right: 50px;
 }
 
 

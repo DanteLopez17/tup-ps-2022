@@ -107,35 +107,52 @@
       </form>
     </div>
   </nav>
-  <div id="titulo">
-    <h4>Listado de Usuarios</h4>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10"></div>
-      <div class="col-md-2">
-        <input type="text" id="inputBuscador" class="form-control my-2" placeholder="Buscar">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="container">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="cboProducto">Producto</label>
+              <select id="cboProducto" class="form-control"></select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="txtCantidad">Cantidad</label>
+              <input type="number" class="form-control" id="txtCantidad" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="txtPrecio">Precio</label>
+              <input type="number" class="form-control" id="txtPrecio" required>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <td>Nombre</td>
-          <td>Apellido</td>
-          <td>Fecha de Nacimiento</td>
-          <td>Tipo de Documento</td>
-          <td>N° de Documento</td>
-          <td>Email</td>
-          <td>Rol</td>
-          <td>Estado</td>
-          <td>Modificar</td>
-        </tr>
-      </thead>
-      <tbody id="listUsuarios">
-      </tbody>
-    </table>
+    <div class="col-md-8">
+      <div class="container">
+        <div id="titulo">
+          <h4>Detalle</h4>
+        </div>
+        <table class="table ">
+          <thead>
+            <tr>
+              <td>Nombre</td>
+              <td>Descripcion</td>
+              <td>Precio</td>
+              <td>Cantidad</td>
+              <td>SubTotal</td>
+              <td>Acciones</td>
+            </tr>
+          </thead>
+          <tbody id="listDetallePedido">
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -147,7 +164,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaUsuarios2.js"></script>
+
 
 </body>
 
