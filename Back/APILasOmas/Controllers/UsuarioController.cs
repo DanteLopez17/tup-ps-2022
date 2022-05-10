@@ -237,5 +237,38 @@ public class UsuarioController : ControllerBase
     return respuesta;
   }
 
+  [HttpPost]
+  [Route("[controller]/Login")]
+  public RespuestaApi Login([FromBody] ComandoLogin usu)
+  {
+    if (usu.Email.Equals(""))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese un mail";
+      return respuesta;
+    }
+    if (usu.Clave.Equals(""))
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Ingrese una clave";
+      return respuesta;
+    }
+
+    var user = bd.Usuarios.Where(x => x.Email == usu.Email && x.Clave == usu.Clave).FirstOrDefault();
+
+    if (user != null)
+    {
+      respuesta.Ok = true;
+      respuesta.Respuesta = user;
+    }
+    else
+    {
+      respuesta.Ok = false;
+      respuesta.Error = "Las credenciales son incorrectas";
+    }
+
+    return respuesta;
+  }
+
 
 }

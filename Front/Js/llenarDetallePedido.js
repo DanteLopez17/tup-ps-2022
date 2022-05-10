@@ -26,33 +26,15 @@ const llenar = () => {
         let subtot = cant * pre;
         let nroPed = null;
 
-        /*  
-        Cantidad:null
-        IdDetallePedido [int]:0
-        IdProducto:null
-        IdProductoNavigation [Producto]:null
-        NroPedido:null
-        NroPedidoNavigation [Pedido]:null
-        Precio:null
-
-        || 
-        
-
-
-        Cantidad:null
-        IdProducto:null
-        NroPedido:null
-        Precio:null
-        */
-
         const Producto = { id, nombre, desc, pre, cant, subtot, nroPed }
+
         const DetalleBD = { 
           Cantidad: cant,
           IdProducto: id,
           NroPedido: null,
           Precio: pre,
          }
-        detallesBD.push(DetalleBD);
+        
 
         for (let i = 0; i < productos.length; i++) {
           if (productos[i].id == valueproducto) {
@@ -60,7 +42,13 @@ const llenar = () => {
             return false;
           }
         }
-
+        for (let i = 0; i < DetalleBD.length; i++) {
+          if (DetalleBD[i].IdProducto == valueproducto) {
+            alert("El producto ya esta cargado")
+            return false;
+          }
+        }
+        detallesBD.push(DetalleBD);
         productos.push(Producto);
         listado.innerHTML = '';
 
@@ -72,7 +60,7 @@ const llenar = () => {
             <td>$${produc.pre}</td>
             <td>${produc.cant}</td>
             <td>$${produc.subtot}</td>
-            <td><a href='#'>Modificar</a></td>
+            <td><button data-toggle="modal" data-target="#exampleModal" data-whatever="${produc.nombre}" data-otracosa="${produc.cant}" data-id="${produc.id}"><img src="../Image/edit.png" alt="Editar"></button></td>
           </tr>
           `;
         }
@@ -90,6 +78,7 @@ const llenar = () => {
   });
 
 }
+
 $("#btnCargarProducto").click(function () {
   let produ = $("#cboProducto").val();
   let cant = $("#txtCantidad").val();
@@ -129,7 +118,6 @@ $("#btnConfirmarPedido").click(function () {
     idUsuario: idUsu,
     idFormaPago: idForPa,
     idEtapa: idEt
-
   }
 
   swal({

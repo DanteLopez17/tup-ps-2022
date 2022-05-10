@@ -115,12 +115,6 @@
     <div class="col-md-10">
       <div class="container-fluid">
         <form id="frmaltaReceta">
-          <!--    <div class="form-row" id="divFecha">
-            <div class="form-group col-md-10"></div>
-            <div class="form-group col-md-2 text-center">
-              <input type="date" class="form-control text-center" id="txtFecha" required readonly>
-            </div>
-          </div>-->
           <div class="form-row">
             <div class="form-group col-md-3">
               <label for="cboCliente">Cliente</label>
@@ -198,6 +192,36 @@
       <button hidden type="button" id="btnConfirmarPedido" class="btn btn-primary">Confirmar Pedido</button>
     </div>
   </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="txtProdu" class="col-form-label">Producto:</label>
+              <input type="text" class="form-control" id="txtProdu" readonly>
+              <input type="text" class="form-control" id="txtIdProdu" hidden>
+            </div>
+            <div class="form-group">
+              <label for="txtCantModal" class="col-form-label">Cantidad:</label>
+              <input type="number" class="form-control" id="txtCantModal">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary " data-dismiss="modal" id="btnModifModal">Modificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -224,6 +248,20 @@
       $('#txtFecha').val(hoy);
     });
   </script>
+  <script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Boton que activa el modal
+      var recipient = button.data('whatever') // Extract info from data-* attributes
+      let canti = button.data('otracosa')
+      let id = button.data('id')
+      var modal = $(this)
+      //  modal.find('.modal-title').text('Modificar cantidad de ' + recipient)
+      modal.find('.modal-body #txtIdProdu').val(id)
+      modal.find('.modal-body #txtProdu').val(recipient)
+      modal.find('.modal-body #txtCantModal').val(canti)
+    })
+  </script>
+  <script src="../Js/modificarCantiModal.js"></script>
 
 </body>
 
