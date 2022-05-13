@@ -32,7 +32,7 @@
             La ONG
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Quienes somos</a>
+            <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
             <a class="dropdown-item" href="#">Nuestra mision</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Donaciones</a>
@@ -44,7 +44,7 @@
             Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
+            <a id="accesoAltaUsuario" class="dropdown-item" href="#">Alta Usuario</a>
             <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
           </div>
         </li>
@@ -140,7 +140,24 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../Js/cargarListaProductos.js"></script>
-
+  <script>
+    $("#accesoAltaUsuario").click(function () {
+      let rol = sessionStorage.getItem("rolActivo");
+      if (rol == 1) {
+        alert("redireccion al alta usuario");
+        window.location.href = "../Html/altaUsuario.html";
+      }
+      else
+        if (rol == 2) {
+          alert("redireccion al listado de productos");
+          window.location.href = "../Html/listadoProductos.html";
+        }
+        else {
+          alert("redireccion al inicio");
+          window.location.href = "../Html/inicio.html";
+        }
+    })
+  </script>
 </body>
 
 </html>

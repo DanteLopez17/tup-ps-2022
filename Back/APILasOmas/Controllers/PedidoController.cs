@@ -124,4 +124,30 @@ public class PedidoController : ControllerBase
     return respuesta;
   }
 
+  [HttpGet]
+  [Route("[controller]/listadoPedidos")]
+  public RespuestaApi listadoPedidos()
+  {
+    respuesta.Ok = true;
+    List<Pedido> pedidos = bd.Pedidos.ToList();
+    List<Cliente> clientes = bd.Clientes.ToList();
+    List<Etapa> etapas = bd.Etapas.ToList();
+    List<Formapago> formaspago = bd.Formapagos.ToList();
+    List<Usuario> usuarios = bd.Usuarios.ToList();
+
+
+    List<Pedido> otraLista = new List<Pedido>();
+    foreach (Pedido p in pedidos)
+    {
+      bd.Entry(p).Reference(x => x.IdClienteNavigation).Load();
+      bd.Entry(p).Reference(x => x.IdEtapaNavigation).Load();
+      bd.Entry(p).Reference(x => x.IdFormaPagoNavigation).Load();
+      bd.Entry(p).Reference(x => x.IdUsuarioNavigation).Load();
+
+      otraLista.Add(p);
+    }
+    respuesta.Respuesta = otraLista;
+    return respuesta;
+  }
+
 }

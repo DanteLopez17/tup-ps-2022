@@ -32,79 +32,15 @@
             La ONG
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Quienes somos</a>
+            <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
             <a class="dropdown-item" href="#">Nuestra mision</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Donaciones</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Usuario
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="./altaUsuario.html">Alta Usuario</a>
-            <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Cliente
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="altaCliente.html">Alta Cliente</a>
-            <a class="dropdown-item" href="listadoClientes.html">Listado Clientes</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Producto
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="altaProducto.html">Alta Producto</a>
-            <a class="dropdown-item" href="listadoProductos.html">Listado Productos</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Pedido
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="altaPedido.html">Alta Pedido</a>
-            <a class="dropdown-item" href="listadoPedido.html">Listado Pedidos</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Reportes
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Reporte 1</a>
-            <a class="dropdown-item" href="#">Reporte 2</a>
-          </div>
-        </li>
+
       </ul>
-      <form id="LogoPerfil" class="form-inline my-2 my-lg-0">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <img src="../Image/avatar_user4.png" width="50" height="50" alt="">
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Mi cuenta</a>
-              <a class="dropdown-item" href="#">Cerrar sesion</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-          </li>
-        </ul>
-      </form>
+
     </div>
   </nav>
   <div id="titulo">
@@ -150,6 +86,13 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../Js/validacionLogin.js"></script>
+  <script src="../Js/InicioSesion.js"></script>
+  <script>
+    $(document).ready(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+    })
+  </script>
 </body>
 
 </html>
