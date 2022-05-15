@@ -146,7 +146,7 @@ public class PedidoController : ControllerBase
 
       otraLista.Add(p);
     }
-    respuesta.Respuesta = otraLista;
+    respuesta.Respuesta = otraLista.OrderBy(x => x.Fecha).Reverse();
     return respuesta;
   }
 

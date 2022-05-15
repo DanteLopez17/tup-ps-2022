@@ -55,5 +55,23 @@ form#frmaltaReceta{
 #exampleModal{
   color: black;
 }
+#tablaPedido_length{
+  color: white;
+}
+#tablaPedido_filter{
+  color: white;
+}
+#tablaPedido_length select{
+  color: white;
+  background-color: #765c86;
+}
+#tablaPedido_filter input{
+  color: white;
+  background-color: #765c86;
+}
+#tablaPedido_info{
+  color: white;
+
+}
 
 
