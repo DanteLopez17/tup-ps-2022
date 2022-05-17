@@ -19,11 +19,6 @@ $("#btnModifModal").click(function () {
     }
   }
 
-  console.log("Mostrar")
-  console.log(productos)
-  console.log("BaseDatos")
-  console.log(detallesBD)
-
   listado.innerHTML = '';
 
         for (let produc of productos) {

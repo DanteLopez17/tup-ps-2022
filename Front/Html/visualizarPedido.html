@@ -9,9 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../Css/estilos.css">
-  <link rel="stylesheet" href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
 
   <title>Las Omas ONG</title>
 </head>
@@ -109,26 +107,60 @@
       </form>
     </div>
   </nav>
-  <div id="titulo">
-    <h4>Listado de pedidos</h4>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-md-10">
+      <div class="container-fluid">
+        <form id="frmaltaReceta">
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="cboCliente">Cliente</label>
+              <select id="cboCliente" class="form-control" disabled></select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="cboUsuario">Usuario</label>
+              <select id="cboUsuario" class="form-control" disabled></select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="cboFormaPago">Forma de Pago</label>
+              <select id="cboFormaPago" class="form-control" disabled></select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="cboEtapa">Etapa</label>
+              <select id="cboEtapa" class="form-control" disabled></select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="txtFecha">Fecha</label>
+              <input type="date" class="form-control text-center" id="txtFecha" required readonly>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-1"></div>
   </div>
-  <div class="container" id="listadoTablaPedido">
-    <table class="table text-center" id="tablaPedido">
+  <div class="container">
+    <table class="table text-center">
       <thead>
         <tr>
           <td>Pedido N°</td>
-          <td>Fecha</td>
-          <td>Cliente</td>
-          <td>Usuario</td>
-          <td>Forma de Pago</td>
-          <td>Etapa</td>
-          <td>Visualizar</td>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Cantidad</td>
+          <td>Precio</td>
+          <td>Subtotal</td>
         </tr>
       </thead>
-      <tbody id="listPedidos">
+      <tbody id="listPedGenerados">
       </tbody>
+
     </table>
+    <label id="lblTotal"></label>
+    <div class="row"></div>
+    <button type="button" class="btn btn-danger" id="btnCancelarPedido" hidden>Cancelar Pedido</button>
+    <button type="button" class="btn btn-success" id="btnConfirmarPedido" hidden>Confirmar Pedido</button>
   </div>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -140,38 +172,13 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaPedidos.js"></script>
-  <!--<script src="//cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-    <script>
-    $(document).ready(function () {
-      $('#tablaPedido').DataTable({
-        scrollY: 400,
-        language: {
-          processing: "Busqueda en curso...",
-          search: "Buscar&nbsp;:",
-          lengthMenu: "Agrupar de _MENU_ items",
-          info: "Mostrando del item _START_ al _END_ de un total de _TOTAL_ items",
-          infoEmpty: "No existen datos...",
-          infoFiltered: "(filtrado de _MAX_ elementos en total)",
-          infoPostFix: "",
-          loadingRecords: "Cargando...",
-          zeroRecords: "No se encontraron datos con tu busqueda",
-          emptyTable: "No hay datos disponibles en la tabla",
-          paginate: {
-            first: "Primero",
-            previous: "Anterior",
-            next: "Siguiente",
-            last: "Ultimo"
-          },
-          aria: {
-            sortAscending: ": active para ordernar la columna en orden ascendente",
-            sortDescending: ": active para ordernar la columna en orden descendente"
-          }
-        }
+  <script src="../Js/cargarComboCliente.js"></script>
+  <script src="../Js/cargarComboUsuario.js"></script>
+  <script src="../Js/cargarComboFormaPago.js"></script>
+  <script src="../Js/cargarComboEtapa.js"></script>
+  <script src="../Js/llenarDetallePedidoxId.js"></script>
+  <script src="../Js/cancelarPedido.js"></script>
 
-      });
-    });
-  </script>-->
 
 </body>
 

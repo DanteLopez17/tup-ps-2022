@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Security.Cryptography;
 using lasomas.Comandos.DetallePedido;
 using lasomas.Comandos.Pedido;
@@ -146,7 +147,60 @@ public class PedidoController : ControllerBase
 
       otraLista.Add(p);
     }
-    respuesta.Respuesta = otraLista.OrderBy(x => x.Fecha).Reverse();
+    respuesta.Respuesta = otraLista.OrderBy(x => x.NroPedido).Reverse();
+    return respuesta;
+  }
+
+  [HttpGet]
+  [Route("[controller]/{id}")]
+  public RespuestaApi getDetallesxId(int id)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+    List<Detallepedido> detallesp = bd.Detallepedidos.Where(x => x.NroPedido == id).ToList();
+
+    List<Detallepedido> otraLista = new List<Detallepedido>();
+    foreach (Detallepedido dp in detallesp)
+    {
+      bd.Entry(dp).Reference(x => x.IdProductoNavigation).Load();
+      bd.Entry(dp).Reference(x => x.NroPedidoNavigation).Load();
+
+      otraLista.Add(dp);
+    }
+    if (otraLista != null)
+    {
+      respuesta.Ok = true;
+      respuesta.Respuesta = otraLista;
+    }
+
+
+    return respuesta;
+  }
+
+  [HttpPost]
+  [Route("[controller]/modificarPedido")]
+  public RespuestaApi modificarPedido([FromBody] ComandoActualizarPedido Ped)
+  {
+    RespuestaApi respuesta = new RespuestaApi();
+
+    Pedido p = bd.Pedidos.Where(x => x.NroPedido == Ped.NroPedido).FirstOrDefault();
+
+    if (p != null)
+    {
+      p.NroPedido = Ped.NroPedido;
+      p.Fecha = Ped.Fecha;
+      p.IdCliente = Ped.IdCliente;
+      p.IdUsuario = Ped.IdUsuario;
+      p.IdFormaPago = Ped.IdFormaPago;
+      p.IdEtapa = Ped.IdEtapa;
+
+
+      bd.Update(p);
+      bd.SaveChanges();
+    }
+
+    respuesta.Ok = p != null;
+    respuesta.infoAdicional = p != null ? string.Empty : "No existe el pedido con ese Id";
+
     return respuesta;
   }
 
