@@ -29,17 +29,6 @@ $("#btnModificarUsuario").click(function () {
       swal("Error", "ingrese un numero de documento valido", "warning");
       return false;
     }
-   /* if(fecna >= Date.Today())
-    {
-      swal("Error", "ingrese una fecha valida", "error");
-      return false;
-    }
-
-    if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(mail))
-    {
-      swal("Error", "ingrese un email valido ", "error");
-      return false;
-    }*/
     if(cla == null || cla == "" || cla.length < 4)
     {
       swal("Error", "la contraseña debe contener al menos 4 caracteres ", "error");
@@ -51,6 +40,7 @@ $("#btnModificarUsuario").click(function () {
       swal("Error", "seleccione un rol", "error");
       return false;
     }
+    return true;
   
   }
   if(valAltaUsuario())
@@ -90,7 +80,7 @@ $("#btnModificarUsuario").click(function () {
         swal("Felicitaciones!", "Usuario actualizado Correctamente!", "success");
         setTimeout(function(){
           window.location.replace("../Html/listadoUsuarios.html");
-      }, 4000);
+      }, 2000);
         
       }
       else
@@ -110,4 +100,19 @@ $("#btnModificarUsuario").click(function () {
   });
   }
   
+})
+
+$("#btnCancelarCargarUsuario").click(function () {
+  swal({
+    title: "Desea cancelar la modificación?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      window.location.replace("../Html/listadoUsuarios.html");
+    } else {
+    }
+  });
 })

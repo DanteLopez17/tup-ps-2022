@@ -52,7 +52,7 @@ $.ajax({
             <td>${usuario.email}</td>
             <td>${usuario.idRolNavigation.descripcion}</td>
             <td>${usuario.idEstadoNavigation.descripcion}</td>
-            <td><a href='modificarUsuario.html?id=${usuario.idUsuario}'>Modificar</a></td>
+            <td><a href='modificarUsuario.html?id=${usuario.idUsuario}'><i class="fa-solid fa-eye"></i></a></td>
             </tr>
             `
           }

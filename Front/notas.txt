@@ -1,0 +1,41 @@
+
+Camino General
+1) Login - OK
+Camino Administrador
+1) Pantalla Bienvenida (inicio.html):
+  - Falta diseño (Agregar las opciones para redirigirse a las demas pantallas) - OK
+  - Agregar info de la Organizacion - OK
+  - Agregar imagenes de la Organizacion - OK
+2) Pantalla Quienes Somos, Nuestra Mision, Donaciones - Falta diseño con info e imagenes -PEDIR JINETH
+3) Modulo Usuarios: OK
+  - Alta Usuario: Modificar Diseño de pantalla OK - boton cancelar limpiar campos OK - Validar Correctamente la fecha OK,  Modificar fecha nacimiento por fecha alta front OK
+  - Listado Usuarios: Modificar Diseño (agregar icono al boton "modificar" OK - Terminar el exportar a pdf (ver de   ordenar el texto con los valores de posiciones) OK )
+  - Modificar Usuario: Boton cancelar(pregunta y redireccion al listado) OK - Modificar fecha nacimiento por fecha alta front OK
+3) Modulo Clientes:
+  - Alta Cliente: Modificar Diseño de pantalla, boton cancelar limpiar campos, Validar Correctamente la fecha. Modificar fecha nacimiento por fecha alta front - modificar fecha naciemiento por fecha alta y tomar la fecha del sistema
+  - Listado de Clientes: Modificar Fecha Nacimiento por Fecha Alta front - Realizar Exportar a pdf - agregar icono al boton "modificar"
+  - Modificar Cliente: Modificar Fecha Nacimiento por Fecha Alta front y dejarlo solo lectura - Boton cancelar(pregunta y redireccion al listado)
+4) Modulo Producto: Ver el tema del Stock Historico
+  - Alta Producto: Quitar el nombre del producto y dejar solo descripcion, al cargar tomar la fecha del sistema para la tabla stockHistorico - Boton cancelar limpiar campos
+  - Listado de producto: Quitar columna Nombre - Precio y cantidad del lado Derecho - Agregar el exportar a pdf - agregar icono al boton "modificar"
+  - Modificar Producto: Quitar el nombre - Al modificar la cantidad tomar fecha y cantidad para la tabla Stock Historico - Falta el simbolo $ cuando se cargan los detalles del producto - Boton cancelar(pregunta y redireccion al listado)
+5) Modulo Pedido:
+  - Alta Pedido: Cambiar Combo Cliente por un buscador, Usuario se carga con en logeo - Cambiar Combo de producto por buscador de descripcion del mismo - Al confirmar el pedido descontar del stock - Precio, cantidad y subtotal del lado Derecho - No se esta actualizando el subtotal - en el modal permite ingresar una cantidad superior a la del stock - al confirmar el pedido redireccion al listado de pedidos
+  - Listado de Pedido: Paginacion - Filtros de busqueda - exportar a pdf
+  - Modificar pedido: boton cancelar devolver la cantidad al stock disponible - precio, cantidad, subtotal y total a la Derecha - agregar pregunta al confirmar y cancelar pedido - exportar a pdf
+6) Modulo Reporte:
+  - Reporte Ranking Clientes: Pantalla
+  - Reporte Ranking Usuarios: Pantalla
+  - Reporte Ranking Productos (ver de agregar clasificacion): Pantalla
+  - Reporte Ranking Ventas por tipo de forma de pago: Pantalla y Back
+7) Otros:
+  - Pantalla Mi Perfil: Pantalla y Back - Logout
+  - Pantalla Preguntas Frecuentes
+  - Pantalla Terminos y condiciones
+  - Pantalla con informacion Organizacional (quienes somos / mision / Donaciones)
+  - Revisar los redireccionamientos de todas las paginas
+  - Revisar los permisos de ambos usuarios
+
+Camino Vendedor
+
+

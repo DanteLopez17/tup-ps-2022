@@ -48,14 +48,7 @@ $("#btnCargarCliente").click(function () {
       swal("Error", "ingrese un cuit o cuil valido ", "warning");
       return false;
     }
-  
-    swal("Felicitaciones!", "Cliente cargado Correctamente!", "success");
-  
-    /*
-    // si hay algún error no efectuamos la acción submit del form
-      if(hasError) event.preventDefault();
-    */
-  
+    return true;
   }
 
   if(valAltaCliente())

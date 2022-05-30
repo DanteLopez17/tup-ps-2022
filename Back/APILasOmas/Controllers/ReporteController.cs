@@ -52,7 +52,13 @@ public class ReporteController : ControllerBase
                        join _detalles in bd.Detallepedidos on _pedidos.NroPedido equals _detalles.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
                        group _detalles by new { _pedidos.IdCliente, _pedidos.IdClienteNavigation.Apellido, _pedidos.IdClienteNavigation.Nombre } into g
-                       select new { idCliente = g.Key, total = g.Sum(x => x.Cantidad + x.Precio) }
+                       orderby g.Sum(x => x.Cantidad + x.Precio)
+                       select new
+                       {
+                         idCliente = g.Key,
+                         total = g.Sum(x => x.Cantidad + x.Precio),
+                         cantidad = g.Select(x => x.NroPedido).Distinct().Count()
+                       }
                         );
 
     if (consultados != null)
@@ -115,8 +121,6 @@ public class ReporteController : ControllerBase
     /*
     Listado de articulos mas vendidos en un periodo de tiempo
     parametros: '2022-05-09' // '2022-05-17'
-
-    soga 6mm 100mts
     */
 
     return respuesta;
@@ -137,7 +141,13 @@ public class ReporteController : ControllerBase
                        join _pedidos in bd.Pedidos on _detalles.NroPedido equals _pedidos.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
                        group _detalles by new { _pedidos.IdUsuario, _pedidos.IdUsuarioNavigation.Nombre, _pedidos.IdUsuarioNavigation.Apellido } into g
-                       select new { Usuario = g.Key, total = g.Sum(x => x.Cantidad * x.Precio) }
+                       orderby g.Sum(x => x.Cantidad * x.Precio)
+                       select new
+                       {
+                         Usuario = g.Key,
+                         total = g.Sum(x => x.Cantidad * x.Precio),
+                         cantidad = g.Select(x => x.NroPedido).Distinct().Count()
+                       }
                         );
 
     if (consultados != null)
@@ -149,8 +159,6 @@ public class ReporteController : ControllerBase
     /*
     -- Recaudacion de usuarios en un periodo de tiempo
     parametros: '2022-05-09' // '2022-05-17'
-
-    soga 6mm 100mts
     */
 
     return respuesta;

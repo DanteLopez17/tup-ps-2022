@@ -33,7 +33,7 @@ $("#btnLogin").click(function(){
         }
         else
         {
-          window.location.href = "../Html/inicio.html";
+          window.location.href = "../Html/login.html";
         }
       }
       else

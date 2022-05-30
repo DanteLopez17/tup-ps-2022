@@ -125,7 +125,7 @@ public class UsuarioController : ControllerBase
       bd.Entry(u).Reference(x => x.IdRolNavigation).Load();
       otraLista.Add(u);
     }
-    respuesta.Respuesta = otraLista;
+    respuesta.Respuesta = otraLista.OrderBy(x => x.IdEstado).ThenBy(x => x.Apellido);
     return respuesta;
   }
 

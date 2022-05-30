@@ -9,6 +9,10 @@ body{
     /* IMPORTANTE */
     text-align: center;
 }
+#titulo h3{
+  font-size: 45px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 #LogoPerfil{
   margin-right: 75px
 }
