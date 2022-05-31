@@ -32,7 +32,7 @@ $("#btnModificarProducto").click(function () {
       return false;
     }
     
-
+    return true;
   
   }
   if(valAltaProducto())
@@ -44,15 +44,23 @@ $("#btnModificarProducto").click(function () {
     let prec = $("#txtPrecio").val();
     let cant = $("#txtCantidad").val();
     let idEst = $('input[name=gridRadios]:checked', '#miForm').val();
+    const now = new Date();
+    const dia = `0${now.getDate()}`.slice(-2);
+    const mes = `0${now.getMonth() + 1}`.slice(-2);
+    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+    let fec = hoy;
+    let obs = $("#txtObservaciones").val();
+    
 
   let product = {
     idProducto : idPro,
-    nombre: nom,
     descripcion: des,
     precio :prec,
     cantidad : cant,
     idClasificacion: clasif,
-    idEstado: idEst
+    idEstado: idEst,
+    fecha : fec,
+    observaciones: obs
   }
 
   $.ajax({
@@ -85,4 +93,19 @@ $("#btnModificarProducto").click(function () {
   });
   }
   
+})
+
+$("#btnCancelarCargarProducto").click(function () {
+  swal({
+    title: "Desea cancelar la modificación?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      window.location.replace("../Html/listadoProductos.html");
+    } else {
+    }
+  });
 })

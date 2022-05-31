@@ -94,7 +94,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="../Image/avatar_user4.png" width="50" height="50" alt="">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Mi cuenta</a>
@@ -147,6 +147,22 @@
         }
     })
   </script>
+  <!-- GetButton.io widget -->
+  <script type="text/javascript">
+      (function () {
+        var options = {
+          whatsapp: "+5493515732005", // WhatsApp number
+          call_to_action: "Escribenos!", // Call to action
+          button_color: "#FF6550", // Color of button
+          position: "right", // Position may be 'right' or 'left'
+        };
+        var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+        s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      })();
+  </script>
+  <!-- /GetButton.io widget -->
 </body>
 
 </html>

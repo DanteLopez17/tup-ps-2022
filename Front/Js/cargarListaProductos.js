@@ -6,13 +6,12 @@ $.ajax({
       let productos = result.respuesta;
       for (var i = 0; i < productos.length; i++) {
         let html = "<tr>";
-        html += "<td>" + productos[i].nombre + "</td>"
-        html += "<td>" + productos[i].descripcion + "</td>"
-        html += "<td>$" + productos[i].precio + "</td>"
-        html += "<td>" + productos[i].cantidad + "</td>"
-        html += "<td>" + productos[i].idClasificacionNavigation.descripcion + "</td>"
-        html += "<td>" + productos[i].idEstadoNavigation.descripcion + "</td>"
-        html += "<td><a href='modificarProducto.html?id=" + productos[i].idProducto + "'>Modificar</a></td>"
+        html += "<td class='cpoCentro'>" + productos[i].descripcion + "</td>"
+        html += "<td class='cpoIzquierda'>$" + productos[i].precio + "</td>"
+        html += "<td class='cpoIzquierda'>" + productos[i].cantidad + "</td>"
+        html += "<td class='cpoCentro'>" + productos[i].idClasificacionNavigation.descripcion + "</td>"
+        html += "<td class='cpoCentro'>" + productos[i].idEstadoNavigation.descripcion + "</td>"
+        html += "<td class='cpoCentro'><a href='modificarProducto.html?id=" + productos[i].idProducto + "'><i class='fa-solid fa-eye'></i></a></td>"
         html += "</tr>";
 
         $("#listProdu").append(html);

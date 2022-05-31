@@ -119,12 +119,7 @@ public class ProductoController : ControllerBase
   public RespuestaApi actualizarProducto([FromBody] ComandoProductoActualizar pro)
   {
     RespuestaApi respuesta = new RespuestaApi();
-    if (pro.Nombre.Equals(""))
-    {
-      respuesta.Ok = false;
-      respuesta.Error = "Ingrese el nombre del producto";
-      return respuesta;
-    }
+
     if (pro.Descripcion.Equals(""))
     {
       respuesta.Ok = false;
@@ -160,7 +155,6 @@ public class ProductoController : ControllerBase
 
     if (p != null)
     {
-      p.Nombre = pro.Nombre;
       p.Descripcion = pro.Descripcion;
       p.Precio = pro.Precio;
       p.Cantidad = pro.Cantidad;
@@ -170,6 +164,17 @@ public class ProductoController : ControllerBase
       bd.Update(p);
       bd.SaveChanges();
     }
+
+    StockHistorico sh = new StockHistorico
+    {
+      Fecha = pro.Fecha,
+      IdProducto = p.IdProducto,
+      Precio = pro.Precio,
+      Cantidad = pro.Cantidad,
+      Observaciones = pro.Observaciones
+    };
+    bd.StockHistoricos.Add(sh);
+    bd.SaveChanges();
 
     respuesta.Ok = p != null;
     respuesta.infoAdicional = p != null ? string.Empty : "No existe el producto con ese Id";
@@ -189,7 +194,7 @@ public class ProductoController : ControllerBase
       bd.Entry(p).Reference(x => x.IdClasificacionNavigation).Load();
       otraLista.Add(p);
     }
-    respuesta.Respuesta = otraLista;
+    respuesta.Respuesta = otraLista.OrderBy(x => x.IdEstado).ThenBy(x => x.Descripcion);
     return respuesta;
   }
 

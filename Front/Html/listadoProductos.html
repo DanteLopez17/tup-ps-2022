@@ -9,7 +9,13 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Css/estilos.css">
+  <link rel="stylesheet" href="../Css/datatable.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="stylesheet" href="../Css/estilosNuevos.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
 
   <title>Las Omas ONG</title>
 </head>
@@ -94,7 +100,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="../Image/user_male_iconmin.png" width="50" height="50" alt="">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Mi cuenta</a>
@@ -107,27 +113,28 @@
       </form>
     </div>
   </nav>
-  <div id="titulo">
-    <h4>Listado de Productos</h4>
-  </div>
-  <div class="container">
-    <table class="table ">
-      <thead>
-        <tr>
-          <td>Nombre</td>
-          <td>Descripcion</td>
-          <td>Precio</td>
-          <td>Cantidad</td>
-          <td>Clasificación</td>
-          <td>Estado</td>
-          <td>Modificar</td>
-        </tr>
-      </thead>
-      <tbody id="listProdu">
-      </tbody>
-    </table>
-  </div>
-
+  <main class="listProdu-design">
+    <h4 class="titListProdu">Listado de Productos</h4>
+    <div class="container">
+      <div id="filaPdfBuscar" class="filaPdfBuscar">
+        <a class="toPdf" href="javascript:pdfNuevo();"><img src="../Image/pdfRedMini.png" alt=""></a>
+      </div>
+      <table id="myTable" class="table table-bordered">
+        <thead>
+          <tr class="text-center">
+            <td><b>Descripcion</b></td>
+            <td><b>Precio</b></td>
+            <td><b>Cantidad</b></td>
+            <td><b>Clasificación</b></td>
+            <td><b>Estado</b></td>
+            <td><b>Ver</b></td>
+          </tr>
+        </thead>
+        <tbody id="listProdu">
+        </tbody>
+      </table>
+    </div>
+  </main>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -140,6 +147,8 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../Js/cargarListaProductos.js"></script>
+  <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
   <script>
     $("#accesoAltaUsuario").click(function () {
       let rol = sessionStorage.getItem("rolActivo");
@@ -157,6 +166,90 @@
           window.location.href = "../Html/inicio.html";
         }
     })
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable({
+        "scrollY": "300px",
+        "language": {
+          "lengthMenu": "Mostrar _MENU_ elementos por página",
+          "info": "Página _PAGE_ de _PAGES_",
+          "infoFiltered": "(filtrado de un total de _MAX_ )",
+          "search": "Buscar&nbsp;:",
+          "infoEmpty": "No se encontraron datos..",
+          "zeroRecords": "No se encontraron datos con tu busqueda",
+          "paginate": {
+            "previous": "Anterior",
+            "next": "Siguiente",
+          }
+        }
+      });
+    });
+  </script>
+  <script>
+    function pdfNuevo() {
+      $.ajax({
+        url: 'https://localhost:5001/Producto/listadoProductos',
+        type: "GET",
+        success: function (result) {
+          if (result.ok) {
+            window.jsPDF = window.jspdf.jsPDF;
+            let pdf = new jsPDF();
+            let logo = new Image();
+            logo.src = '../Image/LasOmasLogo2.png';
+            pdf.addImage(logo, 'png', 175, 0, 20, 20);
+            pdf.setFontSize(18);
+            pdf.text('Listado de Productos', 80, 10);
+            pdf.setFontSize(12);
+            pdf.line(5, 20, 200, 20);
+            pdf.text('Descripción', 5, 30);
+            pdf.text('Precio', 75, 30);
+            pdf.text('Cantidad', 110, 30);
+            pdf.text('Clasificación', 140, 30);
+            pdf.text('Estado', 182, 30);
+            pdf.line(5, 35, 200, 35);
+            let productos = result.respuesta;
+            let yText = 30;
+            let yLine = 35;
+            let xDescripción = 5;
+            let xPrecio = 77;
+            let xCantidad = 114;
+            let xClasificación = 146;
+            let xEstado = 183;
+            for (producto of productos) {
+              yText += 10;
+              yLine += 10;
+              let desc = producto.descripcion;
+              let pre = producto.precio;
+              let preString = pre.toString();
+              let cant = producto.cantidad;
+              let cantString = cant.toString();
+              let clas = producto.idClasificacionNavigation.descripcion;
+              let estad = producto.idEstadoNavigation.descripcion;
+              pdf.setFontSize(10);
+
+              pdf.text(desc, xDescripción, yText);
+              pdf.text("$" + preString, xPrecio, yText);
+              pdf.text(cantString, xCantidad, yText);
+              pdf.text(clas, xClasificación, yText);
+              pdf.text(estad, xEstado, yText);
+              pdf.line(5, yLine, 200, yLine);
+            }
+            pdf.save('ListadoProductosPDF');
+          }
+
+          else
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: result.error
+            })
+        },
+        error: function (result) {
+
+        }
+      });
+    }
   </script>
 </body>
 
