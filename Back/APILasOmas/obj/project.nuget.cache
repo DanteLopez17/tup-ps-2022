@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tSWASKIaLlXQqVCFmYxLGKf+8+kBQXT1boHmXBifmRNPz5b+n0erKw+6iyi8OfRdC9yn0XfFnRj0sYfCCJjYBQ==",
+  "dgSpecHash": "Z0gEmX7T/n/udAQu3xkykhFQj53+4dEXFYsK5gjX+aCxl+TR7uWPRlG636m6riYoBbaJtbKqrtkROaTtyLJeQQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj",
+  "projectFilePath": "C:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",

@@ -7,4 +7,7 @@ public class ComandoAltaProducto
   public int? Cantidad { get; set; }
   public int? IdClasificacion { get; set; }
   public int? IdEstado { get; set; }
+
+  public DateTime Fecha { get; set; }
+  public string Observaciones { get; set; }
 }

@@ -74,6 +74,18 @@ public class ProductoController : ControllerBase
 
     bd.Productos.Add(p);
     bd.SaveChanges();
+
+    StockHistorico sh = new StockHistorico
+    {
+      Fecha = produ.Fecha,
+      IdProducto = p.IdProducto,
+      Precio = produ.Precio,
+      Cantidad = produ.Cantidad,
+      Observaciones = produ.Observaciones
+    };
+    bd.StockHistoricos.Add(sh);
+    bd.SaveChanges();
+
     respuesta.Ok = true;
     respuesta.Respuesta = p;
 

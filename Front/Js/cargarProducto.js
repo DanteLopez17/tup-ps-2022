@@ -5,6 +5,9 @@ function limpiarCampos(){
   $("#txtCantidad").val("");
   $("#rbtEstadoActivo").prop("checked", true);
 }
+$("#btnCancelarCargarProducto").click(function () {
+  limpiarCampos();
+})
 
 $("#btnCargarProducto").click(function () {
   function valAltaProducto(){
@@ -35,11 +38,8 @@ $("#btnCargarProducto").click(function () {
       swal("Error", "ingrese una cantidad valida ", "warning");
       return false;
     }
-  
-    swal("Felicitaciones!", "Producto cargado Correctamente!", "success");
     return true
   }
-
 
   if(valAltaProducto())
   { 
@@ -48,13 +48,21 @@ $("#btnCargarProducto").click(function () {
     let prec = $("#txtPrecio").val();
     let cant = $("#txtCantidad").val();
     let idEst = $('input[name=gridRadios]:checked', '#miForm').val();
+    
+    const now = new Date();
+    const dia = `0${now.getDate()}`.slice(-2);
+    const mes = `0${now.getMonth() + 1}`.slice(-2);
+    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+    let fechaAlta = hoy;
 
     let produc = {
       descripcion: desc,
       precio: prec,
       cantidad: cant,
       idClasificacion: clasif,
-      idEstado: idEst
+      idEstado: idEst,
+      fecha : fechaAlta,
+      observaciones: "Añadido"
     }
 
   $.ajax({

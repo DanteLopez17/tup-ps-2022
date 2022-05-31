@@ -15,9 +15,9 @@ Camino General
   - Alta Cliente: Modificar Diseño de pantalla OK - boton cancelar limpiar campos OK - Validar Correctamente la fecha OK - Modificar fecha nacimiento por fecha alta front OK
   - Listado de Clientes: Modificar Fecha Nacimiento por Fecha Alta front OK - Realizar Exportar a pdf OK - agregar icono al boton "modificar" OK
   - Modificar Cliente: Modificar Fecha Nacimiento por Fecha Alta front y dejarlo solo lectura OK - Boton cancelar(pregunta y redireccion al listado) OK
-6) Modulo Producto: -- Ver el tema del Stock Historico --
-  - Alta Producto: Quitar el nombre del producto y dejar solo descripcion, al cargar tomar la fecha del sistema para la tabla stockHistorico - Boton cancelar limpiar campos
-  - Listado de producto: Quitar columna Nombre - Precio y cantidad del lado Derecho - Agregar el exportar a pdf - agregar icono al boton "modificar"
+6) Modulo Producto: -- Ver el tema del Stock Historico -- ALTA OK -- MODIF NO
+  - Alta Producto: Quitar el nombre del producto y dejar solo descripcion OK - al cargar tomar la fecha del sistema para la tabla stockHistorico OK - Boton cancelar limpiar campos OK
+  - Listado de producto: Quitar columna Nombre (<-- ACA) - Precio y cantidad del lado Derecho - Agregar el exportar a pdf - agregar icono al boton "modificar"
   - Modificar Producto: Quitar el nombre - Al modificar la cantidad tomar fecha y cantidad para la tabla Stock Historico - Falta el simbolo $ cuando se cargan los detalles del producto - Boton cancelar(pregunta y redireccion al listado)
 7) Modulo Pedido:
   - Alta Pedido: Cambiar Combo Cliente por un buscador, Usuario se carga con en logeo - Cambiar Combo de producto por buscador de descripcion del mismo - Al confirmar el pedido descontar del stock - Precio, cantidad y subtotal del lado Derecho - No se esta actualizando el subtotal - en el modal permite ingresar una cantidad superior a la del stock - al confirmar el pedido redireccion al listado de pedidos

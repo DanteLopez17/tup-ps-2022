@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj": {
+    "C:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj",
         "projectName": "lasomas",
-        "projectPath": "c:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\lasomas.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\obj\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\PS\\PS-LasOmasONG\\tup-ps-2022\\Back\\APILasOmas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
