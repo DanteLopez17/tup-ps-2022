@@ -20,7 +20,7 @@ $.ajax({
         html += "<td>" + clientes[i].numDoc + "</td>"
         html += "<td>" + clientes[i].cuilCuit + "</td>"
         html += "<td>" + clientes[i].idEstadoNavigation.descripcion + "</td>"
-        html += "<td><a href='modificarCliente.html?id=" + clientes[i].idCliente + "'>Modificar</a></td>"
+        html += "<td><a href='modificarCliente.html?id=" + clientes[i].idCliente + "'><i class='fa-solid fa-eye'></i></a></td>"
         html += "</tr>";
 
         $("#listClient").append(html);

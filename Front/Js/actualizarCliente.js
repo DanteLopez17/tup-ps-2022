@@ -48,3 +48,17 @@ $("#btnModificarCliente").click(function () {
     }
   });
 })
+$("#btnCancelarCargaCliente").click(function () {
+  swal({
+    title: "Desea cancelar la modificación?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      window.location.replace("../Html/listadoClientes.html");
+    } else {
+    }
+  });
+})

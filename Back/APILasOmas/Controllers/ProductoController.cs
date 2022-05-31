@@ -31,12 +31,6 @@ public class ProductoController : ControllerBase
   [Route("[controller]/cargarProducto")]
   public RespuestaApi cargarProducto([FromBody] ComandoAltaProducto produ)
   {
-    if (string.IsNullOrEmpty(produ.Nombre))
-    {
-      respuesta.Ok = false;
-      respuesta.Error = "Ingrese un nombre de producto";
-      return respuesta;
-    }
     if (string.IsNullOrEmpty(produ.Descripcion))
     {
       respuesta.Ok = false;
@@ -71,7 +65,6 @@ public class ProductoController : ControllerBase
 
     Producto p = new Producto
     {
-      Nombre = produ.Nombre,
       Descripcion = produ.Descripcion,
       Precio = produ.Precio,
       Cantidad = produ.Cantidad,

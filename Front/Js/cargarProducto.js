@@ -1,5 +1,4 @@
 function limpiarCampos(){
-  $("#txtNombre").val("");
   $("#txtDescripcion").val("");
   $("#cboClasificacion").val(1);
   $("#txtPrecio").val("");
@@ -9,7 +8,6 @@ function limpiarCampos(){
 
 $("#btnCargarProducto").click(function () {
   function valAltaProducto(){
-    let nombre = $("#txtNombre").val();
     let desc = $("#txtDescripcion").val();
     let clasif = $("#cboClasificacion").val();
     let prec = $("#txtPrecio").val();
@@ -17,11 +15,6 @@ $("#btnCargarProducto").click(function () {
     let activo = $("#rbtEstadoActivo").prop("checked");
     let inactivo = $("#rbtEstadoInactivo").val();
   
-    if(nombre == "")
-    {
-      swal("Error", "ingrese un nombre", "warning");
-      return false;
-    }
     if(desc == "")
     {
       swal("Error", "ingrese una descripcion", "warning");
@@ -50,7 +43,6 @@ $("#btnCargarProducto").click(function () {
 
   if(valAltaProducto())
   { 
-    let nom = $("#txtNombre").val();
     let desc = $("#txtDescripcion").val();
     let clasif = $("#cboClasificacion").val();
     let prec = $("#txtPrecio").val();
@@ -58,7 +50,6 @@ $("#btnCargarProducto").click(function () {
     let idEst = $('input[name=gridRadios]:checked', '#miForm').val();
 
     let produc = {
-      nombre: nom,
       descripcion: desc,
       precio: prec,
       cantidad: cant,
