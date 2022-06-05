@@ -159,8 +159,14 @@ public class ProductoController : ControllerBase
       p.Precio = pro.Precio;
       p.Cantidad = pro.Cantidad;
       p.IdClasificacion = pro.IdClasificacion;
-      p.IdEstado = pro.IdEstado;
-
+      if (p.Cantidad == 0)
+      {
+        p.IdEstado = 2;
+      }
+      else
+      {
+        p.IdEstado = pro.IdEstado;
+      }
       bd.Update(p);
       bd.SaveChanges();
     }

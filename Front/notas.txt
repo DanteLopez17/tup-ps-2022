@@ -20,9 +20,9 @@ Camino General
   - Listado de producto: Quitar columna Nombre OK - Precio y cantidad del lado Derecho OK - Agregar el exportar a pdf OK  - agregar icono al boton "modificar" OK
   - Modificar Producto: Quitar el nombre OK - Al modificar la cantidad tomar fecha y cantidad para la tabla Stock Historico OK - Falta el simbolo $ cuando se cargan los detalles del producto NO - Boton cancelar(pregunta y redireccion al listado) OK
 7) Modulo Pedido:
-  - Alta Pedido: Cambiar Combo Cliente por un buscador, Usuario se carga con en logeo - Cambiar Combo de producto por buscador de descripcion del mismo - Al confirmar el pedido descontar del stock - Precio, cantidad y subtotal del lado Derecho - No se esta actualizando el subtotal - en el modal permite ingresar una cantidad superior a la del stock - al confirmar el pedido redireccion al listado de pedidos
-  - Listado de Pedido: Paginacion - Filtros de busqueda - exportar a pdf
-  - Modificar pedido: boton cancelar devolver la cantidad al stock disponible - precio, cantidad, subtotal y total a la Derecha - agregar pregunta al confirmar y cancelar pedido - exportar a pdf
+  - Alta Pedido: Cambiar Combo Cliente por un buscador OK - Usuario se carga con en logeo OK - Cambiar Combo de producto por buscador de descripcion del mismo OK - Al confirmar el pedido descontar del stock  OK - Precio, cantidad y subtotal del lado Derecho OK - No se esta actualizando el subtotal  OK - en el modal permite ingresar una cantidad superior a la del stock OK - al confirmar el pedido redireccion al listado de pedidos OK
+  - Listado de Pedido: Paginacion OK- Filtros de busqueda OK- exportar a pdf OK - Que no falta 1 registro en el numero de pedido (22/23/24/27/28/29/)
+  - Modificar pedido: boton cancelar devolver la cantidad al stock disponible OK - precio, cantidad, subtotal y total a la Derecha OK - agregar pregunta al confirmar y cancelar pedido OK - exportar a pdf  OK
 8) Modulo Reporte:
   - Reporte Ranking Clientes: Pantalla
   - Reporte Ranking Usuarios: Pantalla
@@ -37,5 +37,3 @@ Camino General
   - Revisar los permisos de ambos usuarios
 
 Camino Vendedor 
-
-

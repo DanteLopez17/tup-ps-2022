@@ -81,6 +81,22 @@ body{
 .form-control:hover{
   background-color: #e7ebf0;
 }
+.select2{
+  border: none;
+  border-bottom: 3px solid #adb5bd;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.0625rem;
+  line-height: 147.6%;
+  padding-bottom: 0.5rem;
+}
+.select2:focus{
+  outline: none;
+  border-color: #480CA8;
+}
+.select2:hover{
+  background-color: #e7ebf0;
+}
 .btnCargarUsuario{
   border-radius: 3rem;
   width: 15%;
@@ -385,4 +401,162 @@ div #filaPdfBuscar{
   cursor: pointer;
   background-color: white;
   color: #480CA8;
+}
+.altaPedi-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.titAltaPed{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  color: #480CA8;
+  margin-bottom: 20px;
+}
+.btnCargarProductoDeta{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCargarProductoDeta:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnConfirmarPedido{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnConfirmarPedido:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnModifModal{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnModifModal:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancelModal{
+  border-radius: 3rem;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #a80c19;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCancelModal:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.listPedi-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titListPedi{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.visuPed-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titPedi{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.lblCbos{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  color: #480CA8;
+}
+.lblTotal{
+  text-align: right;
+  display: block;
+  margin-right:120px;
+}
+.btnConfPedi{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.btnConfPedi:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancPedi{
+  border-radius: 3rem;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #a80c19;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+  margin-right: 50px;
+
+}
+.btnCancPedi:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
 }

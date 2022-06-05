@@ -1,37 +1,61 @@
 $("#btnModifModal").click(function () {
-
   let id = $("#txtIdProdu").val();
   let cant = $("#txtCantModal").val();
-
-  for(let i = 0; i < productos.length; i++)
+  if(cant <= 0)
   {
-    if(productos[i].id == id)
-    {
-      productos[i].cant = cant;
-    }
+    swal("Error!", "Cantidad ingresada incorrecta!", "info");
+    return false;
   }
+  // Voy a tener que llamar de nvo al listado de productos
+  $.ajax({
+    url: 'https://localhost:5001/Producto/' + id,
+    type: "GET",
+    success: function (result) {
+      if (result.ok) {
+        let ProductoBD = result.respuesta;
+        // cantidad
+        if (cant > ProductoBD.cantidad) {
+          swal("Error!", "La cantidad ingresada es superior a la disponible!", "info");
+          return false;
+        }
+        else {
+          for (let i = 0; i < productos.length; i++) {
+            if (productos[i].id == id) {
+              productos[i].cant = cant;
+            }
+          }
 
-  for (let i = 0; i < detallesBD.length; i++) 
-  {
-    if(detallesBD[i].IdProducto == id)
-    {
-      detallesBD[i].Cantidad = cant;
-    }
-  }
+          for (let i = 0; i < detallesBD.length; i++) {
+            if (detallesBD[i].IdProducto == id) {
+              detallesBD[i].Cantidad = cant;
+            }
+          }
 
-  listado.innerHTML = '';
+          listado.innerHTML = '';
 
-        for (let produc of productos) {
-          listado.innerHTML += `
+          for (let produc of productos) {
+            let subtotal = produc.cant * produc.pre;
+            listado.innerHTML += `
           <tr>
-            <td>${produc.nombre}</td>
-            <td>${produc.desc}</td>
-            <td>$${produc.pre}</td>
-            <td>${produc.cant}</td>
-            <td>$${produc.subtot}</td>
-            <td><button data-toggle="modal" data-target="#exampleModal" data-whatever="${produc.nombre}" data-otracosa="${produc.cant}" data-id="${produc.id}"><img src="../Image/edit.png" alt="Editar"></button></td>
+            <td class='cpoCentro'>${produc.desc}</td>
+            <td class='cpoIzquierda'>$${produc.pre}</td>
+            <td class='cpoIzquierda'>${produc.cant}</td>
+            <td class='cpoIzquierda'>$${subtotal}</td>
+            <td class='cpoCentro'><a data-toggle="modal" data-target="#exampleModal" data-whatever="${produc.nombre}" data-otracosa="${produc.cant}" data-id="${produc.id}"><i class='fa-solid fa-eye'></i></a></td>
           </tr>
           `;
+          }
         }
+      }
+      else
+        swal({
+          title: "Error",
+          text: result.error,
+          icon: "error",
+        })
+    },
+    error: function (result) {
 
+    }
+  });
 })

@@ -26,7 +26,7 @@ $("#btnModificarProducto").click(function () {
       swal("Error", "ingrese un precio", "warning");
       return false;
     }
-    if(cant == null || cant <= 0)
+    if(cant == null || cant < 0)
     {
       swal("Error", "ingrese una cantidad", "warning");
       return false;

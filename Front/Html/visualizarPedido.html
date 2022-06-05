@@ -9,7 +9,12 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="stylesheet" href="../Css/estilosNuevos.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
 
   <title>Las Omas ONG</title>
 </head>
@@ -94,7 +99,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="../Image/user_male_iconmin.png" width="50" height="50" alt="">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Mi cuenta</a>
@@ -107,59 +112,66 @@
       </form>
     </div>
   </nav>
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-md-10">
-      <div class="container-fluid">
-        <form id="frmaltaReceta">
-          <div class="form-row">
-            <div class="form-group col-md-3">
-              <label for="cboCliente">Cliente</label>
-              <select id="cboCliente" class="form-control" disabled></select>
-            </div>
-            <div class="form-group col-md-3">
-              <label for="cboUsuario">Usuario</label>
-              <select id="cboUsuario" class="form-control" disabled></select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="cboFormaPago">Forma de Pago</label>
-              <select id="cboFormaPago" class="form-control" disabled></select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="cboEtapa">Etapa</label>
-              <select id="cboEtapa" class="form-control" disabled></select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="txtFecha">Fecha</label>
-              <input type="date" class="form-control text-center" id="txtFecha" required readonly>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="col-1"></div>
-  </div>
-  <div class="container">
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <td>Pedido N°</td>
-          <td>Nombre</td>
-          <td>Descripcion</td>
-          <td>Cantidad</td>
-          <td>Precio</td>
-          <td>Subtotal</td>
-        </tr>
-      </thead>
-      <tbody id="listPedGenerados">
-      </tbody>
+  <main class="visuPed-design">
 
-    </table>
-    <label id="lblTotal"></label>
+    <h3 class="titPedi" id="titPedi"></h3>
+    <div id="filaPdfBuscar" class="filaPdfBuscar">
+      <a class="toPdf" href="javascript:pdfNuevo();"><img src="../Image/pdfRedMini.png" alt=""></a>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-md-10">
+        <div class="container">
+          <form id="frmaltaReceta">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="cboCliente" class="lblCbos">Cliente</label>
+                <select id="cboCliente" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="cboUsuario" class="lblCbos">Usuario</label>
+                <select id="cboUsuario" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="cboFormaPago" class="lblCbos">Forma de Pago</label>
+                <select id="cboFormaPago" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="cboEtapa" class="lblCbos">Etapa</label>
+                <select id="cboEtapa" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="txtFecha" class="lblCbos">Fecha</label>
+                <input type="date" class="form-control text-center" id="txtFecha" required readonly>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="container">
+      <table class="table table-bordered">
+        <thead class="text-center">
+          <tr>
+            <td><b>Descripcion</b></td>
+            <td><b>Cantidad</b></td>
+            <td><b>Precio</b></td>
+            <td><b>Subtotal</b></td>
+          </tr>
+        </thead>
+        <tbody id="listPedGenerados">
+        </tbody>
+      </table>
+
+    </div>
+    <label class="lblTotal" id="lblTotal"></label>
     <div class="row"></div>
-    <button type="button" class="btn btn-danger" id="btnCancelarPedido" hidden>Cancelar Pedido</button>
-    <button type="button" class="btn btn-success" id="btnConfirmarPedido" hidden>Confirmar Pedido</button>
-  </div>
+    <button type="button" class="btnConfPedi" id="btnConfirmarPedido" hidden>Confirmar Pedido</button>
+    <button type="button" class="btnCancPedi" id="btnCancelarPedido" hidden>Cancelar Pedido</button>
+  </main>
+
+
 
 
   <!-- Optional JavaScript -->
@@ -178,8 +190,145 @@
   <script src="../Js/cargarComboEtapa.js"></script>
   <script src="../Js/llenarDetallePedidoxId.js"></script>
   <script src="../Js/cancelarPedido.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script>
+    function pdfNuevo() {
+      const valores = window.location.search;
+
+      const urlParams = new URLSearchParams(valores);
+      let data = urlParams.get('id');
+      $.ajax({
+        url: 'https://localhost:5001/PedidoXid/' + data,
+        type: "GET",
+        success: function (result) {
+          if (result.ok) {
+            window.jsPDF = window.jspdf.jsPDF;
+            let pdf = new jsPDF();
+            let logo = new Image();
+            logo.src = '../Image/LasOmasLogo2.png';
+            pdf.addImage(logo, 'png', 175, 0, 20, 20);
+            pdf.setFontSize(18);
+            pdf.text('Pedido N°: ' + data, 80, 10);
+            pdf.setFontSize(12);
+
+            pdf.text('Cliente', 15, 30);
+            pdf.text('Usuario', 45, 30);
+            pdf.text('Forma de Pago', 90, 30);
+            pdf.text('Etapa', 140, 30);
+            pdf.text('Fecha', 175, 30);
+
+            let DetallesPedido = result.respuesta;
+
+            let yLine = 30;
+            let xCliente = 56;
+            let xUsuario = 15;
+            let xFormaPago = 135;
+            let xEtapa = 173;
+            let xFecha = 31;
 
 
+            for (detalle of DetallesPedido) {
+              yLine += 10;
+              let clie = detalle.idClienteNavigation.apellido + " " + detalle.idClienteNavigation.nombre;
+              let usua = detalle.idUsuarioNavigation.apellido + " " + detalle.idUsuarioNavigation.nombre;
+              let formPag = detalle.idFormaPagoNavigation.descripcion;
+              let etap = detalle.idEtapaNavigation.descripcion;
+
+              let fec = new Date(detalle.fecha);
+              //Convertir Fecha
+              const formatDate = (fec) => {
+                let dia = fec.getDate();
+                let mes = fec.getMonth() + 1;
+                let anio = fec.getFullYear();
+
+                if (dia < 10) {
+                  dia = '0' + dia;
+                }
+                if (mes < 10) {
+                  mes = '0' + mes;
+                }
+                let formatted_date = dia + '-' + mes + '-' + anio;
+
+                return formatted_date;
+              }
+
+              pdf.setFontSize(10);
+
+              pdf.text(clie, 15, 35);
+              pdf.text(usua, 45, 35);
+              pdf.text(formPag, 90, 35);
+              pdf.text(etap, 140, 35);
+              pdf.text(formatDate(fec), 175, 35);
+              pdf.line(5, yLine, 200, yLine);
+            }
+
+            $.ajax({
+              url: 'https://localhost:5001/Pedido/' + data,
+              type: "GET",
+              success: function (result) {
+                if (result.ok) {
+                  pdf.setFontSize(12);
+                  pdf.text('Descripción', 25, 50);
+                  pdf.text('Cantidad', 80, 50);
+                  pdf.text('Precio', 125, 50);
+                  pdf.text('Subtotal', 160, 50);
+                  pdf.line(5, 52, 200, 52);
+                  let detalles = result.respuesta;
+                  let yText = 50;
+                  let yLine = 55;
+                  let xDescripción = 25;
+                  let xCantidad = 85;
+                  let xPrecio = 130;
+                  let xSubtotal = 165;
+                  let acum = 0;
+                  for (detalle of detalles) {
+                    yText += 10;
+                    yLine += 10;
+                    let desc = detalle.idProductoNavigation.descripcion;
+                    let canti = detalle.cantidad.toString();
+                    let preci = detalle.precio.toString();
+                    let subto = canti * preci;
+                    acum += subto;
+                    pdf.setFontSize(10);
+
+                    pdf.text(desc, xDescripción, yText);
+                    pdf.text(canti, xCantidad, yText);
+                    pdf.text(preci, xPrecio, yText);
+                    pdf.text(subto.toString(), xSubtotal, yText);
+                    pdf.line(5, yLine, 200, yLine);
+                  }
+                  pdf.text("Total: $" + acum, 165, (yLine + 10));
+                  pdf.text("*Documento no valido como factura*", 75, 270);
+
+                  pdf.save('Pedido_N°_' + data + '_PDF');
+                }
+
+                else
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: result.error
+                  })
+              },
+              error: function (result) {
+
+              }
+            });
+          }
+
+          else
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: result.error
+            })
+        },
+        error: function (result) {
+
+        }
+      });
+    }
+  </script>
 </body>
 
 </html>

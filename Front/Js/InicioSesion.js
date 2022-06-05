@@ -19,8 +19,10 @@ $("#btnLogin").click(function(){
         let rol = usu.idRol;
         let nomUsu = usu.nombre;
         let apeUsu = usu.apellido;
+        let idUsu = usu.idUsuario;
         sessionStorage.setItem('rolActivo', rol);
         sessionStorage.setItem('UsuarioActivo', nomUsu + ' ' + apeUsu);
+        sessionStorage.setItem('IdUsuarioActivo', idUsu);
 
         if(rol == 1)
         {

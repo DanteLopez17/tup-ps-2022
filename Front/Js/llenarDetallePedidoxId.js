@@ -12,7 +12,7 @@ const urlParams = new URLSearchParams(valores);
 
 //Accedemos a los valores
 let data = urlParams.get('id');
-
+$("#titPedi").text('Pedido N° ' + data);
 $.ajax({
   url: 'https://localhost:5001/Pedido/' + data,
   type: "GET",
@@ -25,8 +25,6 @@ $.ajax({
       let acumTotal = 0;
         cuerpo.innerHTML = '';
         for(let detaPedi of detallesPedido){
-          let numPed = detaPedi.nroPedido
-          let nomPro = detaPedi.idProductoNavigation.nombre;
           let descPro = detaPedi.idProductoNavigation.descripcion;
           let pre = detaPedi.precio;
           let cant = detaPedi.cantidad;
@@ -71,12 +69,10 @@ $.ajax({
 
             cuerpo.innerHTML += `
             <tr>
-            <td>${numPed}</td>
-            <td>${nomPro}</td>
             <td>${descPro}</td>
-            <td>$${pre}</td>
-            <td>${cant}</td>
-            <td>$${subto}</td>
+            <td class='cpoIzquierda'>${cant}</td>
+            <td class='cpoIzquierda'>$${pre}</td>
+            <td class='cpoIzquierda'>$${subto}</td>
             </tr>
             `
         }
