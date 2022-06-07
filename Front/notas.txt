@@ -24,10 +24,10 @@ Camino General
   - Listado de Pedido: Paginacion OK- Filtros de busqueda OK- exportar a pdf OK - Que no falta 1 registro en el numero de pedido (22/23/24/27/28/29/)
   - Modificar pedido: boton cancelar devolver la cantidad al stock disponible OK - precio, cantidad, subtotal y total a la Derecha OK - agregar pregunta al confirmar y cancelar pedido OK - exportar a pdf  OK
 8) Modulo Reporte:
-  - Reporte Ranking Clientes: Pantalla
-  - Reporte Ranking Usuarios: Pantalla
-  - Reporte Ranking Productos (ver de agregar clasificacion): Pantalla
-  - Reporte Ranking Ventas por tipo de forma de pago: Pantalla y Back
+  - Reporte Ranking Clientes: Pantalla OK
+  - Reporte Ranking Usuarios: Pantalla OK
+  - Reporte Ranking Productos (ver de agregar clasificacion): Pantalla OK
+  - Reporte Ranking Ventas por tipo de forma de pago: Pantalla y Back VER
 9) Otros:
   - Pantalla Mi Perfil: Pantalla y Back - Logout
   - Pantalla Preguntas Frecuentes

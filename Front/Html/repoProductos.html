@@ -112,7 +112,7 @@
     </div>
   </nav>
   <main id="cuerpoCompleto" class="reportes-design">
-    <h4 class="titRanking">Ranking de Usuarios</h4>
+    <h4 class="titRanking">Productos más vendidos</h4>
     <div class="container">
       <form id="miForm">
         <div class="form-row">
@@ -140,13 +140,13 @@
             <table id="myTable" class="table table-bordered text-center">
               <thead>
                 <tr>
-                  <td><b>Nombre</b></td>
-                  <td><b>Apellido</b></td>
+                  <td><b>Descripción</b></td>
+                  <td><b>Clasificación</b></td>
                   <td><b>Total Recaudado</b></td>
-                  <td><b>Cantidad de ventas</b></td>
+                  <td><b>Articulos vendidos</b></td>
                 </tr>
               </thead>
-              <tbody id="listUsuarioRepo">
+              <tbody id="listProductosRepo">
               </tbody>
             </table>
           </div>
@@ -154,7 +154,7 @@
         <div class="col-md-6">
           <div class="graficoReporte">
             <div>
-              <canvas id="myChart"></canvas>
+              <canvas class="graficoTorta" id="myChart"></canvas>
             </div>
           </div>
         </div>
@@ -188,8 +188,8 @@
       window.location.href = "../Html/login.html";
     })
   </script>
-  <script src="../Js/repoUsuario.js"></script>
-  <script src="../Js/reporteUsuarioChart.js"></script>
+  <script src="../Js/repoProducto.js"></script>
+  <script src="../Js/reporteProductoChart.js"></script>
   <script>
     const now = new Date();
     const dia = `0${now.getDate()}`.slice(-2);
@@ -211,7 +211,7 @@
       logo.src = '../Image/LasOmasLogo2.png';
       pdf.addImage(logo, 'png', 175, 0, 20, 20);
       pdf.setFontSize(18);
-      pdf.text('Ranking de Usuarios', 80, 10);
+      pdf.text('Productos más vendidos', 70, 10);
       pdf.setFontSize(12);
       pdf.line(5, 20, 200, 20);
       let fecDesd = $("#dtpFecDesde").val();
@@ -231,10 +231,10 @@
       html2canvas(document.querySelector("#myTable")).then(canvas => {
         //  document.body.appendChild(canvas)
         // let tabla = canvas;
-        pdf.addImage(canvas, 'png', 25, 50, 160, 60);
+        pdf.addImage(canvas, 'png', 25, 50, 160, 80);
         html2canvas(document.querySelector("#myChart")).then(canvas => {
-          pdf.addImage(canvas, 'png', 25, 150, 160, 60);
-          pdf.save('RankingUsuariosPDF');
+          pdf.addImage(canvas, 'png', 55, 150, 100, 80);
+          pdf.save('ProductosMásVendidosPDF');
         });
 
       });

@@ -634,8 +634,14 @@ div #filaPdfBuscar{
   margin-top: 5px;
   color: #480CA8;
 }
+.reportes-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
 .resultado{
-  margin: 10px;
+  margin: 20px;
 }
 .btnConsultar{
   border-radius: 3rem;
@@ -659,3 +665,9 @@ div #filaPdfBuscar{
   background-color: transparent;
   color: #480CA8;
 }
+.graficoReporte{
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+}
+

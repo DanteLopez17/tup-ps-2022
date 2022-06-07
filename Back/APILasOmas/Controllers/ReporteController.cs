@@ -51,6 +51,7 @@ public class ReporteController : ControllerBase
                        join _clientes in bd.Clientes on _pedidos.IdCliente equals _clientes.IdCliente
                        join _detalles in bd.Detallepedidos on _pedidos.NroPedido equals _detalles.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
+                            && _pedidos.IdEtapa == 2
                        group _detalles by new { _pedidos.IdCliente, _pedidos.IdClienteNavigation.Apellido, _pedidos.IdClienteNavigation.Nombre } into g
                        orderby g.Sum(x => x.Cantidad + x.Precio) descending
                        select new
@@ -109,9 +110,16 @@ public class ReporteController : ControllerBase
                        join _productos in bd.Productos on _detalles.IdProducto equals _productos.IdProducto
                        join _pedidos in bd.Pedidos on _detalles.NroPedido equals _pedidos.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
-                       group _detalles by new { _detalles.IdProducto, _detalles.IdProductoNavigation.Nombre, _detalles.IdProductoNavigation.Descripcion } into g
-                       orderby g.Sum(x => x.Cantidad) descending
-                       select new { Producto = g.Key, total = g.Sum(x => x.Cantidad) }
+                          && _pedidos.IdEtapa == 2
+                       group _detalles by new { _detalles.IdProducto, clasificacion = _detalles.IdProductoNavigation.IdClasificacionNavigation.Descripcion, _detalles.IdProductoNavigation.Descripcion } into g
+                       orderby g.Sum(x => x.Cantidad * x.Precio) descending
+                       select new
+                       {
+                         Producto = g.Key,
+                         cantidad = g.Sum(x => x.Cantidad),
+                         total = g.Sum(x => x.Cantidad * x.Precio)
+
+                       }
                         );
 
     if (consultados != null)
@@ -143,6 +151,7 @@ public class ReporteController : ControllerBase
     var consultados = (from _detalles in bd.Detallepedidos
                        join _pedidos in bd.Pedidos on _detalles.NroPedido equals _pedidos.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
+                          && _pedidos.IdEtapa == 2
                        group _detalles by new { _pedidos.IdUsuario, _pedidos.IdUsuarioNavigation.Nombre, _pedidos.IdUsuarioNavigation.Apellido } into g
                        orderby g.Sum(x => x.Cantidad * x.Precio) descending
                        select new
