@@ -52,7 +52,7 @@ public class ReporteController : ControllerBase
                        join _detalles in bd.Detallepedidos on _pedidos.NroPedido equals _detalles.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
                        group _detalles by new { _pedidos.IdCliente, _pedidos.IdClienteNavigation.Apellido, _pedidos.IdClienteNavigation.Nombre } into g
-                       orderby g.Sum(x => x.Cantidad + x.Precio)
+                       orderby g.Sum(x => x.Cantidad + x.Precio) descending
                        select new
                        {
                          idCliente = g.Key,
@@ -70,6 +70,7 @@ public class ReporteController : ControllerBase
     /*
     Listado de Clientes con más gasto en un periodo de tiempo
     parametros: '2022-05-09' // '2022-05-17'
+    Este es uno
     */
 
     return respuesta;
@@ -109,6 +110,7 @@ public class ReporteController : ControllerBase
                        join _pedidos in bd.Pedidos on _detalles.NroPedido equals _pedidos.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
                        group _detalles by new { _detalles.IdProducto, _detalles.IdProductoNavigation.Nombre, _detalles.IdProductoNavigation.Descripcion } into g
+                       orderby g.Sum(x => x.Cantidad) descending
                        select new { Producto = g.Key, total = g.Sum(x => x.Cantidad) }
                         );
 
@@ -121,6 +123,7 @@ public class ReporteController : ControllerBase
     /*
     Listado de articulos mas vendidos en un periodo de tiempo
     parametros: '2022-05-09' // '2022-05-17'
+    Laprida y Velez Sarsfield
     */
 
     return respuesta;
@@ -141,7 +144,7 @@ public class ReporteController : ControllerBase
                        join _pedidos in bd.Pedidos on _detalles.NroPedido equals _pedidos.NroPedido
                        where _pedidos.Fecha >= param1 && _pedidos.Fecha <= param2
                        group _detalles by new { _pedidos.IdUsuario, _pedidos.IdUsuarioNavigation.Nombre, _pedidos.IdUsuarioNavigation.Apellido } into g
-                       orderby g.Sum(x => x.Cantidad * x.Precio)
+                       orderby g.Sum(x => x.Cantidad * x.Precio) descending
                        select new
                        {
                          Usuario = g.Key,
@@ -159,6 +162,7 @@ public class ReporteController : ControllerBase
     /*
     -- Recaudacion de usuarios en un periodo de tiempo
     parametros: '2022-05-09' // '2022-05-17'
+    Este es otro
     */
 
     return respuesta;

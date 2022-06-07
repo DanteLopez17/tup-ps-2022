@@ -560,3 +560,102 @@ div #filaPdfBuscar{
   background-color: white;
   color: #a80c19;
 }
+.miPerfil-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titPerfil{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.quienSom-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titBienvenida{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.btnGuardarPerfil{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.btnGuardarPerfil:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancPerfil{
+  border-radius: 3rem;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #a80c19;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+  margin-right: 50px;
+
+}
+.btnCancPerfil:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.titRanking{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5px;
+  color: #480CA8;
+}
+.resultado{
+  margin: 10px;
+}
+.btnConsultar{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.btnConsultar:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.toPdf:hover{
+  cursor: pointer;
+  background-color: transparent;
+  color: #480CA8;
+}

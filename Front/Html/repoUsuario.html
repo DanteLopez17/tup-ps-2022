@@ -9,14 +9,11 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Css/datatable.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="../Css/normalize.css">
   <link rel="stylesheet" href="../Css/estilosNuevos.css">
   <link rel="icon" href="../Image/LogoLasOmasONG11.png">
-
   <title>Las Omas ONG</title>
 </head>
 
@@ -90,8 +87,9 @@
             Reportes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Reporte 1</a>
-            <a class="dropdown-item" href="#">Reporte 2</a>
+            <a class="dropdown-item" href="repoCliente.html">Ranking de Clientes</a>
+            <a class="dropdown-item" href="repoUsuario.html">Ranking de Usuarios</a>
+            <a class="dropdown-item" href="repoProductos.html">Productos más vendidos</a>
           </div>
         </li>
       </ul>
@@ -104,7 +102,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="miPerfil.html">Mi cuenta</a>
-              <a class="dropdown-item" href="#">Cerrar sesion</a>
+              <a class="dropdown-item" id="btnLogout" href="#">Cerrar sesion</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -113,30 +111,59 @@
       </form>
     </div>
   </nav>
-  <main class="listPedi-design">
-    <h4 class="titListPedi">Listado de pedidos</h4>
-    <div class="container" id="listadoTablaPedido">
-      <div id="filaPdfBuscar" class="filaPdfBuscar">
-        <a class="toPdf" href="javascript:pdfNuevo();"><img src="../Image/pdfRedMini.png" alt=""></a>
-      </div>
-      <table class="table table-bordered text-center" id="tablaPedido">
-        <thead>
-          <tr class="text-center">
-            <td><b>Pedido N°</b></td>
-            <td><b>Fecha</b></td>
-            <td><b>Cliente</b></td>
-            <td><b>Usuario</b></td>
-            <td><b>Forma de Pago</b></td>
-            <td><b>Etapa</b></td>
-            <td><b>Visualizar</b></td>
-          </tr>
-        </thead>
-        <tbody id="listPedidos">
-        </tbody>
-      </table>
+  <main id="cuerpoCompleto" class="miPerfil-design">
+    <h4 class="titRanking">Ranking de Usuarios</h4>
+    <div class="container">
+      <form id="miForm">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="txtNombre"><b>Desde</b></label>
+            <input type="date" class="form-control" id="dtpFecDesde" min="2018-01-01" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="txtApellido"><b>Hasta</b></label>
+            <input type="date" class="form-control" id="dtpFecHasta" required>
+          </div>
+          <div class="form-group col-md-4">
+            <button type="button" class="btnConsultar" id="btnConsultar" onclick="grafico()">Consultar</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </main>
+    <div id="download" class="resultado" hidden>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tablaReporte">
+            <div id="filaPdfBuscar" class="filaPdfBuscar">
+              <a class="toPdf" onclick="capturaPantalla()"><img src="../Image/pdfRedMini.png" alt="" height="30px"></a>
+            </div>
+            <table id="myTable" class="table table-bordered text-center">
+              <thead>
+                <tr>
+                  <td><b>Nombre</b></td>
+                  <td><b>Apellido</b></td>
+                  <td><b>Total Recaudado</b></td>
+                  <td><b>Cantidad de ventas</b></td>
+                </tr>
+              </thead>
+              <tbody id="listUsuarioRepo">
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="graficoReporte">
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
 
+
+    </div>
+
+  </main>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -148,113 +175,73 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaPedidos.js"></script>
-  <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="../Js/canvas.js"></script>
   <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-
   <script>
-    $(document).ready(function () {
-      $('#tablaPedido').DataTable({
-        "scrollY": "300px",
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ elementos por página",
-          "info": "Página _PAGE_ de _PAGES_",
-          "infoFiltered": "(filtrado de un total de _MAX_ )",
-          "search": "Buscar&nbsp;:",
-          "infoEmpty": "No se encontraron datos..",
-          "zeroRecords": "No se encontraron datos con tu busqueda",
-          "paginate": {
-            "previous": "Anterior",
-            "next": "Siguiente",
-          }
-        },
-        "order": [[0, 'desc'], [1, 'desc']]
-      });
-    });
+    $("#btnLogout").click(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+      window.location.href = "../Html/login.html";
+    })
+  </script>
+  <script src="../Js/repoUsuario.js"></script>
+  <script src="../Js/reporteUsuarioChart.js"></script>
+  <script>
+    const now = new Date();
+    const dia = `0${now.getDate()}`.slice(-2);
+    const mes = `0${now.getMonth() + 1}`.slice(-2);
+    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+    // $("#dtpFecDesde").val("2018-01-01");
+   // $("#dtpFecHasta").val(hoy);
   </script>
   <script>
-    function pdfNuevo() {
-      $.ajax({
-        url: 'https://localhost:5001/Pedido/listadoPedidos',
-        type: "GET",
-        success: function (result) {
-          if (result.ok) {
-            window.jsPDF = window.jspdf.jsPDF;
-            let pdf = new jsPDF();
-            let logo = new Image();
-            logo.src = '../Image/LasOmasLogo2.png';
-            pdf.addImage(logo, 'png', 175, 0, 20, 20);
-            pdf.setFontSize(18);
-            pdf.text('Listado de Pedidos', 80, 10);
-            pdf.setFontSize(12);
-            pdf.line(5, 20, 200, 20);
-            pdf.text('N° Pedido', 5, 30);
-            pdf.text('Fecha', 34, 30);
-            pdf.text('Cliente', 60, 30);
-            pdf.text('Usuario', 100, 30);
-            pdf.text('Forma de pago', 135, 30);
-            pdf.text('Etapa', 175, 30);
-            pdf.line(5, 35, 200, 35);
-            let pedidos = result.respuesta;
-            let yText = 30;
-            let yLine = 35;
-            let xNumPedi = 15;
-            let xFecha = 31;
-            let xCliente = 56;
-            let xUsuario = 96;
-            let xFormaPago = 135;
-            let xEtapa = 173;
-            for (pedido of pedidos) {
-              yText += 10;
-              yLine += 10;
-              let numPe = pedido.nroPedido.toString();
-              let fec = new Date(pedido.fecha);
-              //Convertir Fecha
-              const formatDate = (fec) => {
-                let dia = fec.getDate();
-                let mes = fec.getMonth() + 1;
-                let anio = fec.getFullYear();
+    function capturaPantalla() {
+      const now = new Date();
+      const dia = `0${now.getDate()}`.slice(-2);
+      const mes = `0${now.getMonth() + 1}`.slice(-2);
+      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
 
-                if (dia < 10) {
-                  dia = '0' + dia;
-                }
-                if (mes < 10) {
-                  mes = '0' + mes;
-                }
-                let formatted_date = dia + '-' + mes + '-' + anio;
+      window.jsPDF = window.jspdf.jsPDF;
+      let pdf = new jsPDF();
+      let logo = new Image();
+      logo.src = '../Image/LasOmasLogo2.png';
+      pdf.addImage(logo, 'png', 175, 0, 20, 20);
+      pdf.setFontSize(18);
+      pdf.text('Ranking de Usuarios', 80, 10);
+      pdf.setFontSize(12);
+      pdf.line(5, 20, 200, 20);
+      let fecDesd = $("#dtpFecDesde").val();
+      if (fecDesd == "") {
+        fecDesd = "2018-01-01"
+      }
 
-                return formatted_date;
-              }
-              let cli = pedido.idClienteNavigation.apellido + " " + pedido.idClienteNavigation.nombre;
-              let usu = pedido.idUsuarioNavigation.apellido + " " + pedido.idUsuarioNavigation.nombre;
-              let formPa = pedido.idFormaPagoNavigation.descripcion;
-              let eta = pedido.idEtapaNavigation.descripcion;
-              pdf.setFontSize(10);
+      pdf.text('Desde: ' + fecDesd, 45, 30);
+      let fecHast = $("#dtpFecHasta").val();
+      if (fecHast == "") {
+        fecHast = hoy
+      }
+      pdf.text('Hasta: ' + fecHast, 125, 30);
 
-              pdf.text(numPe, xNumPedi, yText);
-              pdf.text(formatDate(fec), xFecha, yText);
-              pdf.text(cli, xCliente, yText);
-              pdf.text(usu, xUsuario, yText);
-              pdf.text(formPa, xFormaPago, yText);
-              pdf.text(eta, xEtapa, yText);
-              pdf.line(5, yLine, 200, yLine);
-            }
-            pdf.save('ListadoPedidosPDF');
-          }
+      pdf.line(5, 35, 200, 35);
 
-          else
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: result.error
-            })
-        },
-        error: function (result) {
+      html2canvas(document.querySelector("#myTable")).then(canvas => {
+        //  document.body.appendChild(canvas)
+        // let tabla = canvas;
+        pdf.addImage(canvas, 'png', 25, 50, 160, 60);
+        html2canvas(document.querySelector("#myChart")).then(canvas => {
+          pdf.addImage(canvas, 'png', 25, 150, 160, 60);
+          pdf.save('RankingUsuariosPDF');
+        });
 
-        }
       });
+
     }
   </script>
+
 
 </body>
 
