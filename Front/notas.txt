@@ -29,11 +29,15 @@ Camino General
   - Reporte Ranking Productos (ver de agregar clasificacion): Pantalla OK
   - Reporte Ranking Ventas por tipo de forma de pago: Pantalla y Back VER
 9) Otros:
-  - Pantalla Mi Perfil: Pantalla y Back - Logout
-  - Pantalla Preguntas Frecuentes
-  - Pantalla Terminos y condiciones
+  - Pantalla Mi Perfil: Pantalla y Back - OK
+  - Pantalla Preguntas Frecuentes - OK
+    *Como puedo cambiar mi contraseña // OK
+    *Donde puedo hacer la carga de nuevos Clientes // OK
+    *Como modifico los datos de un usuario // OK
+    *Que productos estan disponibles y cuales no? // OK 
+    *Como obtener un reporte de Clientes // OK
+  - Pantalla Terminos y condiciones OK
   - Pantalla con informacion Organizacional (quienes somos / mision / Donaciones)
-  - Revisar los redireccionamientos de todas las paginas
-  - Revisar los permisos de ambos usuarios
-
+  - Revisar los redireccionamientos de todas las paginas OK
+  - Revisar los permisos de ambos usuarios 
 Camino Vendedor 

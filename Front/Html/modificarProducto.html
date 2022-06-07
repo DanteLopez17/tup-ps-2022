@@ -37,9 +37,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
-            <a class="dropdown-item" href="#">Nuestra mision</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Donaciones</a>
+            <a class="dropdown-item" href="donaciones.html">Donaciones</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -88,8 +87,19 @@
             Reportes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Reporte 1</a>
-            <a class="dropdown-item" href="#">Reporte 2</a>
+            <a class="dropdown-item" href="repoCliente.html">Ranking de Clientes</a>
+            <a class="dropdown-item" href="repoUsuario.html">Ranking de Usuarios</a>
+            <a class="dropdown-item" href="repoProductos.html">Productos más vendidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ayuda
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="preguntasFrecuentes.html">Preguntas frecuentes</a>
+            <a class="dropdown-item" href="terminosYCondiciones.html">Terminos y condiciones</a>
           </div>
         </li>
       </ul>
@@ -102,7 +112,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="miPerfil.html">Mi cuenta</a>
-              <a class="dropdown-item" href="#">Cerrar sesion</a>
+              <a class="dropdown-item" id="btnLogout" href="#">Cerrar sesion</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -177,6 +187,15 @@
   <script src="../Js/cargarComboClasif.js"></script>
   <script src="../Js/productoxid.js"></script>
   <script src="../Js/actualizarProducto.js"></script>
+  <script>
+    $("#btnLogout").click(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+      window.location.href = "../Html/login.html";
+    })
+  </script>
 
 </body>
 

@@ -670,4 +670,27 @@ div #filaPdfBuscar{
   width: 500px;
   margin: 0 auto;
 }
-
+.Faqs-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titPreguntasFrecuentes{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 30px;
+}
+.TermYCond-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+#contenedor{
+  height:400px;
+  overflow-y: scroll;
+}

@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="../Css/normalize.css">
   <link rel="stylesheet" href="../Css/estilosNuevos.css">
   <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+
   <title>Las Omas ONG</title>
 </head>
 
@@ -37,7 +38,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="d">Donaciones</a>
+            <a class="dropdown-item" href="donaciones.html">Donaciones</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -46,7 +47,7 @@
             Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
+            <a id="accesoAltaUsuario" class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
             <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
           </div>
         </li>
@@ -120,59 +121,106 @@
       </form>
     </div>
   </nav>
-  <main id="cuerpoCompleto" class="reportes-design">
-    <h4 class="titRanking">Ranking de Clientes</h4>
+  <main class="Faqs-design">
+    <h3 class="titPreguntasFrecuentes">Preguntas frecuentes</h3>
     <div class="container">
-      <form id="miForm">
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <label for="txtNombre"><b>Desde</b></label>
-            <input type="date" class="form-control" id="dtpFecDesde" min="2018-01-01" required>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                aria-controls="collapseOne">
+                ¿Donde puedo hacer el alta de nuevos Clientes?
+              </button>
+            </h5>
           </div>
-          <div class="form-group col-md-4">
-            <label for="txtApellido"><b>Hasta</b></label>
-            <input type="date" class="form-control" id="dtpFecHasta" required>
-          </div>
-          <div class="form-group col-md-4">
-            <button type="button" class="btnConsultar" id="btnConsultar" onclick="grafico()">Consultar</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div id="download" class="resultado" hidden>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="tablaReporte">
-            <div id="filaPdfBuscar" class="filaPdfBuscar">
-              <a class="toPdf" onclick="capturaPantalla()"><img src="../Image/pdfRedMini.png" alt="" height="30px"></a>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              Para realizar el alta de nuevos clientes, debe haber iniciado sesión previamente con su usuario y
+              contraseña, una vez en el sistema se debe dirigir hacia el menu desplegable superior, en la opcion
+              "Cliente" debe hacer click y seleccionar la opcion "Alta de Cliente", de esta manera sera redireccionad@
+              al formulario de alta de Clientes.
+              O tambien podra hacer click en el siguiente enlace: <a href="altaCliente.html">Alta de Cliente</a>.
             </div>
-            <table id="myTable" class="table table-bordered text-center">
-              <thead>
-                <tr>
-                  <td><b>Nombre</b></td>
-                  <td><b>Apellido</b></td>
-                  <td><b>Total Gastado</b></td>
-                  <td><b>Cantidad de visitas</b></td>
-                </tr>
-              </thead>
-              <tbody id="listClienteRepo">
-              </tbody>
-            </table>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="graficoReporte">
-            <div>
-              <canvas id="myChart"></canvas>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                ¿Cómo modifico los datos de un usuario?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              Para modificar los datos de un usuario se debe dirigir al listado de los mismos. Para encontrar el usuario
+              que desea modificar puede hacerlo mediante el buscador o directamente "scrolleando" en la tabla del
+              listado. Una vez encontrado el usuario a modificar, debe hacer click en el icono del "ojo" y sera
+              redirecciona@ al formulario de modificación del usuario seleccionado.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                ¿Cómo puedo cambiar mi contraseña?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              Para modificar su contraseña usted debera hacer click en el icono del perfil, alli se desplegaran las
+              opciones y hara click en la opcion "Mi cuenta", redireccionandol@ hacia el formulario de actualizacion de
+              perfil, donde, entre otros datos, estara el campo para modificar la contraseña.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseFour">
+                ¿Que productos estan disponibles y cuales no?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              Para saber cuales son los productos que se encuentran disponibles y cuales no, usted podra ingresar al
+              listado de productos ubicado en la opcion del menu superior "Producto", alli se desplegaran las opciones y
+              usted seleccionara la opción listado de productos. Una vez en la página del listado, usted podra observar
+              un listado detallado de nuestros productos y ademas cuales se encuentran activos y cuales no.
+              Tambien puede dirigirse hacia el listado desde el siguiente Link: <a href="listadoProductos.html">Listado
+                de Productos</a>.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive"
+                aria-expanded="false" aria-controls="collapseFive">
+                ¿Cómo obtener un reporte de Clientes?
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+            <div class="card-body">
+              Para obtener un reporte de los clientes usted podra ingresar al menu superior en la opcion de "Reportes",
+              alli seleccionara el reporte de "Ranking de Clientes", esto lo redirigira hacia la página donde usted
+              podra filtrar el reporte de acuerdo a la fecha que usted necesite.
+              Tambien puede ingresar desde el siguiente Link: <a href="repoCliente.html">Ranking de Clientes</a>.
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
-
   </main>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -184,10 +232,6 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-  <script src="../Js/canvas.js"></script>
-  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
   <script>
     $("#btnLogout").click(function () {
       let rol = 0;
@@ -197,60 +241,6 @@
       window.location.href = "../Html/login.html";
     })
   </script>
-  <script src="../Js/repoCliente.js"></script>
-  <script src="../Js/reporteClienteChart.js"></script>
-  <script>
-    const now = new Date();
-    const dia = `0${now.getDate()}`.slice(-2);
-    const mes = `0${now.getMonth() + 1}`.slice(-2);
-    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
-    // $("#dtpFecDesde").val("2018-01-01");
-   // $("#dtpFecHasta").val(hoy);
-  </script>
-  <script>
-    function capturaPantalla() {
-      const now = new Date();
-      const dia = `0${now.getDate()}`.slice(-2);
-      const mes = `0${now.getMonth() + 1}`.slice(-2);
-      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
-
-      window.jsPDF = window.jspdf.jsPDF;
-      let pdf = new jsPDF();
-      let logo = new Image();
-      logo.src = '../Image/LasOmasLogo2.png';
-      pdf.addImage(logo, 'png', 175, 0, 20, 20);
-      pdf.setFontSize(18);
-      pdf.text('Ranking de Clientes', 80, 10);
-      pdf.setFontSize(12);
-      pdf.line(5, 20, 200, 20);
-      let fecDesd = $("#dtpFecDesde").val();
-      if (fecDesd == "") {
-        fecDesd = "2018-01-01"
-      }
-
-      pdf.text('Desde: ' + fecDesd, 45, 30);
-      let fecHast = $("#dtpFecHasta").val();
-      if (fecHast == "") {
-        fecHast = hoy
-      }
-      pdf.text('Hasta: ' + fecHast, 125, 30);
-
-      pdf.line(5, 35, 200, 35);
-
-      html2canvas(document.querySelector("#myTable")).then(canvas => {
-        //  document.body.appendChild(canvas)
-        // let tabla = canvas;
-        pdf.addImage(canvas, 'png', 25, 50, 160, 60);
-        html2canvas(document.querySelector("#myChart")).then(canvas => {
-          pdf.addImage(canvas, 'png', 25, 150, 160, 60);
-          pdf.save('RankingClientesPDF');
-        });
-
-      });
-
-    }
-  </script>
-
 
 </body>
 
