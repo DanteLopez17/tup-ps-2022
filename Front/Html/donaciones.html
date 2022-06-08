@@ -41,7 +41,7 @@
             <a class="dropdown-item" href="donaciones.html">Donaciones</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" id="moduloAdmin" hidden>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Usuario
@@ -81,7 +81,7 @@
             <a class="dropdown-item" href="listadoPedido.html">Listado Pedidos</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" id="moduloAdminRepo" hidden>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Reportes
@@ -121,7 +121,38 @@
       </form>
     </div>
   </nav>
-  <p>Donaciones</p>
+  <main class="donaciones-design">
+    <h2 class="titAyudanos">Ayudanos a Ayudar!</h2>
+    <h3 class="titCbu">Datos para realizar tu donación</h3>
+    <p class="pDonaciones">
+      Alias: BAMBU.OSO.LLAVE
+      <br>
+      Cbu: 0340070808709862737009
+    </p>
+    <hr>
+    <h3 class="titRecibimos">Recibimos donaciones de diferentes tipos</h3>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-9">
+        <ul class="ulDonaciones">
+          <li>Materiales de construcción</li>
+          <li>Utiles escolares</li>
+          <li>Ropa en buenas condiciones</li>
+          <li>Abrigos</li>
+          <li>Frazadas</li>
+          <li>Medias</li>
+          <li>Residuos textiles (ropa de algodon o toallas en desuso)</li>
+          <li>Trapos para uso Industrial</li>
+        </ul>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+
+
+    <h3 class="msjFin">Con tu donación estas colaborando para que muchas mujeres puedan generar su propio sustento</h3>
+
+
+  </main>
 
 
   <!-- Optional JavaScript -->
@@ -142,6 +173,14 @@
       sessionStorage.setItem('IdUsuarioActivo', null);
       window.location.href = "../Html/login.html";
     })
+  </script>
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol == 1) {
+      document.getElementById("moduloAdmin").removeAttribute("hidden");
+      document.getElementById("moduloAdminRepo").removeAttribute("hidden");
+
+    }
   </script>
 
 </body>

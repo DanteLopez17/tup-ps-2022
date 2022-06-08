@@ -24,14 +24,9 @@ $("#btnLogin").click(function(){
         sessionStorage.setItem('UsuarioActivo', nomUsu + ' ' + apeUsu);
         sessionStorage.setItem('IdUsuarioActivo', idUsu);
 
-        if(rol == 1)
+        if(rol == 1 || rol == 2)
         {
-          window.location.href = "../Html/quienesSomos.html";
-        }
-        else
-        if(rol == 2)
-        {
-          window.location.href = "../Html/listadoProductos.html";
+          window.location.href = "../Html/inicio.html";
         }
         else
         {

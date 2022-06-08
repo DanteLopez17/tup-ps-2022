@@ -16,8 +16,8 @@ body{
   align-items: center;
 }
 .centro{
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -25,7 +25,7 @@ body{
   padding-bottom: 10px;
 }
 .centro .titulo{
-  font-size: 45px;
+  font-size: 30px;
   color: #480CA8;
   margin-bottom: 40px;
 }
@@ -34,7 +34,7 @@ body{
   margin-bottom: 40px;
 }
 .centro .txtParrafo{
-  font-size: 30px;
+  font-size: 20px;
   color: #480CA8;
 }
 .derecha{
@@ -693,4 +693,80 @@ div #filaPdfBuscar{
 #contenedor{
   height:400px;
   overflow-y: scroll;
+}
+.titQuienesSomos{
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 30px;
+  margin-left: 100PX;
+}
+.pMision{
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+.card{
+  margin: 0 auto;
+  width: 20rem;
+}
+.contactenos{
+  display: grid;
+  grid-template-columns: repeat(2,50%);
+}
+
+.titMediosContacto{
+  margin: 20px;
+}
+#iconoIg{
+  margin: 20px;
+}
+#iconoFb{
+  margin: 20px;
+}
+#iconoEm{
+  margin: 20px;
+}
+#iconoUbi{
+  margin: 20px;
+}
+.donaciones-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titAyudanos{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+}
+.titCbu{
+  margin-left: 190px;
+  color: #480CA8;
+  font-size: 30px;
+}
+.pDonaciones{
+  margin-left: 190px;
+  color: #480CA8;
+  font-size: 25px;
+}
+.titRecibimos{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #480CA8;
+}
+.ulDonaciones{
+  align-items: right;
+  justify-content: center;
+  color: #480CA8;
+  font-size: 20px;
+}
+.msjFin{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+  color: #480CA8;
 }

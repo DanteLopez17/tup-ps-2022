@@ -14,6 +14,16 @@
   <link rel="stylesheet" href="../Css/normalize.css">
   <link rel="stylesheet" href="../Css/estilosNuevos.css">
   <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol != 1 && rol != 2) {
+      window.location.replace("../Html/login.html");
+    }
+    if (rol == 2) {
+      window.location.href = "javascript:history.go(-1);";
+    }
+
+  </script>
   <title>Las Omas ONG</title>
 </head>
 

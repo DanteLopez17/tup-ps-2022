@@ -23,6 +23,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
     integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol != 1 && rol != 2) {
+      window.location.replace("../Html/login.html");
+    }
+    if (rol == 2) {
+      window.location.href = "javascript:history.go(-1);";
+    }
+
+  </script>
   <title>Las Omas ONG</title>
 </head>
 
