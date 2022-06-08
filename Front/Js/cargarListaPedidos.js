@@ -5,6 +5,7 @@ $.ajax({
     if (result.ok) {
       let pedidos = result.respuesta;
       for (var i = 0; i < pedidos.length; i++) {
+        
         let html = "<tr>";
         html += "<td>" + pedidos[i].nroPedido + "</td>"
 

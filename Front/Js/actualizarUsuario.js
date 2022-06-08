@@ -77,10 +77,11 @@ $("#btnModificarUsuario").click(function () {
     data: JSON.stringify(usua),
     success: function (result) {
       if (result.ok) {
-        swal("Felicitaciones!", "Usuario actualizado Correctamente!", "success");
-        setTimeout(function(){
+      swal("Felicitaciones!", "Usuario actualizado Correctamente!", "success").then((confirmar) => {
+        if (confirmar) {
           window.location.replace("../Html/listadoUsuarios.html");
-      }, 2000);
+        }
+      });
         
       }
       else

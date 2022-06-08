@@ -42,14 +42,9 @@ Camino General
   - Revisar los permisos de ambos usuarios OK
 Camino Vendedor 
 
-Prohibiciones al rol Vendedor
-- Modulo Usuario
-- Modulo Reportes
-
-
 -- Pantalla quienes somos y donaciones vacias OK
--- Revisar las redirecciones abruptas de las altas a los listados 
--- Agregar Registros de Pedidos para que no falten nroPedido (22/23/24/27/28/29/) ver si faltan mas
--- Ver de Agregar ranking de ventas por tipo de forma de pago : BACK Y front
+-- Revisar las redirecciones abruptas de las altas a los listados  OK
+-- Agregar Registros de Pedidos para que no falten nroPedido OK
+-- Ver de agregar Datatable al listado de usuarios OK
 
 

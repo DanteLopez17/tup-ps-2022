@@ -70,10 +70,11 @@ $("#btnModificarProducto").click(function () {
     data: JSON.stringify(product),
     success: function (result) {
       if (result.ok) {
-        swal("Felicitaciones!", "Producto actualizado Correctamente!", "success");
-        setTimeout(function(){
+      swal("Felicitaciones!", "Producto actualizado Correctamente!", "success").then((confirmar) => {
+        if (confirmar) {
           window.location.replace("../Html/listadoProductos.html");
-      }, 4000);
+        }
+      });
         
       }
       else
