@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../Css/main.css">
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+  <title>Login</title>
+</head>
+
+<body>
+  <main class="login-design">
+    <div class="waves">
+      <img src="../Image/logeandose1.png" alt="">
+    </div>
+    <div class="login">
+      <div class="login-data">
+        <img src="../Image/LasOmasLogo2.png" alt="">
+        <h1>Inicio de Sesión</h1>
+        <form action="#" class="login-form">
+          <div class="input-group">
+            <label class="input-fill">
+              <input type="email" name="txtEmail" id="txtEmail" required>
+              <span class="input-label">Correo Electrónico</span>
+              <i class="fa-solid fa-envelope"></i>
+            </label>
+          </div>
+          <div class="input-group">
+            <label class="input-fill">
+              <input type="password" name="txtClave" id="txtClave" required>
+              <span class="input-label">Contraseña</span>
+              <i class="fa-solid fa-lock"></i>
+            </label>
+          </div>
+          <input id="btnLogin" type="button" value="Iniciar Sesión" class="btn-login" />
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../Js/InicioSesion.js"></script>
+  <script>
+    $(document).ready(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+    })
+  </script>
+
+</body>
+
+</html>

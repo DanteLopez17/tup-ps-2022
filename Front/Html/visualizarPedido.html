@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="stylesheet" href="../Css/estilosNuevos.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol != 1 && rol != 2) {
+      window.location.replace("../Html/login.html");
+    }
+
+
+  </script>
+
+  <title>Las Omas ONG</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="inicio.html">
+      <img src="../Image/LogoLasOmasONG.png" width="75" height="75" alt="">
+    </a>
+    <a class="navbar-brand" href="inicio.html">Las Omas ONG</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            La ONG
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="donaciones.html">Donaciones</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" id="moduloAdmin" hidden>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Usuario
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
+            <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Cliente
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaCliente.html">Alta Cliente</a>
+            <a class="dropdown-item" href="listadoClientes.html">Listado Clientes</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Producto
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaProducto.html">Alta Producto</a>
+            <a class="dropdown-item" href="listadoProductos.html">Listado Productos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Pedido
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaPedido.html">Alta Pedido</a>
+            <a class="dropdown-item" href="listadoPedido.html">Listado Pedidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" id="moduloAdminRepo" hidden>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Reportes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="repoCliente.html">Ranking de Clientes</a>
+            <a class="dropdown-item" href="repoUsuario.html">Ranking de Usuarios</a>
+            <a class="dropdown-item" href="repoProductos.html">Productos más vendidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ayuda
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="preguntasFrecuentes.html">Preguntas frecuentes</a>
+            <a class="dropdown-item" href="terminosYCondiciones.html">Terminos y condiciones</a>
+          </div>
+        </li>
+      </ul>
+      <form id="LogoPerfil" class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="miPerfil.html">Mi cuenta</a>
+              <a class="dropdown-item" id="btnLogout" href="#">Cerrar sesion</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+          </li>
+        </ul>
+      </form>
+    </div>
+  </nav>
+  <main class="visuPed-design">
+
+    <h3 class="titPedi" id="titPedi"></h3>
+    <div id="filaPdfBuscar" class="filaPdfBuscar">
+      <a class="toPdf" href="javascript:pdfNuevo();"><img src="../Image/pdfRedMini.png" alt=""></a>
+    </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-md-10">
+        <div class="container">
+          <form id="frmaltaReceta">
+            <div class="form-row">
+              <div class="form-group col-md-3">
+                <label for="cboCliente" class="lblCbos">Cliente</label>
+                <select id="cboCliente" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="cboUsuario" class="lblCbos">Usuario</label>
+                <select id="cboUsuario" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="cboFormaPago" class="lblCbos">Forma de Pago</label>
+                <select id="cboFormaPago" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="cboEtapa" class="lblCbos">Etapa</label>
+                <select id="cboEtapa" class="form-control" disabled></select>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="txtFecha" class="lblCbos">Fecha</label>
+                <input type="date" class="form-control text-center" id="txtFecha" required readonly>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="container">
+      <table class="table table-bordered">
+        <thead class="text-center">
+          <tr>
+            <td><b>Descripcion</b></td>
+            <td><b>Cantidad</b></td>
+            <td><b>Precio</b></td>
+            <td><b>Subtotal</b></td>
+          </tr>
+        </thead>
+        <tbody id="listPedGenerados">
+        </tbody>
+      </table>
+
+    </div>
+    <label class="lblTotal" id="lblTotal"></label>
+    <div class="row"></div>
+    <button type="button" class="btnConfPedi" id="btnConfirmarPedido" hidden>Confirmar Pedido</button>
+    <button type="button" class="btnCancPedi" id="btnCancelarPedido" hidden>Cancelar Pedido</button>
+  </main>
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="../Js/cargarComboCliente.js"></script>
+  <script src="../Js/cargarComboUsuario.js"></script>
+  <script src="../Js/cargarComboFormaPago.js"></script>
+  <script src="../Js/cargarComboEtapa.js"></script>
+  <script src="../Js/llenarDetallePedidoxId.js"></script>
+  <script src="../Js/cancelarPedido.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script>
+    function pdfNuevo() {
+      const valores = window.location.search;
+
+      const urlParams = new URLSearchParams(valores);
+      let data = urlParams.get('id');
+      $.ajax({
+        url: 'https://localhost:5001/PedidoXid/' + data,
+        type: "GET",
+        success: function (result) {
+          if (result.ok) {
+            window.jsPDF = window.jspdf.jsPDF;
+            let pdf = new jsPDF();
+            let logo = new Image();
+            logo.src = '../Image/LasOmasLogo2.png';
+            pdf.addImage(logo, 'png', 175, 0, 20, 20);
+            pdf.setFontSize(18);
+            pdf.text('Pedido N°: ' + data, 80, 10);
+            pdf.setFontSize(12);
+
+            pdf.text('Cliente', 15, 30);
+            pdf.text('Usuario', 45, 30);
+            pdf.text('Forma de Pago', 90, 30);
+            pdf.text('Etapa', 140, 30);
+            pdf.text('Fecha', 175, 30);
+
+            let DetallesPedido = result.respuesta;
+
+            let yLine = 30;
+            let xCliente = 56;
+            let xUsuario = 15;
+            let xFormaPago = 135;
+            let xEtapa = 173;
+            let xFecha = 31;
+
+
+            for (detalle of DetallesPedido) {
+              yLine += 10;
+              let clie = detalle.idClienteNavigation.apellido + " " + detalle.idClienteNavigation.nombre;
+              let usua = detalle.idUsuarioNavigation.apellido + " " + detalle.idUsuarioNavigation.nombre;
+              let formPag = detalle.idFormaPagoNavigation.descripcion;
+              let etap = detalle.idEtapaNavigation.descripcion;
+
+              let fec = new Date(detalle.fecha);
+              //Convertir Fecha
+              const formatDate = (fec) => {
+                let dia = fec.getDate();
+                let mes = fec.getMonth() + 1;
+                let anio = fec.getFullYear();
+
+                if (dia < 10) {
+                  dia = '0' + dia;
+                }
+                if (mes < 10) {
+                  mes = '0' + mes;
+                }
+                let formatted_date = dia + '-' + mes + '-' + anio;
+
+                return formatted_date;
+              }
+
+              pdf.setFontSize(10);
+
+              pdf.text(clie, 15, 35);
+              pdf.text(usua, 45, 35);
+              pdf.text(formPag, 90, 35);
+              pdf.text(etap, 140, 35);
+              pdf.text(formatDate(fec), 175, 35);
+              pdf.line(5, yLine, 200, yLine);
+            }
+
+            $.ajax({
+              url: 'https://localhost:5001/Pedido/' + data,
+              type: "GET",
+              success: function (result) {
+                if (result.ok) {
+                  pdf.setFontSize(12);
+                  pdf.text('Descripción', 25, 50);
+                  pdf.text('Cantidad', 80, 50);
+                  pdf.text('Precio', 125, 50);
+                  pdf.text('Subtotal', 160, 50);
+                  pdf.line(5, 52, 200, 52);
+                  let detalles = result.respuesta;
+                  let yText = 50;
+                  let yLine = 55;
+                  let xDescripción = 25;
+                  let xCantidad = 85;
+                  let xPrecio = 130;
+                  let xSubtotal = 165;
+                  let acum = 0;
+                  for (detalle of detalles) {
+                    yText += 10;
+                    yLine += 10;
+                    let desc = detalle.idProductoNavigation.descripcion;
+                    let canti = detalle.cantidad.toString();
+                    let preci = detalle.precio.toString();
+                    let subto = canti * preci;
+                    acum += subto;
+                    pdf.setFontSize(10);
+
+                    pdf.text(desc, xDescripción, yText);
+                    pdf.text(canti, xCantidad, yText);
+                    pdf.text(preci, xPrecio, yText);
+                    pdf.text(subto.toString(), xSubtotal, yText);
+                    pdf.line(5, yLine, 200, yLine);
+                  }
+                  pdf.text("Total: $" + acum, 165, (yLine + 10));
+                  pdf.text("*Documento no valido como factura*", 75, 270);
+
+                  pdf.save('Pedido_N°_' + data + '_PDF');
+                }
+
+                else
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: result.error
+                  })
+              },
+              error: function (result) {
+
+              }
+            });
+          }
+
+          else
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: result.error
+            })
+        },
+        error: function (result) {
+
+        }
+      });
+    }
+  </script>
+  <script>
+    $("#btnLogout").click(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+      window.location.href = "../Html/login.html";
+    })
+  </script>
+  <script>
+    if (rol == 1) {
+      document.getElementById("moduloAdmin").removeAttribute("hidden");
+      document.getElementById("moduloAdminRepo").removeAttribute("hidden");
+    }
+  </script>
+</body>
+
+</html>

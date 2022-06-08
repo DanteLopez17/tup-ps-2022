@@ -5,6 +5,9 @@ $.ajax({
     if (result.ok) {
       let Clientes = result.respuesta;
       for (var i = 0; i < Clientes.length; i++) {
+        if(Clientes[i].idEstado == 2){
+          continue;
+        }
         let html = "<option value = '";
         html += Clientes[i].idCliente + "'>";
         html += Clientes[i].apellido + " " +  Clientes[i].nombre;

@@ -106,7 +106,7 @@ public class ClienteController : ControllerBase
       bd.Entry(c).Reference(x => x.IdTipoDocNavigation).Load();
       otraLista.Add(c);
     }
-    respuesta.Respuesta = otraLista;
+    respuesta.Respuesta = otraLista.OrderBy(x => x.IdEstado).ThenBy(x => x.Apellido);
     return respuesta;
   }
 

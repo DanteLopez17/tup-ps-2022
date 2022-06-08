@@ -13,7 +13,7 @@ namespace lasomas.Models
       // Detallepedidos = new HashSet<Detallepedido>();
     }
 
-    public int NroPedido { get; set; }
+    public int? NroPedido { get; set; }
     public DateTime? Fecha { get; set; }
     public int? IdCliente { get; set; }
     public int? IdUsuario { get; set; }

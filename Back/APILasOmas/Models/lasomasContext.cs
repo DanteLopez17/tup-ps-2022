@@ -28,6 +28,7 @@ namespace lasomas.Models
     public virtual DbSet<Rol> Rols { get; set; }
     public virtual DbSet<Tipodocumento> Tipodocumentos { get; set; }
     public virtual DbSet<Usuario> Usuarios { get; set; }
+    public virtual DbSet<StockHistorico> StockHistoricos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -356,6 +357,33 @@ namespace lasomas.Models
                      .HasConstraintName("usuario_ibfk_1");*/
         //
       });
+
+      modelBuilder.Entity<StockHistorico>(entity =>
+      {
+        entity.HasKey(e => e.Id)
+                  .HasName("PRIMARY");
+
+        entity.ToTable("stockhistorico");
+
+        entity.Property(e => e.Fecha)
+                  .HasColumnType("date")
+                  .HasColumnName("fecha");
+
+        entity.Property(e => e.IdProducto).HasColumnName("idProducto");
+
+        entity.Property(e => e.Precio)
+                  .HasColumnType("decimal(10,0)")
+                  .HasColumnName("precio");
+
+        entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+
+        entity.Property(e => e.Observaciones)
+                  .HasMaxLength(100)
+                  .HasColumnName("observaciones");
+
+      });
+
+
 
       OnModelCreatingPartial(modelBuilder);
     }

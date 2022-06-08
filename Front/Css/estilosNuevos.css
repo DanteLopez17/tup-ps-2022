@@ -1,0 +1,774 @@
+body{
+  font-family: 'Dosis', sans-serif;
+}
+.welcome-design{
+  display: grid;
+  grid-template-columns: repeat(3,33.3%);
+  height: 100vh;
+}
+.izquierda{
+  background-image: url(../Image/olas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centro{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.centro .titulo{
+  font-size: 30px;
+  color: #480CA8;
+  margin-bottom: 40px;
+}
+.centro .carrusel{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.centro .txtParrafo{
+  font-size: 20px;
+  color: #480CA8;
+}
+.derecha{
+  background-image: url(../Image/olas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scaleX(-1);
+}
+#LogoPerfil{
+  margin-right: 75px
+}
+.altaUser-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.tituloUsuario{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #480CA8;
+}
+.form-control{
+  border: none;
+  border-bottom: 3px solid #adb5bd;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.0625rem;
+  line-height: 147.6%;
+  padding-bottom: 0.5rem;
+
+}
+.form-control:focus{
+  outline: none;
+  border-color: #480CA8;
+}
+.form-control:hover{
+  background-color: #e7ebf0;
+}
+.select2{
+  border: none;
+  border-bottom: 3px solid #adb5bd;
+  width: 100%;
+  height: 2rem;
+  font-size: 1.0625rem;
+  line-height: 147.6%;
+  padding-bottom: 0.5rem;
+}
+.select2:focus{
+  outline: none;
+  border-color: #480CA8;
+}
+.select2:hover{
+  background-color: #e7ebf0;
+}
+.btnCargarUsuario{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #480CA8;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCargarUsuario:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancelarCargarUsuario{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #a80c19;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+}
+.btnCancelarCargarUsuario:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.listado-design{
+  display: grid;
+  height: 100vh;
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.titListUser{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+}
+i{
+  color: #a80c19;
+}
+i:hover{
+  color: #480CA8;
+}
+div #filaPdfBuscar{
+  margin-bottom: 20px;
+}
+.modifUser-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.titModifUser{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 60px;
+}
+.btnModificarUsuario{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #480CA8;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnModificarUsuario:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.altaClient-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.titAltaClient{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  color: #480CA8;
+}
+.btnCargarCliente{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #480CA8;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCargarCliente:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancelarCargaCliente{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #a80c19;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+}
+.btnCancelarCargaCliente:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.listadoClient-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titListClient{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+}
+.modifClient-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.titModifClient{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 20px;
+}
+.btnModificarCliente{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #480CA8;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnModificarCliente:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.altaProdu-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.titAltaProdu{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  color: #480CA8;
+}
+.btnCargarProducto{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #480CA8;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCargarProducto:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancelarCargarProducto{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #a80c19;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+}
+.btnCancelarCargarProducto:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.listProdu-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titListProdu{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.cpoIzquierda{
+  text-align: right;
+}
+.cpoCentro{
+  text-align: center;
+}
+.modifPro-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 20px;
+}
+.titModifPro{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 20px;
+}
+.btnModificarProducto{
+  border-radius: 3rem;
+  width: 15%;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  background-color: #480CA8;
+  color: white;
+  padding: 0.5rem 0;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnModificarProducto:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.altaPedi-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin-top: 40px;
+}
+.titAltaPed{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  color: #480CA8;
+  margin-bottom: 20px;
+}
+.btnCargarProductoDeta{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCargarProductoDeta:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnConfirmarPedido{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnConfirmarPedido:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnModifModal{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnModifModal:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancelModal{
+  border-radius: 3rem;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #a80c19;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.btnCancelModal:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.listPedi-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titListPedi{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.visuPed-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titPedi{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.lblCbos{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  color: #480CA8;
+}
+.lblTotal{
+  text-align: right;
+  display: block;
+  margin-right:120px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.btnConfPedi{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.btnConfPedi:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancPedi{
+  border-radius: 3rem;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #a80c19;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+  margin-right: 50px;
+
+}
+.btnCancPedi:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.miPerfil-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titPerfil{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.quienSom-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titBienvenida{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #480CA8;
+}
+.btnGuardarPerfil{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.btnGuardarPerfil:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.btnCancPerfil{
+  border-radius: 3rem;
+  border: 1px solid #a80c19;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #a80c19;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  position: relative;
+  float: right;
+  margin-right: 50px;
+
+}
+.btnCancPerfil:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #a80c19;
+}
+.titRanking{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5px;
+  color: #480CA8;
+}
+.reportes-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.resultado{
+  margin: 20px;
+}
+.btnConsultar{
+  border-radius: 3rem;
+  border: 1px solid #480CA8;
+  line-height: 1.6rem;
+  font-size: 1.1rem;
+  background-color: #480CA8;
+  color: white;
+  transition: 0.3s ease-in-out all;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.btnConsultar:hover{
+  cursor: pointer;
+  background-color: white;
+  color: #480CA8;
+}
+.toPdf:hover{
+  cursor: pointer;
+  background-color: transparent;
+  color: #480CA8;
+}
+.graficoReporte{
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+}
+.Faqs-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titPreguntasFrecuentes{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 30px;
+}
+.TermYCond-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+#contenedor{
+  height:400px;
+  overflow-y: scroll;
+}
+.titQuienesSomos{
+  margin-top: 20px;
+  color: #480CA8;
+  margin-bottom: 30px;
+  margin-left: 100PX;
+}
+.pMision{
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+.card{
+  margin: 0 auto;
+  width: 20rem;
+}
+.contactenos{
+  display: grid;
+  grid-template-columns: repeat(2,50%);
+}
+
+.titMediosContacto{
+  margin: 20px;
+}
+#iconoIg{
+  margin: 20px;
+}
+#iconoFb{
+  margin: 20px;
+}
+#iconoEm{
+  margin: 20px;
+}
+#iconoUbi{
+  margin: 20px;
+}
+.donaciones-design{
+  background-image: url(../Image/FondoCompleto.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.titAyudanos{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  color: #480CA8;
+}
+.titCbu{
+  margin-left: 190px;
+  color: #480CA8;
+  font-size: 30px;
+}
+.pDonaciones{
+  margin-left: 190px;
+  color: #480CA8;
+  font-size: 25px;
+}
+.titRecibimos{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #480CA8;
+}
+.ulDonaciones{
+  align-items: right;
+  justify-content: center;
+  color: #480CA8;
+  font-size: 20px;
+}
+.msjFin{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+  color: #480CA8;
+}

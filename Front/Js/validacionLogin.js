@@ -3,11 +3,11 @@ function validar() {
   let correo = $("#txtEmail");
   let clave = $("#txtClave");
   if (correo.val() == "" || !exprReg.test(correo.val())) {
-    swal("Error", "ingrese un email valido", "error");
+    swal("Error", "ingrese un email valido", "warning");
     correo.focus();
     return false;
   }
   if(clave.val() == ""){
-    swal("Error", "ingrese una contraseña", "error");
+    swal("Error", "ingrese una contraseña", "warning");
   }
 }

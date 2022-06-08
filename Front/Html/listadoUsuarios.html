@@ -9,8 +9,32 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Css/estilos.css">
+  <link rel="stylesheet" href="../Css/datatable.css">
 
+  <!-- <link rel="stylesheet" href="../Css/estilos.css">-->
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="stylesheet" href="../Css/estilosNuevos.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol != 1 && rol != 2) {
+      window.location.replace("../Html/login.html");
+    }
+    if (rol == 2) {
+      window.location.href = "javascript:history.go(-1);";
+    }
+
+  </script>
   <title>Las Omas ONG</title>
 </head>
 
@@ -32,10 +56,9 @@
             La ONG
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Quienes somos</a>
-            <a class="dropdown-item" href="#">Nuestra mision</a>
+            <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Donaciones</a>
+            <a class="dropdown-item" href="donaciones.html">Donaciones</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -84,8 +107,19 @@
             Reportes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Reporte 1</a>
-            <a class="dropdown-item" href="#">Reporte 2</a>
+            <a class="dropdown-item" href="repoCliente.html">Ranking de Clientes</a>
+            <a class="dropdown-item" href="repoUsuario.html">Ranking de Usuarios</a>
+            <a class="dropdown-item" href="repoProductos.html">Productos más vendidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ayuda
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="preguntasFrecuentes.html">Preguntas frecuentes</a>
+            <a class="dropdown-item" href="terminosYCondiciones.html">Terminos y condiciones</a>
           </div>
         </li>
       </ul>
@@ -94,11 +128,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="../Image/user_male_iconmin.png" width="50" height="50" alt="">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Mi cuenta</a>
-              <a class="dropdown-item" href="#">Cerrar sesion</a>
+              <a class="dropdown-item" href="miPerfil.html">Mi cuenta</a>
+              <a class="dropdown-item" id="btnLogout" href="#">Cerrar sesion</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -107,35 +141,40 @@
       </form>
     </div>
   </nav>
-  <div id="titulo">
-    <h4>Listado de Usuarios</h4>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10"></div>
-      <div class="col-md-2">
-        <input type="text" id="inputBuscador" class="form-control my-2" placeholder="Buscar">
+  <main class="listado-design">
+    <div id="probando">
+      <h4 class="titListUser">Listado de Usuarios</h4>
+      <div class="container">
+        <div id="filaPdfBuscar" class="row">
+          <div class="col-md-10">
+            <a class="toPdf" href="javascript:pdfNuevo();"><img src="../Image/pdfRedMini.png" alt=""></a>
+          </div>
+          <div class="col-md-2" hidden>
+            <input type="text" id="inputBuscador" class="form-control my-2" placeholder="Buscar">
+          </div>
+        </div>
+        <table id="myTable" class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <td><b>Nombre</b></td>
+              <td><b>Apellido</b></td>
+              <td><b>Alta</b></td>
+              <td><b>Tipo</b></td>
+              <td><b>N° de Documento</b></td>
+              <td><b>Email</b></td>
+              <td><b>Rol</b></td>
+              <td><b>Estado</b></td>
+              <td><b>Modificar</b></td>
+            </tr>
+          </thead>
+          <tbody id="listUsuarios">
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <table class="table text-center">
-      <thead>
-        <tr>
-          <td>Nombre</td>
-          <td>Apellido</td>
-          <td>Fecha de Nacimiento</td>
-          <td>Tipo de Documento</td>
-          <td>N° de Documento</td>
-          <td>Email</td>
-          <td>Rol</td>
-          <td>Estado</td>
-          <td>Modificar</td>
-        </tr>
-      </thead>
-      <tbody id="listUsuarios">
-      </tbody>
-    </table>
-  </div>
+  </main>
+  <!-- <a href="javascript:pdf();">Exportar a PDF</a> -->
+  <!-- <button id="exportar">Exportar</button> -->
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -148,6 +187,151 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="../Js/cargarListaUsuarios2.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    function pdf() {
+      window.jsPDF = window.jspdf.jsPDF;
+      let srcwidth = document.getElementById('probando').scrollWidth;
+      let margin = 10;
+      let pdf = new jsPDF('p', 'pt', 'letter');
+      pdf.html(document.getElementById('probando'), {
+        x: margin,
+        y: margin,
+        html2canvas: {
+          scale: 600 / srcwidth
+          //600 is the width of a4 page. 'a4': [595.28, 841.89]
+        },
+        callback: function (pdf) {
+          pdf.output('dataurlnewwindow', { filename: 'fichero-pdf.pdf' });
+        }
+      });
+
+    }
+  </script>
+  <script src="../Js/pdfJs.js"></script>
+  <script>
+    function pdfNuevo() {
+      $.ajax({
+        url: 'https://localhost:5001/Usuario/listadoUsuarios',
+        type: "GET",
+        success: function (result) {
+          if (result.ok) {
+            window.jsPDF = window.jspdf.jsPDF;
+            let pdf = new jsPDF();
+            pdf.setFontSize(16);
+            pdf.text('Listado de Usuarios', 80, 10);
+            pdf.setFontSize(12);
+            pdf.line(5, 20, 200, 20);
+            pdf.text('Nombre', 5, 30);
+            pdf.text('Apellido', 25, 30);
+            pdf.text('Alta', 53, 30);
+            pdf.text('Tipo', 75, 30);
+            pdf.text('Numero', 90, 30);
+            pdf.text('Email', 120, 30);
+            pdf.text('Rol', 165, 30);
+            pdf.text('Estado', 185, 30)
+            pdf.line(5, 35, 200, 35);
+            let usuarios = result.respuesta;
+            let yText = 30;
+            let yLine = 35;
+            let xNomText = 5;
+            let xApeText = 25;
+            let xFechaAlta = 49;
+            let xTipDoc = 76;
+            let xNumDoc = 90;
+            let xEmail = 111;
+            let xRol = 160;
+            let xEstado = 187;
+            for (usuario of usuarios) {
+              yText += 10;
+              yLine += 10;
+              let nom = usuario.nombre;
+              let ape = usuario.apellido;
+              let fecnac = new Date(usuario.fechaNacimiento);
+              //Convertir Fecha
+              const formatDate = (fecnac) => {
+                let dia = fecnac.getDate();
+                let mes = fecnac.getMonth() + 1;
+                let anio = fecnac.getFullYear();
+
+                if (dia < 10) {
+                  dia = '0' + dia;
+                }
+                if (mes < 10) {
+                  mes = '0' + mes;
+                }
+                let formatted_date = dia + '-' + mes + '-' + anio;
+
+                return formatted_date;
+              }
+
+              let tipdoc = usuario.idTipoDocNavigation.descripcion;
+              let numidoc = usuario.numDoc;
+              let numdoc = numidoc.toString();
+              let mail = usuario.email;
+              let rol = usuario.idRolNavigation.descripcion;
+              let estad = usuario.idEstadoNavigation.descripcion;
+              pdf.setFontSize(10);
+
+              pdf.text(nom, xNomText, yText);
+              pdf.text(ape, xApeText, yText);
+              pdf.text(formatDate(fecnac), xFechaAlta, yText);
+              pdf.text(tipdoc, xTipDoc, yText);
+              pdf.text(numdoc, xNumDoc, yText);
+              pdf.text(mail, xEmail, yText);
+              pdf.text(rol, xRol, yText);
+              pdf.text(estad, xEstado, yText);
+              pdf.line(5, yLine, 200, yLine);
+            }
+            pdf.save('ListadoUsuariosPDF');
+          }
+
+          else
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: result.error
+            })
+        },
+        error: function (result) {
+
+        }
+      });
+
+
+
+    }
+  </script>
+  <script>
+    $("#btnLogout").click(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+      window.location.href = "../Html/login.html";
+    })
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable({
+        "scrollY": "300px",
+        "language": {
+          "lengthMenu": "Mostrar _MENU_ elementos por página",
+          "info": "Página _PAGE_ de _PAGES_",
+          "infoFiltered": "(filtrado de un total de _MAX_ )",
+          "search": "Buscar&nbsp;:",
+          "infoEmpty": "No se encontraron datos..",
+          "zeroRecords": "No se encontraron datos con tu busqueda",
+          "paginate": {
+            "previous": "Anterior",
+            "next": "Siguiente",
+          }
+        }
+      });
+    });
+  </script>
 
 </body>
 

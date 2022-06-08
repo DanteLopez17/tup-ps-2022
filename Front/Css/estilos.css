@@ -9,6 +9,10 @@ body{
     /* IMPORTANTE */
     text-align: center;
 }
+#titulo h3{
+  font-size: 45px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 #LogoPerfil{
   margin-right: 75px
 }
@@ -53,6 +57,27 @@ form#frmaltaReceta{
   margin-right: 50px;
 }
 #exampleModal{
+  color: black;
+}
+#tablaPedido_length{
+  color: white;
+}
+#tablaPedido_filter{
+  color: white;
+}
+#tablaPedido_length select{
+  color: white;
+  background-color: #765c86;
+}
+#tablaPedido_filter input{
+  color: white;
+  background-color: #765c86;
+}
+#tablaPedido_info{
+  color: white;
+
+}
+#modalListadoPedido{
   color: black;
 }
 

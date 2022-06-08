@@ -7,7 +7,11 @@ $.ajax({
       for (var i = 0; i < Productos.length; i++) {
         let html = "<option value = '";
         html += Productos[i].idProducto + "'>";
-        html += Productos[i].nombre;
+        html += Productos[i].descripcion;
+        if(Productos[i].idEstado == 2)
+        {
+          html += " - (Sin Stock)";
+        }
         html += "</option>";
 
         $("#cboProducto").append(html);

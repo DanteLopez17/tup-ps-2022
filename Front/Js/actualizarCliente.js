@@ -26,10 +26,11 @@ $("#btnModificarCliente").click(function () {
     data: JSON.stringify(client),
     success: function (result) {
       if (result.ok) {
-        swal("Felicitaciones!", "Cliente actualizado Correctamente!", "success");
-        setTimeout(function(){
+      swal("Felicitaciones!", "Cliente actualizado Correctamente!", "success").then((confirmar) => {
+        if (confirmar) {
           window.location.replace("../Html/listadoClientes.html");
-      }, 4000);
+        }
+      });
         
       }
       else
@@ -45,6 +46,20 @@ $("#btnModificarCliente").click(function () {
         text: result.error,
         icon: "error",
       })
+    }
+  });
+})
+$("#btnCancelarCargaCliente").click(function () {
+  swal({
+    title: "Desea cancelar la modificación?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      window.location.replace("../Html/listadoClientes.html");
+    } else {
     }
   });
 })

@@ -1,15 +1,16 @@
 function limpiarCampos(){
-  $("#txtNombre").val("");
   $("#txtDescripcion").val("");
   $("#cboClasificacion").val(1);
   $("#txtPrecio").val("");
   $("#txtCantidad").val("");
   $("#rbtEstadoActivo").prop("checked", true);
 }
+$("#btnCancelarCargarProducto").click(function () {
+  limpiarCampos();
+})
 
 $("#btnCargarProducto").click(function () {
   function valAltaProducto(){
-    let nombre = $("#txtNombre").val();
     let desc = $("#txtDescripcion").val();
     let clasif = $("#cboClasificacion").val();
     let prec = $("#txtPrecio").val();
@@ -17,11 +18,6 @@ $("#btnCargarProducto").click(function () {
     let activo = $("#rbtEstadoActivo").prop("checked");
     let inactivo = $("#rbtEstadoInactivo").val();
   
-    if(nombre == "")
-    {
-      swal("Error", "ingrese un nombre", "warning");
-      return false;
-    }
     if(desc == "")
     {
       swal("Error", "ingrese una descripcion", "warning");
@@ -42,28 +38,31 @@ $("#btnCargarProducto").click(function () {
       swal("Error", "ingrese una cantidad valida ", "warning");
       return false;
     }
-  
-    swal("Felicitaciones!", "Producto cargado Correctamente!", "success");
     return true
   }
 
-
   if(valAltaProducto())
   { 
-    let nom = $("#txtNombre").val();
     let desc = $("#txtDescripcion").val();
     let clasif = $("#cboClasificacion").val();
     let prec = $("#txtPrecio").val();
     let cant = $("#txtCantidad").val();
     let idEst = $('input[name=gridRadios]:checked', '#miForm').val();
+    
+    const now = new Date();
+    const dia = `0${now.getDate()}`.slice(-2);
+    const mes = `0${now.getMonth() + 1}`.slice(-2);
+    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+    let fechaAlta = hoy;
 
     let produc = {
-      nombre: nom,
       descripcion: desc,
       precio: prec,
       cantidad: cant,
       idClasificacion: clasif,
-      idEstado: idEst
+      idEstado: idEst,
+      fecha : fechaAlta,
+      observaciones: "Añadido"
     }
 
   $.ajax({

@@ -31,12 +31,6 @@ public class ProductoController : ControllerBase
   [Route("[controller]/cargarProducto")]
   public RespuestaApi cargarProducto([FromBody] ComandoAltaProducto produ)
   {
-    if (string.IsNullOrEmpty(produ.Nombre))
-    {
-      respuesta.Ok = false;
-      respuesta.Error = "Ingrese un nombre de producto";
-      return respuesta;
-    }
     if (string.IsNullOrEmpty(produ.Descripcion))
     {
       respuesta.Ok = false;
@@ -71,7 +65,6 @@ public class ProductoController : ControllerBase
 
     Producto p = new Producto
     {
-      Nombre = produ.Nombre,
       Descripcion = produ.Descripcion,
       Precio = produ.Precio,
       Cantidad = produ.Cantidad,
@@ -81,6 +74,18 @@ public class ProductoController : ControllerBase
 
     bd.Productos.Add(p);
     bd.SaveChanges();
+
+    StockHistorico sh = new StockHistorico
+    {
+      Fecha = produ.Fecha,
+      IdProducto = p.IdProducto,
+      Precio = produ.Precio,
+      Cantidad = produ.Cantidad,
+      Observaciones = produ.Observaciones
+    };
+    bd.StockHistoricos.Add(sh);
+    bd.SaveChanges();
+
     respuesta.Ok = true;
     respuesta.Respuesta = p;
 
@@ -114,12 +119,7 @@ public class ProductoController : ControllerBase
   public RespuestaApi actualizarProducto([FromBody] ComandoProductoActualizar pro)
   {
     RespuestaApi respuesta = new RespuestaApi();
-    if (pro.Nombre.Equals(""))
-    {
-      respuesta.Ok = false;
-      respuesta.Error = "Ingrese el nombre del producto";
-      return respuesta;
-    }
+
     if (pro.Descripcion.Equals(""))
     {
       respuesta.Ok = false;
@@ -155,16 +155,32 @@ public class ProductoController : ControllerBase
 
     if (p != null)
     {
-      p.Nombre = pro.Nombre;
       p.Descripcion = pro.Descripcion;
       p.Precio = pro.Precio;
       p.Cantidad = pro.Cantidad;
       p.IdClasificacion = pro.IdClasificacion;
-      p.IdEstado = pro.IdEstado;
-
+      if (p.Cantidad == 0)
+      {
+        p.IdEstado = 2;
+      }
+      else
+      {
+        p.IdEstado = pro.IdEstado;
+      }
       bd.Update(p);
       bd.SaveChanges();
     }
+
+    StockHistorico sh = new StockHistorico
+    {
+      Fecha = pro.Fecha,
+      IdProducto = p.IdProducto,
+      Precio = pro.Precio,
+      Cantidad = pro.Cantidad,
+      Observaciones = pro.Observaciones
+    };
+    bd.StockHistoricos.Add(sh);
+    bd.SaveChanges();
 
     respuesta.Ok = p != null;
     respuesta.infoAdicional = p != null ? string.Empty : "No existe el producto con ese Id";
@@ -184,7 +200,7 @@ public class ProductoController : ControllerBase
       bd.Entry(p).Reference(x => x.IdClasificacionNavigation).Load();
       otraLista.Add(p);
     }
-    respuesta.Respuesta = otraLista;
+    respuesta.Respuesta = otraLista.OrderBy(x => x.IdEstado).ThenBy(x => x.Descripcion);
     return respuesta;
   }
 

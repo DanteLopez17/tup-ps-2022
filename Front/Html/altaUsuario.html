@@ -9,8 +9,20 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="../Css/estilos.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="../Css/estilos.css">-->
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="stylesheet" href="../Css/estilosNuevos.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol != 1 && rol != 2) {
+      window.location.replace("../Html/login.html");
+    }
+    if (rol == 2) {
+      window.location.href = "javascript:history.go(-1);";
+    }
+  </script>
   <title>Las Omas ONG</title>
 </head>
 
@@ -32,10 +44,9 @@
             La ONG
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Quienes somos</a>
-            <a class="dropdown-item" href="#">Nuestra mision</a>
+            <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Donaciones</a>
+            <a class="dropdown-item" href="donaciones.html">Donaciones</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -84,8 +95,19 @@
             Reportes
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Reporte 1</a>
-            <a class="dropdown-item" href="#">Reporte 2</a>
+            <a class="dropdown-item" href="repoCliente.html">Ranking de Clientes</a>
+            <a class="dropdown-item" href="repoUsuario.html">Ranking de Usuarios</a>
+            <a class="dropdown-item" href="repoProductos.html">Productos más vendidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ayuda
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="preguntasFrecuentes.html">Preguntas frecuentes</a>
+            <a class="dropdown-item" href="terminosYCondiciones.html">Terminos y condiciones</a>
           </div>
         </li>
       </ul>
@@ -94,11 +116,11 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="../Image/user_male_iconmin.png" width="50" height="50" alt="">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Mi cuenta</a>
-              <a class="dropdown-item" href="#">Cerrar sesion</a>
+              <a class="dropdown-item" href="miPerfil.html">Mi cuenta</a>
+              <a class="dropdown-item" id="btnLogout" href="#">Cerrar sesion</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -107,83 +129,83 @@
       </form>
     </div>
   </nav>
-  <div id="titulo">
-    <h4>Alta Usuario</h4>
-  </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
-      <div class="container">
-        <form id="miForm">
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtNombre">Nombre</label>
-              <input type="text" class="form-control" id="txtNombre" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtApellido">Apellido</label>
-              <input type="text" class="form-control" id="txtApellido" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="cboTipoDoc">Tipo de Documento</label>
-              <select id="cboTipoDoc" class="form-control">
-              </select>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtNumDoc">Número documento</label>
-              <input type="number" class="form-control" id="txtNumDoc" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="dtpFecNac">Fecha de Nacimiento</label>
-              <input type="date" class="form-control" id="dtpFecNac" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="cboRol">Rol</label>
-              <select id="cboRol" class="form-control">
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="txtEmail">Email</label>
-              <input type="email" class="form-control" id="txtEmail" required>
-            </div>
-            <div class="form-group col-md-6">
-              <label for="txtClave">Contraseña</label>
-              <input type="password" class="form-control" id="txtClave" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-5"></div>
-            <div class="form-group col-md-2 text-center">
-              <label for="rbtEstado">Estado</label>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoActivo" value="1" checked>
-                <label class="form-check-label" for="rbtEstadoActivo">
-                  Activo
-                </label>
+  <main class="altaUser-design">
+    <div id="centro">
+      <h4 class="tituloUsuario">Nuevo Usuario</h4>
+      <div class="row">
+        <div class="container">
+          <form id="miForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="txtNombre">Nombre</label>
+                <input type="text" class="form-control" id="txtNombre" required>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoInactivo" value="2">
-                <label class="form-check-label" for="rbtEstadoInactivo">
-                  Inactivo
-                </label>
+              <div class="form-group col-md-6">
+                <label for="txtApellido">Apellido</label>
+                <input type="text" class="form-control" id="txtApellido" required>
               </div>
             </div>
-            <div class="form-group col-md-5"></div>
-          </div>
-          <button type="button" class="btn btn-primary" id="btnCargarUsuario">Cargar</button>
-          <button type="button" class="btn btn-danger" id="btnCancelarCargarUsuario"
-            onclick="limpiarCampos()">Cancelar</button>
-        </form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="cboTipoDoc">Tipo de Documento</label>
+                <select id="cboTipoDoc" class="form-control">
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="txtNumDoc">Número documento</label>
+                <input type="number" class="form-control" id="txtNumDoc" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="dtpFecNac">Fecha de Alta</label>
+                <input type="date" class="form-control" id="dtpFecNac" required readonly>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="cboRol">Rol</label>
+                <select id="cboRol" class="form-control">
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="txtEmail">Email</label>
+                <input type="email" class="form-control" id="txtEmail" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="txtClave">Contraseña</label>
+                <input type="password" class="form-control" id="txtClave" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-5"></div>
+              <div class="form-group col-md-2 text-center">
+                <label for="rbtEstado">Estado</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoActivo" value="1" checked>
+                  <label class="form-check-label" for="rbtEstadoActivo">
+                    Activo
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoInactivo" value="2">
+                  <label class="form-check-label" for="rbtEstadoInactivo">
+                    Inactivo
+                  </label>
+                </div>
+              </div>
+              <div class="form-group col-md-5"></div>
+            </div>
+            <button type="button" class="btnCargarUsuario" id="btnCargarUsuario">Cargar</button>
+            <button type="button" class="btnCancelarCargarUsuario" id="btnCancelarCargarUsuario"
+              onclick="limpiarCampos()">Limpiar Campos</button>
+          </form>
+        </div>
       </div>
     </div>
-    <div class="col-2"></div>
-  </div>
+
+  </main>
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -206,6 +228,15 @@
     });
   </script>
   <script src="../Js/cargarUsuario.js"></script>
+  <script>
+    $("#btnLogout").click(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+      window.location.href = "../Html/login.html";
+    })
+  </script>
 
 </body>
 

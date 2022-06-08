@@ -14,11 +14,12 @@ const llenar = () => {
         let nombre = ProductoBD.nombre;
         let desc = ProductoBD.descripcion;
         let pre = ProductoBD.precio;
+        var cantidadConsultar = ProductoBD.cantidad;
         // cantidad
         const canti = document.querySelector('#txtCantidad');
         const cant = canti.value;
         if(cant > ProductoBD.cantidad){
-          alert("La cantidad ingresada es superior al disponible");
+          swal("Error!", "La cantidad ingresada es superior a la disponible!", "info");
           return false;
         }
 
@@ -29,22 +30,22 @@ const llenar = () => {
         const Producto = { id, nombre, desc, pre, cant, subtot, nroPed }
 
         const DetalleBD = { 
-          Cantidad: cant,
-          IdProducto: id,
-          NroPedido: null,
-          Precio: pre,
+          cantidad: cant,
+          idProducto: id,
+         // nroPedido: null,
+          precio: pre,
          }
         
 
         for (let i = 0; i < productos.length; i++) {
           if (productos[i].id == valueproducto) {
-            alert("El producto ya esta cargado")
+          swal("Error!", "El producto ya esta cargado!", "info");
             return false;
           }
         }
         for (let i = 0; i < DetalleBD.length; i++) {
           if (DetalleBD[i].IdProducto == valueproducto) {
-            alert("El producto ya esta cargado")
+          swal("Error!", "El producto ya esta cargado!", "info");
             return false;
           }
         }
@@ -55,15 +56,16 @@ const llenar = () => {
         for (let produc of productos) {
           listado.innerHTML += `
           <tr>
-            <td>${produc.nombre}</td>
-            <td>${produc.desc}</td>
-            <td>$${produc.pre}</td>
-            <td>${produc.cant}</td>
-            <td>$${produc.subtot}</td>
-            <td><button data-toggle="modal" data-target="#exampleModal" data-whatever="${produc.nombre}" data-otracosa="${produc.cant}" data-id="${produc.id}"><img src="../Image/edit.png" alt="Editar"></button></td>
+            <td class='cpoCentro'>${produc.desc}</td>
+            <td class='cpoIzquierda'>$${produc.pre}</td>
+            <td class='cpoIzquierda'>${produc.cant}</td>
+            <td class='cpoIzquierda'>$${produc.subtot}</td>
+            <td class='cpoCentro'><a data-toggle="modal" data-target="#exampleModal" data-whatever="${produc.desc}" data-otracosa="${produc.cant}" data-id="${produc.id}"><i class='fa-solid fa-eye'></i></a></td>
           </tr>
           `;
         }
+        
+      document.getElementById("btnConfirmarPedido").removeAttribute("hidden");
       }
       else
         swal({
@@ -79,7 +81,7 @@ const llenar = () => {
 
 }
 
-$("#btnCargarProducto").click(function () {
+$("#btnCargarProductoDeta").click(function () {
   let produ = $("#cboProducto").val();
   let cant = $("#txtCantidad").val();
 
@@ -95,12 +97,11 @@ $("#btnCargarProducto").click(function () {
   }
 
   llenar();
-  document.getElementById("btnConfirmarPedido").removeAttribute("hidden");
 })
 $("#btnConfirmarPedido").click(function () {
   // capturar datos
-  //Arreglo de detalle
-  let detalles = detallesBD;
+  //Fecha
+  let fec = $("#txtFecha").val();
   //Cliente
   let idCli = $("#cboCliente").val();
   //Usuario
@@ -109,15 +110,16 @@ $("#btnConfirmarPedido").click(function () {
   let idForPa = $("#cboFormaPago").val();
   //Etapa
   let idEt = $("#cboEtapa").val();
-  //Fecha
-  let fec = $("#txtFecha").val();
+  //Arreglo de detalle
+  let detalles = detallesBD;
 
   let pedido = {
     fecha: fec,
     idCliente: idCli,
     idUsuario: idUsu,
     idFormaPago: idForPa,
-    idEtapa: idEt
+    idEtapa: idEt,
+    listaDetalles: detalles
   }
 
   swal({
@@ -128,6 +130,43 @@ $("#btnConfirmarPedido").click(function () {
   })
   .then((confirmar) => {
     if (confirmar) {
+      $.ajax({
+        url: 'https://localhost:5001/Pedido/transaccionAltaPedido',
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(pedido),
+        success: function (result) {
+          if (result.ok) {
+            swal("Felicitaciones!", "Pedido cargado Correctamente!", "success").then((confirmar)=>{
+              if(confirmar){
+                window.location.replace("../Html/listadoPedido.html");
+              }
+            });
+
+          }
+          else
+            swal({
+              title: "Error",
+              text: result.error,
+              icon: "error",
+            })
+        },
+        error: function (result) {
+          swal({
+            title: "Error",
+            text: result.error,
+            icon: "error",
+          })
+        }
+      });
+    }
+  });
+
+})
+
+
+//Llamada Ajax Vieja
+/*
       $.ajax({
         url: 'https://localhost:5001/Pedido/cargarCabecera',
         type: "POST",
@@ -184,7 +223,6 @@ $("#btnConfirmarPedido").click(function () {
           })
         }
       });
-    }
-  });
 
-})
+
+*/

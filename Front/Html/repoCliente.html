@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../Css/normalize.css">
+  <link rel="stylesheet" href="../Css/estilosNuevos.css">
+  <link rel="icon" href="../Image/LogoLasOmasONG11.png">
+  <script>
+    let rol = sessionStorage.getItem("rolActivo");
+    if (rol != 1 && rol != 2) {
+      window.location.replace("../Html/login.html");
+    }
+    if (rol == 2) {
+      window.location.href = "javascript:history.go(-1);";
+    }
+
+  </script>
+  <title>Las Omas ONG</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="inicio.html">
+      <img src="../Image/LogoLasOmasONG.png" width="75" height="75" alt="">
+    </a>
+    <a class="navbar-brand" href="inicio.html">Las Omas ONG</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            La ONG
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="../Html/quienesSomos.html">Quienes somos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="d">Donaciones</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Usuario
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
+            <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Cliente
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaCliente.html">Alta Cliente</a>
+            <a class="dropdown-item" href="listadoClientes.html">Listado Clientes</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Producto
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaProducto.html">Alta Producto</a>
+            <a class="dropdown-item" href="listadoProductos.html">Listado Productos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Pedido
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="altaPedido.html">Alta Pedido</a>
+            <a class="dropdown-item" href="listadoPedido.html">Listado Pedidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Reportes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="repoCliente.html">Ranking de Clientes</a>
+            <a class="dropdown-item" href="repoUsuario.html">Ranking de Usuarios</a>
+            <a class="dropdown-item" href="repoProductos.html">Productos más vendidos</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Ayuda
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="preguntasFrecuentes.html">Preguntas frecuentes</a>
+            <a class="dropdown-item" href="terminosYCondiciones.html">Terminos y condiciones</a>
+          </div>
+        </li>
+      </ul>
+      <form id="LogoPerfil" class="form-inline my-2 my-lg-0">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <img src="../Image/profile.png" width="50" height="50" alt="">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="miPerfil.html">Mi cuenta</a>
+              <a class="dropdown-item" id="btnLogout" href="#">Cerrar sesion</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+          </li>
+        </ul>
+      </form>
+    </div>
+  </nav>
+  <main id="cuerpoCompleto" class="reportes-design">
+    <div class="container">
+      <form id="miForm">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <h4 class="titRanking">Ranking de Clientes</h4>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="txtNombre"><b>Desde</b></label>
+            <input type="date" class="form-control" id="dtpFecDesde" min="2018-01-01" required>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="txtApellido"><b>Hasta</b></label>
+            <input type="date" class="form-control" id="dtpFecHasta" required>
+          </div>
+          <div class="form-group col-md-3">
+            <button type="button" class="btnConsultar" id="btnConsultar" onclick="grafico()">Consultar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="download" class="resultado" hidden>
+      <div class="row" style="height: 475px; overflow-y: scroll;">
+        <div class="col-md-6">
+          <div class="tablaReporte">
+            <div id="filaPdfBuscar" class="filaPdfBuscar">
+              <a class="toPdf" onclick="capturaPantalla()"><img src="../Image/pdfRedMini.png" alt="" height="30px"></a>
+            </div>
+            <table id="myTable" class="table table-bordered text-center">
+              <thead>
+                <tr>
+                  <td><b>Nombre</b></td>
+                  <td><b>Apellido</b></td>
+                  <td><b>Total Gastado</b></td>
+                  <td><b>Cantidad de visitas</b></td>
+                </tr>
+              </thead>
+              <tbody id="listClienteRepo">
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="graficoReporte">
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </main>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="../Js/canvas.js"></script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script>
+    $("#btnLogout").click(function () {
+      let rol = 0;
+      sessionStorage.setItem('rolActivo', rol);
+      sessionStorage.setItem('UsuarioActivo', null);
+      sessionStorage.setItem('IdUsuarioActivo', null);
+      window.location.href = "../Html/login.html";
+    })
+  </script>
+  <script src="../Js/repoCliente.js"></script>
+  <script src="../Js/reporteClienteChart.js"></script>
+  <script>
+    const now = new Date();
+    const dia = `0${now.getDate()}`.slice(-2);
+    const mes = `0${now.getMonth() + 1}`.slice(-2);
+    const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+    // $("#dtpFecDesde").val("2018-01-01");
+   // $("#dtpFecHasta").val(hoy);
+  </script>
+  <script>
+    function capturaPantalla() {
+      const now = new Date();
+      const dia = `0${now.getDate()}`.slice(-2);
+      const mes = `0${now.getMonth() + 1}`.slice(-2);
+      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+
+      window.jsPDF = window.jspdf.jsPDF;
+      let pdf = new jsPDF();
+      let logo = new Image();
+      logo.src = '../Image/LasOmasLogo2.png';
+      pdf.addImage(logo, 'png', 175, 0, 20, 20);
+      pdf.setFontSize(18);
+      pdf.text('Ranking de Clientes', 80, 10);
+      pdf.setFontSize(12);
+      pdf.line(5, 20, 200, 20);
+      let fecDesd = $("#dtpFecDesde").val();
+      if (fecDesd == "") {
+        fecDesd = "2018-01-01"
+      }
+
+      pdf.text('Desde: ' + fecDesd, 45, 30);
+      let fecHast = $("#dtpFecHasta").val();
+      if (fecHast == "") {
+        fecHast = hoy
+      }
+      pdf.text('Hasta: ' + fecHast, 125, 30);
+
+      pdf.line(5, 35, 200, 35);
+
+      html2canvas(document.querySelector("#myTable")).then(canvas => {
+        //  document.body.appendChild(canvas)
+        // let tabla = canvas;
+        pdf.addImage(canvas, 'png', 25, 50, 160, 60);
+        html2canvas(document.querySelector("#myChart")).then(canvas => {
+          pdf.addImage(canvas, 'png', 25, 150, 160, 60);
+          pdf.save('RankingClientesPDF');
+        });
+
+      });
+
+    }
+  </script>
+
+
+</body>
+
+</html>
