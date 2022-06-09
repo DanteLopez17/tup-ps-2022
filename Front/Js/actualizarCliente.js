@@ -28,7 +28,7 @@ $("#btnModificarCliente").click(function () {
       if (result.ok) {
       swal("Felicitaciones!", "Cliente actualizado Correctamente!", "success").then((confirmar) => {
         if (confirmar) {
-          window.location.replace("../Html/listadoClientes.html");
+          window.location.href = "../Html/listadoClientes.html";
         }
       });
         
@@ -58,7 +58,7 @@ $("#btnCancelarCargaCliente").click(function () {
   })
   .then((willDelete) => {
     if (willDelete) {
-      window.location.replace("../Html/listadoClientes.html");
+      window.location.href = "../Html/listadoClientes.html";
     } else {
     }
   });

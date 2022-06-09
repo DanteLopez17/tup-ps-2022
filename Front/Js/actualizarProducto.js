@@ -72,7 +72,8 @@ $("#btnModificarProducto").click(function () {
       if (result.ok) {
       swal("Felicitaciones!", "Producto actualizado Correctamente!", "success").then((confirmar) => {
         if (confirmar) {
-          window.location.replace("../Html/listadoProductos.html");
+      window.location.href = "../Html/listadoProductos.html";
+
         }
       });
         
@@ -105,7 +106,8 @@ $("#btnCancelarCargarProducto").click(function () {
   })
   .then((willDelete) => {
     if (willDelete) {
-      window.location.replace("../Html/listadoProductos.html");
+      window.location.href = "../Html/listadoProductos.html";
+
     } else {
     }
   });

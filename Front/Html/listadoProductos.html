@@ -165,27 +165,29 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaProductos.js"></script>
+  <script src="../Js/cargarListaProductos.js" async></script>
   <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
   <script>
     $(document).ready(function () {
-      $('#myTable').DataTable({
-        "order": [0, 'asc'],
-        "scrollY": "300px",
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ elementos por página",
-          "info": "Página _PAGE_ de _PAGES_",
-          "infoFiltered": "(filtrado de un total de _MAX_ )",
-          "search": "Buscar&nbsp;:",
-          "infoEmpty": "No se encontraron datos..",
-          "zeroRecords": "No se encontraron datos con tu busqueda",
-          "paginate": {
-            "previous": "Anterior",
-            "next": "Siguiente",
+      setTimeout(function () {
+        $('#myTable').DataTable({
+          "scrollY": "300px",
+          "language": {
+            "lengthMenu": "Mostrar _MENU_ elementos por página",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoFiltered": "(filtrado de un total de _MAX_ )",
+            "search": "Buscar&nbsp;:",
+            "infoEmpty": "No se encontraron datos..",
+            "zeroRecords": "No se encontraron datos con tu busqueda",
+            "paginate": {
+              "previous": "Anterior",
+              "next": "Siguiente",
+            }
           }
-        }
-      });
+        });
+      }, 400)
+
     });
   </script>
   <script>

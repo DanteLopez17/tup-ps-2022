@@ -239,7 +239,7 @@ public class ProductoController : ControllerBase
       lista.Add(hi);
     }
 
-    respuesta.Respuesta = lista.OrderByDescending(x => x.Fecha);
+    respuesta.Respuesta = lista.OrderByDescending(x => x.Id);
     respuesta.Ok = true;
     return respuesta;
   }

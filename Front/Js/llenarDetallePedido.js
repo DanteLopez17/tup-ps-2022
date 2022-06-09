@@ -139,7 +139,8 @@ $("#btnConfirmarPedido").click(function () {
           if (result.ok) {
             swal("Felicitaciones!", "Pedido cargado Correctamente!", "success").then((confirmar)=>{
               if(confirmar){
-                window.location.replace("../Html/listadoPedido.html");
+      window.location.href = "../Html/listadoPedido.html";
+
               }
             });
 
