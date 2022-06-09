@@ -210,7 +210,6 @@ public class ProductoController : ControllerBase
   {
     List<StockHistorico> stockHistoricos = bd.StockHistoricos.ToList();
     List<Producto> productos = bd.Productos.ToList();
-    List<Producto> otraProducto = new List<Producto>();
 
     List<HistoricoProducto> lista = new List<HistoricoProducto>();
 

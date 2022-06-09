@@ -7,7 +7,8 @@ $("#btnCancPerfil").click(function(){
   })
   .then((willDelete) => {
     if (willDelete) {
-      window.location.replace("../Html/inicio.html");
+     // window.location.replace("../Html/inicio.html");
+      window.location.href = "javascript:history.go(-1);";
     } else {
     }
   });

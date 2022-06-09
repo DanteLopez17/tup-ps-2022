@@ -21,8 +21,6 @@
     if (rol != 1 && rol != 2) {
       window.location.replace("../Html/login.html");
     }
-
-
   </script>
 
   <title>Las Omas ONG</title>
@@ -166,6 +164,7 @@
   <script>
     $(document).ready(function () {
       $('#myTable').DataTable({
+        "order": [0, 'desc'],
         "scrollY": "300px",
         "language": {
           "lengthMenu": "Mostrar _MENU_ elementos por página",

@@ -26,8 +26,8 @@ $("#btnModifModal").click(function () {
           }
 
           for (let i = 0; i < detallesBD.length; i++) {
-            if (detallesBD[i].IdProducto == id) {
-              detallesBD[i].Cantidad = cant;
+            if (detallesBD[i].idProducto == id) {
+              detallesBD[i].cantidad = cant;
             }
           }
 
