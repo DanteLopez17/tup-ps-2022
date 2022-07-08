@@ -175,6 +175,7 @@
     $(document).ready(function () {
       setTimeout(function () {
         $('#myTable').DataTable({
+          "scrollY": "300px",
           "language": {
             "lengthMenu": "Mostrar _MENU_ elementos por página",
             "info": "Página _PAGE_ de _PAGES_",
@@ -188,7 +189,7 @@
             }
           }
         });
-      }, 400)
+      }, 200)
 
     });
   </script>
@@ -207,25 +208,24 @@
             pdf.setFontSize(18);
             pdf.text('Listado de Clientes', 80, 10);
             pdf.setFontSize(12);
-            pdf.line(5, 20, 200, 20);
             pdf.text('Nombre', 5, 30);
-            pdf.text('Apellido', 25, 30);
-            pdf.text('Alta', 53, 30);
-            pdf.text('Tipo', 75, 30);
-            pdf.text('Numero', 100, 30);
-            pdf.text('Cuil/Cuit', 130, 30);
-            pdf.text('Estado', 165, 30);
+            pdf.text('Apellido', 28, 30);
+            pdf.text('Alta', 58, 30);
+            pdf.text('Tipo', 80, 30);
+            pdf.text('Numero', 105, 30);
+            pdf.text('Cuil/Cuit', 135, 30);
+            pdf.text('Estado', 170, 30);
             pdf.line(5, 35, 200, 35);
             let clientes = result.respuesta;
             let yText = 30;
             let yLine = 35;
             let xNomText = 5;
-            let xApeText = 25;
-            let xFechaAlta = 49;
-            let xTipDoc = 76;
-            let xNumDoc = 100;
-            let xCuilCuit = 128;
-            let xEstado = 167;
+            let xApeText = 28;
+            let xFechaAlta = 54;
+            let xTipDoc = 81;
+            let xNumDoc = 105;
+            let xCuilCuit = 133;
+            let xEstado = 172;
             for (cliente of clientes) {
               yText += 10;
               yLine += 10;

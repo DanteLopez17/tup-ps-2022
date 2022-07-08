@@ -221,10 +221,12 @@
           if (result.ok) {
             window.jsPDF = window.jspdf.jsPDF;
             let pdf = new jsPDF();
+            let logo = new Image();
+            logo.src = '../Image/LasOmasLogo2.png';
+            pdf.addImage(logo, 'png', 175, 0, 20, 20);
             pdf.setFontSize(16);
             pdf.text('Listado de Usuarios', 80, 10);
             pdf.setFontSize(12);
-            pdf.line(5, 20, 200, 20);
             pdf.text('Nombre', 5, 30);
             pdf.text('Apellido', 25, 30);
             pdf.text('Alta', 53, 30);

@@ -205,9 +205,8 @@
             pdf.setFontSize(18);
             pdf.text('Listado de Productos', 80, 10);
             pdf.setFontSize(12);
-            pdf.line(5, 20, 200, 20);
             pdf.text('Descripción', 5, 30);
-            pdf.text('Precio', 75, 30);
+            pdf.text('Precio', 80, 30);
             pdf.text('Cantidad', 110, 30);
             pdf.text('Clasificación', 140, 30);
             pdf.text('Estado', 182, 30);
@@ -216,9 +215,9 @@
             let yText = 30;
             let yLine = 35;
             let xDescripción = 5;
-            let xPrecio = 77;
+            let xPrecio = 82;
             let xCantidad = 114;
-            let xClasificación = 146;
+            let xClasificación = 139;
             let xEstado = 183;
             for (producto of productos) {
               yText += 10;

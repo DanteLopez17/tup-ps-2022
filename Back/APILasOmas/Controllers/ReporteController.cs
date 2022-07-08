@@ -60,7 +60,7 @@ public class ReporteController : ControllerBase
                          total = g.Sum(x => x.Cantidad + x.Precio),
                          cantidad = g.Select(x => x.NroPedido).Distinct().Count()
                        }
-                        ).Take(10);
+                        ).Take(5);
 
     if (consultados != null)
     {
@@ -119,7 +119,7 @@ public class ReporteController : ControllerBase
                          cantidad = g.Sum(x => x.Cantidad),
                          total = g.Sum(x => x.Cantidad * x.Precio)
                        }
-                        ).Take(10);
+                        ).Take(5);
 
     if (consultados != null)
     {
@@ -159,7 +159,7 @@ public class ReporteController : ControllerBase
                          total = g.Sum(x => x.Cantidad * x.Precio),
                          cantidad = g.Select(x => x.NroPedido).Distinct().Count()
                        }
-                        );
+                        ).Take(5);
 
     if (consultados != null)
     {

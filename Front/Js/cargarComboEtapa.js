@@ -5,8 +5,15 @@ $.ajax({
     if (result.ok) {
       let Etapas = result.respuesta;
       for (var i = 0; i < Etapas.length; i++) {
-        let html = "<option value = '";
-        html += Etapas[i].idEtapa + "'>";
+        let html;
+        if(Etapas[i].idEtapa == 3){
+          html = "<option value = '";
+          html += Etapas[i].idEtapa + "' disabled>";
+        }
+        else{
+          html = "<option value = '";
+          html += Etapas[i].idEtapa + "'>";
+        }
         html += Etapas[i].descripcion;
         html += "</option>";
 
