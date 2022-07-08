@@ -83,6 +83,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="altaProducto.html">Alta Producto</a>
             <a class="dropdown-item" href="listadoProductos.html">Listado Productos</a>
+            <a class="dropdown-item" href="movimientoProductos.html">Movimiento de Productos</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -296,6 +297,8 @@
     });
   </script>
   <script src="../Js/cargarComboProductos.js"></script>
+  <script src="../Js/modificarCantiModal.js"></script>
+
   <script src="../Js/llenarDetallePedido.js"></script>
   <script src="../Js/cargarComboCliente.js"></script>
   <script src="../Js/cboUsuarioPedido.js"></script>
@@ -315,7 +318,6 @@
       modal.find('.modal-body #txtCantModal').val(canti)
     })
   </script>
-  <script src="../Js/modificarCantiModal.js"></script>
   <script>
     $("#btnLogout").click(function () {
       let rol = 0;

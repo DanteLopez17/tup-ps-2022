@@ -89,6 +89,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="altaProducto.html">Alta Producto</a>
             <a class="dropdown-item" href="listadoProductos.html">Listado Productos</a>
+            <a class="dropdown-item" href="movimientoProductos.html">Movimiento de Productos</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -186,7 +187,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaUsuarios2.js"></script>
+  <script src="../Js/cargarListaUsuarios2.js" async></script>
   <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
   <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 
@@ -220,10 +221,12 @@
           if (result.ok) {
             window.jsPDF = window.jspdf.jsPDF;
             let pdf = new jsPDF();
+            let logo = new Image();
+            logo.src = '../Image/LasOmasLogo2.png';
+            pdf.addImage(logo, 'png', 175, 0, 20, 20);
             pdf.setFontSize(16);
             pdf.text('Listado de Usuarios', 80, 10);
             pdf.setFontSize(12);
-            pdf.line(5, 20, 200, 20);
             pdf.text('Nombre', 5, 30);
             pdf.text('Apellido', 25, 30);
             pdf.text('Alta', 53, 30);
@@ -315,21 +318,24 @@
   </script>
   <script>
     $(document).ready(function () {
-      $('#myTable').DataTable({
-        "scrollY": "300px",
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ elementos por página",
-          "info": "Página _PAGE_ de _PAGES_",
-          "infoFiltered": "(filtrado de un total de _MAX_ )",
-          "search": "Buscar&nbsp;:",
-          "infoEmpty": "No se encontraron datos..",
-          "zeroRecords": "No se encontraron datos con tu busqueda",
-          "paginate": {
-            "previous": "Anterior",
-            "next": "Siguiente",
+      setTimeout(function () {
+        $('#myTable').DataTable({
+          "scrollY": "300px",
+          "language": {
+            "lengthMenu": "Mostrar _MENU_ elementos por página",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoFiltered": "(filtrado de un total de _MAX_ )",
+            "search": "Buscar&nbsp;:",
+            "infoEmpty": "No se encontraron datos..",
+            "zeroRecords": "No se encontraron datos con tu busqueda",
+            "paginate": {
+              "previous": "Anterior",
+              "next": "Siguiente",
+            }
           }
-        }
-      });
+        });
+      }, 400)
+
     });
   </script>
 

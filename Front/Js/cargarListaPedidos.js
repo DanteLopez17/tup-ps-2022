@@ -32,7 +32,7 @@ $.ajax({
         html += "<td>" + pedidos[i].idFormaPagoNavigation.descripcion + "</td>"
         if(pedidos[i].idEtapaNavigation.idEtapa == 1)
         {
-          html += "<td style='color: yellow;'>" + pedidos[i].idEtapaNavigation.descripcion + "</td>"
+          html += "<td style='color: blue;'>" + pedidos[i].idEtapaNavigation.descripcion + "</td>"
         }
         else
         if(pedidos[i].idEtapaNavigation.idEtapa == 2){

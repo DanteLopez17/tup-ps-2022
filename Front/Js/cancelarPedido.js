@@ -17,7 +17,8 @@ $("#btnConfirmarPedido").click(function(){
       if (result.ok) {
         swal("Felicitaciones!", "Pedido actualizado Correctamente!", "success").then((confirmar) => {
           if (confirmar) {
-            window.location.replace("../Html/listadoPedido.html");
+      window.location.href = "../Html/listadoPedido.html";
+
           }
         });
         
@@ -65,7 +66,11 @@ $("#btnCancelarPedido").click(function () {
           }
           listDeta.push(detalle);
         }
-        let fec = $("#txtFecha").val();
+        const now = new Date();
+        const dia = `0${now.getDate()}`.slice(-2);
+        const mes = `0${now.getMonth() + 1}`.slice(-2);
+        const hoy = `${now.getFullYear()}-${mes}-${dia}`;
+        let fec = hoy;
         let idEta = 3;
 
         let pedido = {
@@ -84,7 +89,8 @@ $("#btnCancelarPedido").click(function () {
             if (result.ok) {
               swal("Felicitaciones!", "Pedido actualizado Correctamente!", "success").then((confirmar) => {
                 if (confirmar) {
-                  window.location.replace("../Html/listadoPedido.html");
+                  window.location.href = "../Html/listadoPedido.html";
+
                 }
               });
 

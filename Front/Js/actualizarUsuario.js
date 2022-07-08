@@ -79,7 +79,7 @@ $("#btnModificarUsuario").click(function () {
       if (result.ok) {
       swal("Felicitaciones!", "Usuario actualizado Correctamente!", "success").then((confirmar) => {
         if (confirmar) {
-          window.location.replace("../Html/listadoUsuarios.html");
+          window.location.href = "../Html/listadoUsuarios.html";
         }
       });
         
@@ -112,7 +112,7 @@ $("#btnCancelarCargarUsuario").click(function () {
   })
   .then((willDelete) => {
     if (willDelete) {
-      window.location.replace("../Html/listadoUsuarios.html");
+      window.location.href = "../Html/listadoUsuarios.html";
     } else {
     }
   });

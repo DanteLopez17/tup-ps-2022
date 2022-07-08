@@ -80,6 +80,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="altaProducto.html">Alta Producto</a>
             <a class="dropdown-item" href="listadoProductos.html">Listado Productos</a>
+            <a class="dropdown-item" href="movimientoProductos.html">Movimiento de Productos</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -167,25 +168,29 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarListaClientes.js"></script>
+  <script src="../Js/cargarListaClientes.js" async></script>
   <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
   <script>
     $(document).ready(function () {
-      $('#myTable').DataTable({
-        "language": {
-          "lengthMenu": "Mostrar _MENU_ elementos por página",
-          "info": "Página _PAGE_ de _PAGES_",
-          "infoFiltered": "(filtrado de un total de _MAX_ )",
-          "search": "Buscar&nbsp;:",
-          "infoEmpty": "No se encontraron datos..",
-          "zeroRecords": "No se encontraron datos con tu busqueda",
-          "paginate": {
-            "previous": "Anterior",
-            "next": "Siguiente",
+      setTimeout(function () {
+        $('#myTable').DataTable({
+          "scrollY": "300px",
+          "language": {
+            "lengthMenu": "Mostrar _MENU_ elementos por página",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoFiltered": "(filtrado de un total de _MAX_ )",
+            "search": "Buscar&nbsp;:",
+            "infoEmpty": "No se encontraron datos..",
+            "zeroRecords": "No se encontraron datos con tu busqueda",
+            "paginate": {
+              "previous": "Anterior",
+              "next": "Siguiente",
+            }
           }
-        }
-      });
+        });
+      }, 200)
+
     });
   </script>
   <script>
@@ -203,25 +208,24 @@
             pdf.setFontSize(18);
             pdf.text('Listado de Clientes', 80, 10);
             pdf.setFontSize(12);
-            pdf.line(5, 20, 200, 20);
             pdf.text('Nombre', 5, 30);
-            pdf.text('Apellido', 25, 30);
-            pdf.text('Alta', 53, 30);
-            pdf.text('Tipo', 75, 30);
-            pdf.text('Numero', 100, 30);
-            pdf.text('Cuil/Cuit', 130, 30);
-            pdf.text('Estado', 165, 30);
+            pdf.text('Apellido', 28, 30);
+            pdf.text('Alta', 58, 30);
+            pdf.text('Tipo', 80, 30);
+            pdf.text('Numero', 105, 30);
+            pdf.text('Cuil/Cuit', 135, 30);
+            pdf.text('Estado', 170, 30);
             pdf.line(5, 35, 200, 35);
             let clientes = result.respuesta;
             let yText = 30;
             let yLine = 35;
             let xNomText = 5;
-            let xApeText = 25;
-            let xFechaAlta = 49;
-            let xTipDoc = 76;
-            let xNumDoc = 100;
-            let xCuilCuit = 128;
-            let xEstado = 167;
+            let xApeText = 28;
+            let xFechaAlta = 54;
+            let xTipDoc = 81;
+            let xNumDoc = 105;
+            let xCuilCuit = 133;
+            let xEstado = 172;
             for (cliente of clientes) {
               yText += 10;
               yLine += 10;

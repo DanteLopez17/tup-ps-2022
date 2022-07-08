@@ -204,4 +204,44 @@ public class ProductoController : ControllerBase
     return respuesta;
   }
 
+  [HttpGet]
+  [Route("[controller]/stockHistorico")]
+  public RespuestaApi getHistoricos()
+  {
+    List<StockHistorico> stockHistoricos = bd.StockHistoricos.ToList();
+    List<Producto> productos = bd.Productos.ToList();
+
+    List<HistoricoProducto> lista = new List<HistoricoProducto>();
+
+    foreach (StockHistorico s in stockHistoricos)
+    {
+      string desc = "";
+      HistoricoProducto h = new HistoricoProducto
+      {
+        Id = s.Id,
+        Fecha = s.Fecha,
+        IdProducto = s.IdProducto,
+        Precio = s.Precio,
+        Cantidad = s.Cantidad,
+        Observaciones = s.Observaciones
+      };
+      desc = productos.Where(x => x.IdProducto == h.IdProducto).FirstOrDefault().Descripcion;
+      HistoricoProducto hi = new HistoricoProducto
+      {
+        Id = h.Id,
+        Fecha = h.Fecha,
+        IdProducto = h.IdProducto,
+        Descripcion = desc,
+        Precio = h.Precio,
+        Cantidad = h.Cantidad,
+        Observaciones = h.Observaciones
+      };
+      lista.Add(hi);
+    }
+
+    respuesta.Respuesta = lista.OrderByDescending(x => x.Id);
+    respuesta.Ok = true;
+    return respuesta;
+  }
+
 }

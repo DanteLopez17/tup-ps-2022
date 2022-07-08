@@ -52,7 +52,7 @@ function grafico(){
           myChart.destroy();
         }
          myChart = new Chart(ctx, {
-          type: 'doughnut',
+          type: 'bar',
           data: {
             labels: descripciones,
             datasets: [{

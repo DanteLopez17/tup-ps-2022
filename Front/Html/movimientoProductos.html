@@ -9,8 +9,8 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../Css/datatable.css">
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;500;700&display=swap" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="../Css/estilos.css"> -->
   <script src="https://kit.fontawesome.com/fdd426841a.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="../Css/normalize.css">
@@ -21,10 +21,6 @@
     if (rol != 1 && rol != 2) {
       window.location.replace("../Html/login.html");
     }
-    if (rol == 2) {
-      window.location.href = "javascript:history.go(-1);";
-    }
-
   </script>
 
   <title>Las Omas ONG</title>
@@ -53,13 +49,13 @@
             <a class="dropdown-item" href="donaciones.html">Donaciones</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" id="moduloAdmin" hidden>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Usuario
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
+            <a id="accesoAltaUsuario" class="dropdown-item" href="altaUsuario.html">Alta Usuario</a>
             <a class="dropdown-item" href="listadoUsuarios.html">Listado Usuarios</a>
           </div>
         </li>
@@ -94,7 +90,7 @@
             <a class="dropdown-item" href="listadoPedido.html">Listado Pedidos</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" id="moduloAdminRepo" hidden>
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Reportes
@@ -134,79 +130,24 @@
       </form>
     </div>
   </nav>
-  <main class="modifUser-design">
-    <h4 class="titModifUser">Modificar Usuario</h4>
+  <main class="listProdu-design">
+    <h4 class="titListProdu">Movimientos de Productos</h4>
     <div class="container">
-      <form id="miForm">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="txtNombre">Nombre</label>
-            <input type="text" class="form-control" id="txtNombre" required>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="txtApellido">Apellido</label>
-            <input type="text" class="form-control" id="txtApellido" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="cboTipoDoc">Tipo de Documento</label>
-            <select id="cboTipoDoc" class="form-control">
-            </select>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="txtNumDoc">Número documento</label>
-            <input type="number" class="form-control" id="txtNumDoc" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="dtpFecNac">Fecha de Alta</label>
-            <input type="date" class="form-control" id="dtpFecNac" required readonly>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="cboRol">Rol</label>
-            <select id="cboRol" class="form-control">
-            </select>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="txtEmail">Email</label>
-            <input type="email" class="form-control" id="txtEmail" required>
-          </div>
-          <div class="form-group col-md-6">
-            <label for="txtClave">Contraseña</label>
-            <input type="password" class="form-control" id="txtClave" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-5"></div>
-          <div class="form-group col-md-2 text-center">
-            <label for="rbtEstado">Estado</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoActivo" value="1" checked>
-              <label class="form-check-label" for="rbtEstadoActivo">
-                Activo
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="gridRadios" id="rbtEstadoInactivo" value="2">
-              <label class="form-check-label" for="rbtEstadoInactivo">
-                Inactivo
-              </label>
-            </div>
-          </div>
-          <div class="form-group col-md-5">
-            <input type="text" class="form-control" id="txtId" hidden>
-          </div>
-        </div>
-        <button type="button" class="btnModificarUsuario" id="btnModificarUsuario">Cargar</button>
-        <button type="button" class="btnCancelarCargarUsuario" id="btnCancelarCargarUsuario">Cancelar</button>
-      </form>
+      <table id="myTable" class="table table-bordered">
+        <thead>
+          <tr class="text-center">
+            <td><b>Fecha</b></td>
+            <td><b>Descripción</b></td>
+            <td><b>Precio</b></td>
+            <td><b>Cantidad</b></td>
+            <td><b>Observaciones</b></td>
+          </tr>
+        </thead>
+        <tbody id="listProdu">
+        </tbody>
+      </table>
     </div>
   </main>
-
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -218,19 +159,30 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="../Js/cargarComboTipoDoc.js"></script>
-  <script src="../Js/cargarComboRoles.js"></script>
+  <script src="../Js/cargarListaMovimientos.js" async></script>
+  <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
   <script>
-    $(document).ready(() => {
-      const now = new Date();
-      const dia = `0${now.getDate()}`.slice(-2);
-      const mes = `0${now.getMonth() + 1}`.slice(-2);
-      const hoy = `${now.getFullYear()}-${mes}-${dia}`;
-      $('#dtpFecNac').val(hoy);
+    $(document).ready(function () {
+      setTimeout(function () {
+        $('#myTable').DataTable({
+          "scrollY": "300px",
+          "language": {
+            "lengthMenu": "Mostrar _MENU_ elementos por página",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoFiltered": "(filtrado de un total de _MAX_ )",
+            "search": "Buscar&nbsp;:",
+            "infoEmpty": "No se encontraron datos..",
+            "zeroRecords": "No se encontraron datos con tu busqueda",
+            "paginate": {
+              "previous": "Anterior",
+              "next": "Siguiente",
+            }
+          }
+        });
+      }, 400)
+
     });
   </script>
-  <script src="../Js/usuarioxid.js"></script>
-  <script src="../Js/actualizarUsuario.js"></script>
   <script>
     $("#btnLogout").click(function () {
       let rol = 0;
@@ -240,7 +192,12 @@
       window.location.href = "../Html/login.html";
     })
   </script>
-
+  <script>
+    if (rol == 1) {
+      document.getElementById("moduloAdmin").removeAttribute("hidden");
+      document.getElementById("moduloAdminRepo").removeAttribute("hidden");
+    }
+  </script>
 </body>
 
 </html>

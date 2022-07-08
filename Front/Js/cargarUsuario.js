@@ -45,15 +45,20 @@ $("#btnCargarUsuario").click(function () {
       swal("Error", "ingrese un numero de documento valido", "warning");
       return false;
     }
+    if(mail == "")
+    {
+      swal("Error", "ingrese un mail", "warning");
+      return false;
+    }
     if(cla == null || cla == "" || cla.length < 4)
     {
-      swal("Error", "la contraseña debe contener al menos 4 caracteres ", "error");
+      swal("Error", "la contraseña debe contener al menos 4 caracteres ", "warning");
       return false;
     }
 
     if(cbrol == null || cbrol <= 0)
     {
-      swal("Error", "seleccione un rol", "error");
+      swal("Error", "seleccione un rol", "warning");
       return false;
     }
     return true;

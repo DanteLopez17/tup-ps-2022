@@ -6,7 +6,7 @@ Camino General
   - Falta diseño (Agregar las opciones para redirigirse a las demas pantallas) - OK
   - Agregar info de la Organizacion - OK
   - Agregar imagenes de la Organizacion - OK
-3) Pantalla Quienes Somos, Nuestra Mision, Donaciones - Falta diseño con info e imagenes -PEDIR JINETH
+3) Pantalla Quienes Somos, Nuestra Mision, Donaciones - Falta diseño con info e imagenes -OK
 4) Modulo Usuarios: OK
   - Alta Usuario: Modificar Diseño de pantalla OK - boton cancelar limpiar campos OK - Validar Correctamente la fecha OK,  Modificar fecha nacimiento por fecha alta front OK
   - Listado Usuarios: Modificar Diseño (agregar icono al boton "modificar" OK - Terminar el exportar a pdf (ver de   ordenar el texto con los valores de posiciones) OK )
