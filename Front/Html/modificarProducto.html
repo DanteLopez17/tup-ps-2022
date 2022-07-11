@@ -18,7 +18,7 @@
   <script>
     let rol = sessionStorage.getItem("rolActivo");
     if (rol != 1 && rol != 2) {
-      window.location.replace("../Html/login.html");
+      window.location.replace("../Html/index.html");
     }
 
 
@@ -202,7 +202,7 @@
       sessionStorage.setItem('rolActivo', rol);
       sessionStorage.setItem('UsuarioActivo', null);
       sessionStorage.setItem('IdUsuarioActivo', null);
-      window.location.href = "../Html/login.html";
+      window.location.href = "../Html/index.html";
     })
   </script>
   <script>
